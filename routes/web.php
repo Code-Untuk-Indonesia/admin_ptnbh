@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/berita', function () {
     return view('berita.berita');
 });
+Route::get('/pengumuman', function () {
+    return view('pengumuman.pengumuman');
+});
 
 Route::get('/create-berita', function () {
     return view('berita.create-berita');
