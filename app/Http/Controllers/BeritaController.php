@@ -8,6 +8,7 @@ use App\Models\Berita;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\File;
 
 class BeritaController extends Controller
 {
@@ -22,8 +23,8 @@ class BeritaController extends Controller
             return DataTables::of($q_berita)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a class="btn-sm app-btn-danger" data-id="' . $row->id . '" href="#">Hapus</a>';
-                    $btn .= '<a class="btn-sm app-btn-primary" data-id="' . $row->id . '" href="#">Edit</a>';
+                    $btn = '<a class="btn-sm app-btn-danger deleteBerita" data-id="' . $row->id . '" href="#">Hapus</a>';
+                    $btn .= '<a class="btn-sm app-btn-primary editBerita" data-id="' . $row->id . '" href="#">Edit</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -111,8 +112,24 @@ class BeritaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $data = Berita::find($id);
+        try {
+            DB::transaction(function () use ($data) {
+                if ($data != null) {
+                    if ($data->gambar != null && $data->gambar != '') {
+                        $image_path = public_path('images/berita/' . $data->gambar);
+                        if (File::exists($image_path)) {
+                            File::delete($image_path);
+                        }
+                    }
+                }
+                $data->delete();
+            });
+            return response()->json(['status' => 'success', 'message' => 'Data berhasil dihapus']);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

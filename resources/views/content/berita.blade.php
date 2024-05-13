@@ -7,7 +7,7 @@
 
                 <div class="row g-3 mb-4 align-items-center justify-content-between">
                     <div class="col-auto">
-                        <h1 class="app-page-title mb-0">Orders</h1>
+                        <h1 class="app-page-title mb-0">{{ $title }}</h1>
                     </div>
                     <div class="col-auto">
                         <div class="page-utilities">
@@ -69,17 +69,18 @@
                                     <table class="table app-table-hover mb-0 text-left" id="berita-list">
                                         <thead>
                                             <tr>
-                                                <th class="cell">No</th>
-                                                <th class="cell">Gambar</th>
-                                                <th class="cell">Judul</th>
-                                                <th class="cell">Konten</th>
-                                                <th class="cell">Date</th>
-                                                <th class="cell">Aksi</th>
+                                                <th class="cell" style="text-align: center;">No</th>
+                                                <th class="cell" style="text-align: center;">Gambar</th>
+                                                <th class="cell" style="text-align: center;">Judul</th>
+                                                <th class="cell" style="text-align: center;">Konten</th>
+                                                <th class="cell" style="text-align: center;">Tanggal</th>
+                                                <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
+
                                 </div><!--//table-responsive-->
 
                             </div><!--//app-card-body-->
@@ -155,7 +156,18 @@
                     },
                     {
                         data: 'created_at',
-                        name: 'created_at'
+                        name: 'created_at',
+                        render: function(data, type, full, meta) {
+                            // Ubah format tanggal
+                            var date = new Date(data);
+                            var options = {
+                                weekday: 'long',
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                            };
+                            return date.toLocaleDateString('id-ID', options);
+                        }
                     },
                     {
                         data: 'action',
@@ -165,6 +177,46 @@
                     }
                 ]
             });
+
+            $('body').on('click', '.deleteBerita', function() {
+                var berita_id = $(this).data("id");
+                Swal.fire({
+                    title: 'Apakah Anda Yakin?',
+                    text: "Anda Tidak Bisa Kembali Jika Lanjut",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Hapus Kenangan!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: "{{ route('berita.index') }}" + '/' + berita_id,
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function(data) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: data.message,
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                                table.ajax.reload();
+                            },
+                            error: function(data) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Terjadi Kesalahaan Saat Menghapus',
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+
         });
     </script>
 @endsection
