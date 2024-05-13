@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class BeritaController extends Controller
 {
@@ -16,18 +17,26 @@ class BeritaController extends Controller
 
     public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $q_berita = Berita::select('*')->orderByDesc('created_at');
+            return DataTables::of($q_berita)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a class="btn-sm app-btn-danger" data-id="' . $row->id . '" href="#">Hapus</a>';
+                    $btn .= '<a class="btn-sm app-btn-primary" data-id="' . $row->id . '" href="#">Edit</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
         $data = [
             'title' => 'Berita',
         ];
 
-        if ($request->ajax()) {
-            // Ambil data berita jika permintaan datang dari Ajax
-            $q_berita = Berita::select('*')->orderByDesc('created_at')->get();
-            return response()->json($q_berita);
-        }
-
         return view('content.berita', $data);
     }
+
 
 
     /**
@@ -54,14 +63,14 @@ class BeritaController extends Controller
 
             $gambar = $request->file('gambar-berita');
             $gambar_berita = time() . '_berita.'.$gambar->getClientOriginalExtension();
-            $gambarPath = public_path('storage/images/berita');
+            $gambarPath = public_path('images/berita');
             $gambar->move($gambarPath,$gambar_berita);
 
             // Buat berita baru dengan menggunakan model Berita
             $berita = new Berita();
             $berita->judul = $request->input('judul');
             $berita->konten = $request->input('konten');
-            $berita->gambar = $gambarPath; // Simpan path gambar ke dalam database
+            $berita->gambar = $gambar_berita; // Simpan path gambar ke dalam database
             $berita->save();
 
             // Jika berhasil disimpan, kirimkan respon ke klien dengan sweet alert
