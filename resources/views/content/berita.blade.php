@@ -121,7 +121,7 @@
                 serverSide: true,
                 searching: true,
                 info: false,
-                order: false,
+                order: true,
                 paging: false,
                 ajax: "{{ route('berita.index') }}",
                 columns: [{
