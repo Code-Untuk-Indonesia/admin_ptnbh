@@ -52,7 +52,7 @@
                 </div><!--//row-->
 
 
-                <a class="btn app-btn-secondary mb-2" href="#">
+                <a class="btn app-btn-secondary mb-2" href="/create-berita">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
                     Tambah Berita
                 </a>
@@ -70,47 +70,10 @@
                                                 <th class="cell">Judul</th>
                                                 <th class="cell">Konten</th>
                                                 <th class="cell">Date</th>
-                                                <th class="cell"></th>
+                                                <th class="cell">Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-
-                                            <tr>
-                                                <td class="cell">#1</td>
-                                                <td class="cell">John Sanders</td>
-                                                <td class="cell"><span class="truncate">Lorem t</span></td>
-                                                <td class="cell"><span class="truncate">Lorem, ipsum dolor sit amet
-                                                        consectetur adipisicing elit. Ducimus natus vitae animi et facilis
-                                                        aspernatur amet cum officia eveniet magni molestiae dolor ea, esse
-                                                        quam expedita voluptates id impedit perspiciatis.</span></td>
-
-                                                <td class="cell"><span>17 Oct 2024</span><span class="note">2:16
-                                                        PM</span></td>
-
-                                                <td class="cell"><a class="btn-sm app-btn-danger" href="#">Hapus</a>
-                                                    <a class="btn-sm app-btn-primary" href="#">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="cell">#1</td>
-                                                <td class="cell">John Sanders</td>
-                                                <td class="cell"><span class="truncate">Lorem t</span></td>
-                                                <td class="cell"><span class="truncate">Lorem, ipsum dolor sit amet
-                                                        consectetur adipisicing elit. Ducimus natus vitae animi et facilis
-                                                        aspernatur amet cum officia eveniet magni molestiae dolor ea, esse
-                                                        quam expedita voluptates id impedit perspiciatis.</span></td>
-
-                                                <td class="cell"><span>17 Oct 2024</span><span class="note">2:16
-                                                        PM</span></td>
-
-                                                <td class="cell"><a class="btn-sm app-btn-danger" href="#">Hapus</a>
-                                                    <a class="btn-sm app-btn-primary" href="#">Edit</a>
-                                                </td>
-                                            </tr>
-
-
-
-
+                                        <tbody id="berita-list">
                                         </tbody>
                                     </table>
                                 </div><!--//table-responsive-->
@@ -144,4 +107,52 @@
 
 
     </div><!--//app-wrapper-->
+
+    <script>
+        $(document).ready(function() {
+            // Memuat data berita saat halaman dimuat
+            loadBeritaData();
+    
+            function loadBeritaData() {
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ route('berita.index') }}",
+                    success: function(response) {
+    
+                        // Menambahkan data berita ke dalam tabel
+                        $.each(response, function(index, berita) {
+                            // Mengubah format tanggal menjadi hari dan tanggal dalam bahasa Indonesia
+                            var tanggal = new Date(berita.created_at);
+                            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                            var formattedTanggal = tanggal.toLocaleDateString('id-ID', options);
+    
+                            // Memotong konten menjadi 50 karakter pertama
+                            var kontenPendek = berita.konten.substring(0, 50) + (berita.konten.length > 50 ? '...' : '');
+    
+                            var row = '<tr>' +
+                                '<td class="cell">' + (index + 1) + '</td>' +
+                                '<td class="cell"><img src="/' + berita.gambar + '" alt="Gambar Berita" style="max-width: 100px;"></td>' +
+                                '<td class="cell">' + berita.judul + '</td>' +
+                                '<td class="cell">' + kontenPendek + '</td>' +
+                                '<td class="cell">' + formattedTanggal + '</td>' +
+                                '<td class="cell">' +
+                                '<a class="btn-sm app-btn-danger" href="#">Hapus</a>' +
+                                '<a class="btn-sm app-btn-primary" href="#">Edit</a>' +
+                                '</td>' +
+                                '</tr>';
+                            $('#berita-list').append(row);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                        // Menampilkan pesan error jika terjadi kesalahan saat memuat data
+                        alert('Terjadi kesalahan saat memuat data berita. Silakan coba lagi!');
+                    }
+                });
+            }
+        });
+    </script>
+    
+    
+    
 @endsection

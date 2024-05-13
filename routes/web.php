@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/berita', function () {
-    return view('berita.berita');
-});
 Route::get('/pengumuman', function () {
     return view('pengumuman.pengumuman');
 });
 
 Route::get('/create-berita', function () {
-    return view('berita.create-berita');
+    return view('form.create-berita');
 });
+
+Route::resource('berita', BeritaController::class);
 
