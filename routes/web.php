@@ -27,3 +27,5 @@ Route::get('/create-berita', function () {
 
 Route::resource('berita', BeritaController::class);
 
+Route::get('/api-berita', [BeritaController::class, 'apiberita']);
+
