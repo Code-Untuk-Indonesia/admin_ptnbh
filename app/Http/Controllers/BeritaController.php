@@ -38,80 +38,74 @@ class BeritaController extends Controller
         return view('content.berita', $data);
     }
 
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+public function create()
     {
-        //
+        return view('form.create-berita');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
 
     public function store(Request $request)
     {
         try {
-            // Validasi data yang diterima dari formulir
             $validatedData = $request->validate([
                 'judul' => 'required|string',
                 'konten' => 'required|string',
-                'gambar-berita' => 'required|image|mimes:jpeg,png,jpg,gif', // Sesuaikan dengan kebutuhan Anda
+                'gambar-berita' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             ]);
 
-            $gambar = $request->file('gambar-berita');
-            $gambar_berita = time() . '_berita.'.$gambar->getClientOriginalExtension();
-            $gambarPath = public_path('images/berita');
-            $gambar->move($gambarPath,$gambar_berita);
-
-            // Buat berita baru dengan menggunakan model Berita
             $berita = new Berita();
             $berita->judul = $request->input('judul');
             $berita->konten = $request->input('konten');
-            $berita->gambar = $gambar_berita; // Simpan path gambar ke dalam database
+
+            if ($request->hasFile('gambar-berita')) {
+                $gambar = $request->file('gambar-berita');
+                $gambar_berita = time() . '_berita.' . $gambar->getClientOriginalExtension();
+                $gambarPath = public_path('images/berita');
+                $gambar->move($gambarPath, $gambar_berita);
+                $berita->gambar = $gambar_berita;
+            }
+
             $berita->save();
 
-            // Jika berhasil disimpan, kirimkan respon ke klien dengan sweet alert
             return response()->json(['message' => 'Berita berhasil disimpan'], 200);
         } catch (\Exception $e) {
-            // Jika gagal menyimpan data, tangani kesalahan dan kirimkan pesan error
             return response()->json(['error' => 'Gagal menyimpan berita: ' . $e->getMessage()], 500);
         }
     }
 
-
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit($id)
     {
-        //
+        $berita = Berita::find($id);
+        return view('form.create-berita', compact('berita'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        try {
+            $validatedData = $request->validate([
+                'judul' => 'required|string',
+                'konten' => 'required|string',
+                'gambar-berita' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            $berita = Berita::find($id);
+            $berita->judul = $request->input('judul');
+            $berita->konten = $request->input('konten');
 
-    /**
-     * Remove the specified resource from storage.
-     */
+            if ($request->hasFile('gambar-berita')) {
+                $gambar = $request->file('gambar-berita');
+                $gambar_berita = time() . '_berita.' . $gambar->getClientOriginalExtension();
+                $gambarPath = public_path('images/berita');
+                $gambar->move($gambarPath, $gambar_berita);
+                $berita->gambar = $gambar_berita;
+            }
+
+            $berita->save();
+
+            return response()->json(['message' => 'Berita berhasil diperbarui'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Gagal memperbarui berita: ' . $e->getMessage()], 500);
+        }
+    }
     public function destroy($id)
     {
         $data = Berita::find($id);

@@ -217,6 +217,10 @@
                 });
             });
 
+            $('body').on('click', '.editBerita', function() {
+                var berita_id = $(this).data('id');
+                window.location.href = 'berita/' + berita_id + '/edit';
+            });
         });
     </script>
 @endsection
