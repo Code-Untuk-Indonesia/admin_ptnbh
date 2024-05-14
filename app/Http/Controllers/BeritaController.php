@@ -126,4 +126,10 @@ public function create()
             throw $th;
         }
     }
+
+    public function apiberita() {
+        // Retrieve all berita ordered by the latest created_at
+        $berita = Berita::orderBy('created_at', 'desc')->get();
+        return response()->json($berita);
+    }
 }
