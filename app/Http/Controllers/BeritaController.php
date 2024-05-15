@@ -38,7 +38,7 @@ class BeritaController extends Controller
         return view('content.berita', $data);
     }
 
-public function create()
+    public function create()
     {
         return view('form.create-berita');
     }
@@ -66,9 +66,9 @@ public function create()
 
             $berita->save();
 
-            return response()->json(['message' => 'Berita berhasil disimpan'], 200);
+            return response()->json(['status' => 'success', 'message' => 'Berita berhasil disimpan'], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Gagal menyimpan berita: ' . $e->getMessage()], 500);
+            return response()->json(['status' => 'error', 'message' => 'Gagal menyimpan berita: ' . $e->getMessage()], 500);
         }
     }
 
@@ -88,10 +88,22 @@ public function create()
             ]);
 
             $berita = Berita::find($id);
+            if (!$berita) {
+                return response()->json(['status' => 'error', 'message' => 'Berita tidak ditemukan'], 404);
+            }
+
             $berita->judul = $request->input('judul');
             $berita->konten = $request->input('konten');
 
             if ($request->hasFile('gambar-berita')) {
+                // Delete the old image if exists
+                if ($berita->gambar) {
+                    $oldImagePath = public_path('images/berita/' . $berita->gambar);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+
                 $gambar = $request->file('gambar-berita');
                 $gambar_berita = time() . '_berita.' . $gambar->getClientOriginalExtension();
                 $gambarPath = public_path('images/berita');
@@ -101,11 +113,12 @@ public function create()
 
             $berita->save();
 
-            return response()->json(['message' => 'Berita berhasil diperbarui'], 200);
+            return response()->json(['status' => 'success', 'message' => 'Berita berhasil diperbarui'], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Gagal memperbarui berita: ' . $e->getMessage()], 500);
+            return response()->json(['status' => 'error', 'message' => 'Gagal memperbarui berita: ' . $e->getMessage()], 500);
         }
     }
+
     public function destroy($id)
     {
         $data = Berita::find($id);
@@ -127,7 +140,8 @@ public function create()
         }
     }
 
-    public function apiberita() {
+    public function apiberita()
+    {
         // Retrieve all berita ordered by the latest created_at
         $berita = Berita::orderBy('created_at', 'desc')->get();
         return response()->json($berita);

@@ -44,7 +44,7 @@
 
                         <input type="hidden" id="beritaId" name="id" value="{{ isset($berita) ? $berita->id : '' }}">
 
-                        <button type="submit" class="btn app-btn-primary" id="saveBtn">{{ isset($berita) ? 'Update Berita' : 'Buat Berita' }}</button>
+                        <button type="submit" class="btn app-btn-primary" id="saveBtn">{{ isset($berita) ? 'Update Berita' : 'Tambah Berita' }}</button>
                     </form>
                 </div>
             </div>
