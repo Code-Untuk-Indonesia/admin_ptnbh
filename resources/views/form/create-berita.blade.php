@@ -19,7 +19,7 @@
                     <form class="settings-form" id="formBerita" name="formBerita" method="POST" enctype="multipart/form-data" action="{{ isset($berita) ? route('berita.update', $berita->id) : route('berita.store') }}">
                         @csrf
                         @if(isset($berita))
-                            @method('POST')
+                            @method('PUT')
                         @endif
 
                         <div class="mb-3">
