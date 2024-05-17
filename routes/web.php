@@ -5,6 +5,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\HomepageController;
 use App\Models\Pengumuman;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,8 @@ Route::resource('pengumuman', PengumumanController::class);
 
 Route::get('/api-berita', [BeritaController::class, 'apiberita']);
 
+// crud page home
+Route::get('/home-page',  [HomePageController::class, 'index'])->name('home.index');
+Route::get('/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
+Route::put('/home/{id}', [HomePageController::class, 'update'])->name('home.update');
+Route::get('/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
