@@ -6,7 +6,6 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\HomepageController;
-use App\Models\Pengumuman;
 use Illuminate\Support\Facades\Route;
 
 /*
