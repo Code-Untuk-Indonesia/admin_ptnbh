@@ -66,11 +66,14 @@ class BeritaController extends Controller
 
             $berita->save();
 
-            return response()->json(['status' => 'success', 'message' => 'Berita berhasil disimpan'], 200);
+            // Redirect to berita.index and show success message
+            return redirect()->route('berita.index')->with('success', 'Berita berhasil disimpan');
         } catch (\Exception $e) {
+            // Return error JSON if saving fails
             return response()->json(['status' => 'error', 'message' => 'Gagal menyimpan berita: ' . $e->getMessage()], 500);
         }
     }
+
 
     public function edit($id)
     {
@@ -112,8 +115,7 @@ class BeritaController extends Controller
             }
 
             $berita->save();
-
-            return response()->json(['status' => 'success', 'message' => 'Berita berhasil diperbarui'], 200);
+            return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui');
         } catch (\Exception $e) {
             return response()->json(['status' => 'error', 'message' => 'Gagal memperbarui berita: ' . $e->getMessage()], 500);
         }

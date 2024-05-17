@@ -221,6 +221,17 @@
                 var berita_id = $(this).data('id');
                 window.location.href = 'berita/' + berita_id + '/edit';
             });
+
+            var successMessage = "{{ session('success') }}";
+            if (successMessage) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: successMessage,
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+            }
         });
     </script>
 @endsection

@@ -28,18 +28,6 @@
                     cache: false,
                     contentType: false,
                     processData: false,
-                    success: function(data) {
-                        Swal.fire({
-                            title: 'Berhasil',
-                            icon: 'success',
-                            text: data.message,
-                            showConfirmButton: false,
-                            timer: 2000
-                        }).then(function() {
-                            window.location.href =
-                                "{{ route('berita.index') }}";
-                        });
-                    },
                     error: function(xhr, status, error) {
                         let errorMessage =
                             'Terjadi kesalahan saat menyimpan berita. Silakan coba lagi!';
