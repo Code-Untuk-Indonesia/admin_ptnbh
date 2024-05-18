@@ -12,7 +12,7 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $data = home::all();
+        $data = home::first();
         return view('crud-home.ptnbh-section', compact('data'));
     }
 
