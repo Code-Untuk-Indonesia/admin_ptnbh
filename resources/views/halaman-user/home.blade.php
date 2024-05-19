@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- hero -->
-    <section class="hero" style=" background-image: url(asset/rektorat-untan-scaled-2048x1152.jpg);">
+    <section class="hero" style=" background-image: url({{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}});">
         <h2 class="hero-1" data-aos="fade-up" data-aos-duration="2500">Universitas Tanjungpura</h2>
         <h1 class="hero-2" data-aos="fade-up" data-aos-duration="2500">Perguruan Tinggi Negeri
             Badan Hukum</h1>
@@ -37,41 +37,22 @@
         <h1 class="berita-1">
             Berita Terbaru
         </h1>
+        @foreach ($berita as $beritas )
         <div class="row">
             <div class="col">
                 <div class="card card-news">
-                    <img src="{{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/images/berita/' . $beritas->gambar) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
+                        <p class="card-text date-news">{{ strip_tags($beritas->created_at) }}</p>
+                        <h5 class="card-title title-news">{{ strip_tags($beritas->judul) }}</h5>
                         <a href="#" class="btn btn-primary">Berita Selengkapnya</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card card-news">
-                    <img src="{{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Berita Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-news">
-                    <img src="asset/rektorat-untan-scaled-2048x1152.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Berita Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
+
         </div>
+        @endforeach
+
 
         <button class="btn-news">
             <a class="a-btn-news" href="berita.html">
@@ -89,17 +70,17 @@
         <div class="row" data-aos="fade-up" data-aos-duration="3000">
             <div class="col">
                 <div class="card card-galery img-hover-zoom" style="width: 18rem;">
-                    <img src="asset/rektorat-untan-scaled-2048x1152.jpg" class="card-img-top img-news" alt="...">
+                    <img src="{{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}}" class="card-img-top img-news" alt="...">
                 </div>
             </div>
             <div class="col">
                 <div class="card card-galery img-hover-zoom" style="width: 18rem;">
-                    <img src="asset/rektorat-untan-scaled-2048x1152.jpg" class="card-img-top img-news" alt="...">
+                    <img src="{{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}}" class="card-img-top img-news" alt="...">
                 </div>
             </div>
             <div class="col">
                 <div class="card card-galery img-hover-zoom" style="width: 18rem;">
-                    <img src="asset/rektorat-untan-scaled-2048x1152.jpg" class="card-img-top img-news" alt="...">
+                    <img src="{{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}}" class="card-img-top img-news" alt="...">
                 </div>
             </div>
         </div>
@@ -145,7 +126,7 @@
             </div>
             <div class="col-md-5" style="display:flex ; justify-content: end;">
                 <div class="card-rektor">
-                    <img src="asset/Prof.-Garuda-Wiko.png" alt="rektor" class="img-rektor">
+                    <img src="{{asset('ptnbh/asset/Prof.-Garuda-Wiko.png')}}" alt="rektor" class="img-rektor">
 
                 </div>
             </div>

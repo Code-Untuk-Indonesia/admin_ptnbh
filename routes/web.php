@@ -64,9 +64,8 @@ Route::get('/api-tentang', [TentangController::class, 'apitentang'])->name('tent
 Route::get('/berita-user', function () {
     return view('halaman-user.berita');
 });
-Route::get('/home-user', function () {
-    return view('halaman-user.home');
-});
 
+
+Route::get('/home-user', [BeritaController::class, 'beritaathome'])->name('berita.home');
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 

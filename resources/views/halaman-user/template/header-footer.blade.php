@@ -22,7 +22,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('ptnbh/style/style.css')}}">
-    <link rel="stylesheet" href="{{asset('style/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('ptnbh/style/responsive.css')}}">
     <title>PTNBH Universitas Tanjungpura</title>
     <link rel="icon" href="{{asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp')}}" type="image/gif" sizes="16x16">
 </head>
