@@ -68,5 +68,16 @@
             ]
         });
     });
+    
+    @if ($errors->any())
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal Menyimpan Pengumuman!!',
+            text: '{{ $errors->first() }}',
+            onClose: () => {
+                location.reload();
+            }
+        });
+    @endif
 </script>
 @endsection

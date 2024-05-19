@@ -52,13 +52,13 @@
                 </div><!--//row-->
 
 
-                <a class="btn app-btn-secondary mb-2" href="/create-berita">
+                <a class="btn app-btn-secondary mb-2" href="/create-album">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
                             d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
                     </svg>
-                    Tambah Berita
+                    Tambah Album
                 </a>
 
                 <div class="tab-content" id="orders-table-tab-content">
@@ -66,21 +66,18 @@
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="berita-list">
+                                    <table class="table app-table-hover mb-0 text-left" id="album-list">
                                         <thead>
                                             <tr>
-                                                <th class="cell" style="text-align: center;">No</th>
-                                                <th class="cell" style="text-align: center;">Gambar</th>
-                                                <th class="cell" style="text-align: center;">Judul</th>
-                                                <th class="cell" style="text-align: center;">Konten</th>
-                                                <th class="cell" style="text-align: center;">Tanggal</th>
-                                                <th class="cell" style="text-align: center;">Aksi</th>
+                                                <th class="cell">No</th>
+                                                <th class="cell">Gambar</th>
+                                                <th class="cell">Judul</th>
+                                                <th class="cell">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
-
                                 </div><!--//table-responsive-->
 
                             </div><!--//app-card-body-->
@@ -114,21 +111,25 @@
     </div><!--//app-wrapper-->
 
     <script>
-        assetUrl = "{{ asset('images/berita') }}";
+        assetUrl = "{{ asset('images/album') }}";
         $(document).ready(function() {
-            var table = $('#berita-list').DataTable({
+            var table = $('#album-list').DataTable({
                 processing: false,
                 serverSide: true,
                 searching: true,
                 info: false,
                 order: true,
                 paging: false,
-                ajax: "{{ route('berita.index') }}",
+                ajax: "{{ route('album.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
                         orderable: false,
                         searchable: false
+                    },
+                    {
+                        data: 'judul',
+                        name: 'judul'
                     },
                     {
                         data: 'gambar',
@@ -137,36 +138,7 @@
                         searchable: false,
                         render: function(data, type, full, meta) {
                             return '<img src="' + assetUrl + '/' + data +
-                                '" alt="Gambar Berita" style="max-width: 100px;">';
-                        }
-                    },
-                    {
-                        data: 'judul',
-                        name: 'judul'
-                    },
-                    {
-                        data: 'konten',
-                        name: 'konten',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, full, meta) {
-                            return data.substring(0,
-                                50); // Menampilkan 50 karakter pertama dari konten
-                        }
-                    },
-                    {
-                        data: 'created_at',
-                        name: 'created_at',
-                        render: function(data, type, full, meta) {
-                            // Ubah format tanggal
-                            var date = new Date(data);
-                            var options = {
-                                weekday: 'long',
-                                day: 'numeric',
-                                month: 'long',
-                                year: 'numeric'
-                            };
-                            return date.toLocaleDateString('id-ID', options);
+                                '" alt="Gambar Album" style="max-width: 100px;">';
                         }
                     },
                     {
@@ -178,8 +150,8 @@
                 ]
             });
 
-            $('body').on('click', '.deleteBerita', function() {
-                var berita_id = $(this).data("id");
+            $('body').on('click', '.deleteAlbum', function() {
+                var album_id = $(this).data("id");
                 Swal.fire({
                     title: 'Apakah Anda Yakin?',
                     text: "Data akan dihapus secara permanen",
@@ -192,7 +164,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "DELETE",
-                            url: "{{ route('berita.index') }}" + '/' + berita_id,
+                            url: "{{ route('album.index') }}" + '/' + album_id,
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
@@ -217,9 +189,9 @@
                 });
             });
 
-            $('body').on('click', '.editBerita', function() {
-                var berita_id = $(this).data('id');
-                window.location.href = 'berita/' + berita_id + '/edit';
+            $('body').on('click', '.editALbum', function() {
+                var album_id = $(this).data('id');
+                window.location.href = 'album/' + album_id + '/edit';
             });
 
             var successMessage = "{{ session('success') }}";

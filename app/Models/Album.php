@@ -15,6 +15,6 @@ class Album extends Model
     public $incrementing = true;
     protected $fillable = [
         'judul',
-        'deskripsi',
+        'gambar',
     ];
 }

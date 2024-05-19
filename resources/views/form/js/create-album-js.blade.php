@@ -7,14 +7,14 @@
             }
         });
 
-        $('#formBerita').submit(function(e) {
+        $('#formAlbum').submit(function(e) {
             e.preventDefault();
 
             $('#saveBtn').prop('disabled', true);
 
             var formData = new FormData(this);
 
-            $('#formBerita').submit(function(e) {
+            $('#formAlbum').submit(function(e) {
                 e.preventDefault();
 
                 $('#saveBtn').prop('disabled', true);
@@ -23,7 +23,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: "{{ isset($berita) ? route('berita.update', $berita->id) : route('berita.store') }}",
+                    url: "{{ isset($album) ? route('album.update', $album->id) : route('album.store') }}",
                     data: formData,
                     cache: false,
                     contentType: false,

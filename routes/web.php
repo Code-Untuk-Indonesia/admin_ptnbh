@@ -26,6 +26,16 @@ Route::get('/', function () {
 Route::get('/create-berita', function () {
     return view('form.create-berita');
 });
+Route::get('/create-pengumuman', function () {
+    return view('form.create-pengumuman');
+});
+Route::get('/create-agenda', function () {
+    return view('form.create-agenda');
+});
+
+Route::get('/create-album', function () {
+    return view('form.create-album');
+});
 
 Route::resource('agenda', AgendaController::class);
 Route::resource('album', AlbumController::class);
