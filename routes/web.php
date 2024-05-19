@@ -50,3 +50,17 @@ Route::get('/home-page',  [HomePageController::class, 'index'])->name('home.inde
 Route::get('/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
 Route::put('/home/{id}', [HomePageController::class, 'update'])->name('home.update');
 Route::get('/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
+
+
+
+// user page
+
+Route::get('/berita-user', function () {
+    return view('halaman-user.berita');
+});
+Route::get('/home-user', function () {
+    return view('halaman-user.home');
+});
+
+Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+
