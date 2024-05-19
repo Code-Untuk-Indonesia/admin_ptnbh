@@ -21,10 +21,11 @@
     <!-- aos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('ptnbh/style/style.css')}}">
-    <link rel="stylesheet" href="{{asset('style/responsive.css')}}">
+    <link rel="stylesheet" href="{{ asset('ptnbh/style/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/responsive.css') }}">
     <title>PTNBH Universitas Tanjungpura</title>
-    <link rel="icon" href="{{asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp')}}" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}" type="image/gif"
+        sizes="16x16">
 </head>
 
 <body>
@@ -32,8 +33,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp')}}" alt="logo" width="30" height="30"
-                    class="d-inline-block align-text-top me-2">Universitas Tanjungpura
+                <img src="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="logo"
+                    width="30" height="30" class="d-inline-block align-text-top me-2">Universitas Tanjungpura
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,10 +153,10 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="script/index.js"></script>
+    <script src="{{ asset('ptnbh/script/index.js') }}"></script>
 </body>
 
 </html>

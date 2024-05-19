@@ -20,9 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/create-berita', function () {
     return view('form.create-berita');
@@ -59,14 +56,13 @@ Route::get('/api-tentang', [TentangController::class, 'apitentang'])->name('tent
 
 
 
-// user page
+// frontend user
 
 Route::get('/berita-user', function () {
     return view('halaman-user.berita');
 });
-Route::get('/home-user', function () {
+Route::get('/', function () {
     return view('halaman-user.home');
 });
 
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
-
