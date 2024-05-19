@@ -156,4 +156,11 @@ class BeritaController extends Controller
         }
         return view('halaman-user.show', compact('berita'));
     }
+
+
+    public function beritaathome()
+    {
+        $berita = Berita::orderBy('created_at', 'desc')->take(6)->get();
+        return view('halaman-user.home', compact('berita'));
+    }
 }
