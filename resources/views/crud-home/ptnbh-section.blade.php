@@ -72,7 +72,7 @@
 
                                     <tr>
                                         <td class="cell" >
-                                           <img src="{{asset('template-admin/assets/images/profiles/profile-1.png')}}" alt="">
+                                           <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" style="width: 200px">
                                         </td>
                                         <td class="cell">
                                             {{$data->sambutan_rektor}}

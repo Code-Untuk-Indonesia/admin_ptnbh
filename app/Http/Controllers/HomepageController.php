@@ -57,19 +57,37 @@ class HomepageController extends Controller
             'judul_ptnbh' => 'required|string|max:255',
             'tentang_ptnbh' => 'required|string',
             'sambutan_rektor' => 'required|string',
-            'gambar_rektor' => 'required|string|max:255',
+            'gambar_rektor' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         $data = Home::findOrFail($id);
-        $data->update([
-            'judul_ptnbh' => $request->judul_ptnbh,
-            'tentang_ptnbh' => $request->tentang_ptnbh,
-            'sambutan_rektor' => $request->sambutan_rektor,
-            'gambar_rektor' => $request->gambar_rektor,
-        ]);
+
+        // Update data kecuali gambar_rektor
+        $data->judul_ptnbh = $request->judul_ptnbh;
+        $data->tentang_ptnbh = $request->tentang_ptnbh;
+        $data->sambutan_rektor = $request->sambutan_rektor;
+
+        if ($request->hasFile('gambar_rektor')) {
+            // Menghapus gambar lama jika ada
+            if ($data->gambar_rektor && file_exists(public_path('images/' . $data->gambar_rektor))) {
+                unlink(public_path('images/berita' . $data->gambar_rektor));
+            }
+
+            // Upload gambar baru
+            $file = $request->file('gambar_rektor');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/berita'), $filename);
+
+            // Update field gambar_rektor dengan nama file baru
+            $data->gambar_rektor = $filename;
+        }
+
+        $data->save();
 
         return redirect()->route('home.index')->with('success', 'Data updated successfully');
     }
+
+
 
 
     /**
