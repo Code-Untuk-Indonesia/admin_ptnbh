@@ -69,10 +69,10 @@
                                     <table class="table app-table-hover mb-0 text-left" id="album-list">
                                         <thead>
                                             <tr>
-                                                <th class="cell">No</th>
-                                                <th class="cell">Gambar</th>
-                                                <th class="cell">Judul</th>
-                                                <th class="cell">Aksi</th>
+                                                <th class="cell" style="text-align: center;">No</th>
+                                                <th class="cell" style="text-align: center;">Judul</th>
+                                                <th class="cell" style="text-align: center;">Gambar</th>
+                                                <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -189,7 +189,7 @@
                 });
             });
 
-            $('body').on('click', '.editALbum', function() {
+            $('body').on('click', '.editAlbum', function() {
                 var album_id = $(this).data('id');
                 window.location.href = 'album/' + album_id + '/edit';
             });

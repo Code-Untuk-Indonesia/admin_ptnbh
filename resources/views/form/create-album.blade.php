@@ -16,17 +16,12 @@
         <div class="col-12 col-md-12">
             <div class="app-card app-card-settings shadow-sm p-4">
                 <div class="app-card-body">
-                    <form class="settings-form" id="formAlbum" name="formAlbum" method="POST" enctype="multipart/form-data" action="{{ isset($berita) ? route('berita.update', $berita->id) : route('berita.store') }}">
+                    <form class="settings-form" id="formAlbum" name="formAlbum" method="POST" enctype="multipart/form-data" action="{{ isset($album) ? route('album.update', $album->id) : route('album.store') }}">
                         @csrf
                         @if(isset($album))
-                            @method('PUT')
+                        @method('PUT')
                         @endif
-
-                        <div class="mb-3">
-                            <label for="judul" class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $album->judul ?? '' }}" required>
-                        </div>
-
+                        
                         <div class="mb-3">
                             <label for="upload-gambar" class="form-label">Upload Gambar</label>
                             <input type="file" class="form-control" id="gambar-album" name="gambar-album">
@@ -35,6 +30,11 @@
                                     <img src="{{ asset('images/album/' . $album->gambar) }}" alt="Gambar Album" width="150">
                                 </div>
                             @endif
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="judul" class="form-label">Judul</label>
+                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $album->judul ?? '' }}" required>
                         </div>
 
                         <input type="hidden" id="albumId" name="id" value="{{ isset($album) ? $album->id : '' }}">
