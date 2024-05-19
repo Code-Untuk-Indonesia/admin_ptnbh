@@ -6,6 +6,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,11 @@ Route::get('/home-page',  [HomePageController::class, 'index'])->name('home.inde
 Route::get('/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
 Route::put('/home/{id}', [HomePageController::class, 'update'])->name('home.update');
 Route::get('/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
+// crud tentang
+Route::get('/tentang-page',  [TentangController::class, 'index'])->name('tentang.index');
+Route::get('/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit');
+Route::put('/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update');
+Route::get('/api-tentang', [TentangController::class, 'apitentang'])->name('tentang.apitentang');
 
 
 
