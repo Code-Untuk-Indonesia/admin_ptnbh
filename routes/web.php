@@ -61,3 +61,6 @@ Route::get('/berita-user', function () {
 Route::get('/home-user', function () {
     return view('halaman-user.home');
 });
+
+Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+

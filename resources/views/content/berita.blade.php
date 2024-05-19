@@ -173,7 +173,14 @@
                         data: 'action',
                         name: 'action',
                         orderable: false,
-                        searchable: false
+                        searchable: false,
+                        render: function(data, type, full, meta) {
+                            return `
+                                <a href="berita/${full.id}" class="btn btn-info btn-sm showBerita">Show</a>
+                                <a href="berita/${full.id}/edit" class="btn btn-warning btn-sm editBerita">Edit</a>
+                                <button class="btn btn-danger btn-sm deleteBerita" data-id="${full.id}">Delete</button>
+                            `;
+                        }
                     }
                 ]
             });
@@ -209,7 +216,7 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Terjadi Kesalahaan Saat Menghapus',
+                                    text: 'Terjadi Kesalahan Saat Menghapus',
                                 });
                             }
                         });
@@ -234,4 +241,5 @@
             }
         });
     </script>
+
 @endsection

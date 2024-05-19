@@ -147,4 +147,13 @@ class BeritaController extends Controller
         $berita = Berita::orderBy('created_at', 'desc')->get();
         return response()->json($berita);
     }
+
+    public function show($id)
+    {
+        $berita = Berita::find($id);
+        if (!$berita) {
+            return redirect()->route('berita.index')->withErrors(['error' => 'Berita tidak ditemukan']);
+        }
+        return view('halaman-user.show', compact('berita'));
+    }
 }
