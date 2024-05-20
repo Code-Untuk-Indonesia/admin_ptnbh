@@ -52,7 +52,7 @@
                 </div><!--//row-->
 
 
-                <a class="btn app-btn-secondary mb-2" href="/create-galeri-foto">
+                <a class="btn app-btn-secondary mb-2" href="{{ route('galeri.create') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
@@ -66,7 +66,7 @@
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="galerifoto-list">
+                                    <table class="table app-table-hover mb-0 text-left" id="galerifoto-list" style="text-align: center;">
                                         <thead>
                                             <tr>
                                                 <th class="cell" style="text-align: center;">No</th>
@@ -82,64 +82,42 @@
 
                             </div><!--//app-card-body-->
                         </div><!--//app-card-->
-                        <nav class="app-pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav><!--//app-pagination-->
-
                     </div><!--//tab-pane-->
-
-
                 </div><!--//tab-content-->
-
-
-
             </div><!--//container-fluid-->
         </div><!--//app-content-->
-
-
-
     </div><!--//app-wrapper-->
 
     <script>
-        assetUrl = "{{ asset('images/album') }}";
+        assetUrl = "{{ asset('images/galeri') }}";
         $(document).ready(function() {
-            var table = $('#album-list').DataTable({
+            var table = $('#galerifoto-list').DataTable({
                 processing: false,
                 serverSide: true,
                 searching: true,
                 info: false,
                 order: true,
                 paging: false,
-                ajax: "{{ route('album.index') }}",
+                ajax: "{{ route('galeri.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
                         orderable: false,
                         searchable: false
+                        {
+                            data: 'gambar',
+                            name: 'gambar',
+                            orderable: false,
+                            searchable: false,
+                            render: function(data, type, full, meta) {
+                                return '<img src="' + assetUrl + '/' + data +
+                                '" alt="Gambar" style="max-width: 100px;">';
+                            }
+                        },
                     },
                     {
-                        data: 'judul',
-                        name: 'judul'
-                    },
-                    {
-                        data: 'gambar',
-                        name: 'gambar',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, full, meta) {
-                            return '<img src="' + assetUrl + '/' + data +
-                                '" alt="Gambar Album" style="max-width: 100px;">';
-                        }
+                        data: 'id_album',
+                        name: 'id_album'
                     },
                     {
                         data: 'action',
@@ -150,8 +128,8 @@
                 ]
             });
 
-            $('body').on('click', '.deleteAlbum', function() {
-                var album_id = $(this).data("id");
+            $('body').on('click', '.deleteGaleri', function() {
+                var galeri_id = $(this).data("id");
                 Swal.fire({
                     title: 'Apakah Anda Yakin?',
                     text: "Data akan dihapus secara permanen",
@@ -164,7 +142,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "DELETE",
-                            url: "{{ route('album.index') }}" + '/' + album_id,
+                            url: "{{ route('galeri.index') }}" + '/' + galeri_id,
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
@@ -189,9 +167,9 @@
                 });
             });
 
-            $('body').on('click', '.editAlbum', function() {
-                var album_id = $(this).data('id');
-                window.location.href = 'album/' + album_id + '/edit';
+            $('body').on('click', '.editGaleri', function() {
+                var galeri_id = $(this).data('id');
+                window.location.href = 'galeri/' + galeri_id + '/edit';
             });
 
             var successMessage = "{{ session('success') }}";

@@ -128,7 +128,7 @@
                         </div>
                         <div class="article-title">
                             <!-- <h6><a href="#">Lifestyle</a></h6> -->
-                            <h2>T{{ strip_tags($berita->judul) }}</h2>
+                            <h2>{{ strip_tags($berita->judul) }}</h2>
                             <div class="media">
                                 <div class="media-body">
                                     <span>{{ strip_tags($berita->created_at) }}</span>

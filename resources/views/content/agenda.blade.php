@@ -52,7 +52,7 @@
                 </div><!--//row-->
 
 
-                <a class="btn app-btn-secondary mb-2" href="/create-agenda">
+                <a class="btn app-btn-secondary mb-2" href="{{ route('agenda.create') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
@@ -66,17 +66,19 @@
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="agenda-list">
+                                    <table class="table app-table-hover mb-0 text-left" id="agenda-list" style="text-align: center;">
                                         <thead>
                                             <tr>
-                                                <th class="cell">No</th>
-                                                <th class="cell">Gambar</th>
-                                                <th class="cell">Judul</th>
-                                                <th class="cell">Deskripsi</th>
-                                                <th class="cell">Tanggal</th>
-                                                <th class="cell">Waktu</th>
-                                                <th class="cell">Lokasi</th>
-                                                <th class="cell">Aksi</th>
+                                                <th class="cell" style="text-align: center;">No</th>
+                                                <th class="cell" style="text-align: center;">Gambar</th>
+                                                <th class="cell" style="text-align: center;">Judul (ID)</th>
+                                                <th class="cell" style="text-align: center;">Deskripsi (ID)</th>
+                                                <th class="cell" style="text-align: center;">Title (EN)</th>
+                                                <th class="cell" style="text-align: center;">Description (EN)</th>
+                                                <th class="cell" style="text-align: center;">Tanggal</th>
+                                                <th class="cell" style="text-align: center;">Waktu</th>
+                                                <th class="cell" style="text-align: center;">Lokasi</th>
+                                                <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -86,19 +88,6 @@
 
                             </div><!--//app-card-body-->
                         </div><!--//app-card-->
-                        <nav class="app-pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav><!--//app-pagination-->
 
                     </div><!--//tab-pane-->
 
@@ -142,12 +131,26 @@
                         }
                     },
                     {
-                        data: 'judul',
-                        name: 'judul'
+                        data: 'judul_id',
+                        name: 'judul_id'
                     },
                     {
-                        data: 'deskripsi',
-                        name: 'deskripsi',
+                        data: 'deskripsi_id',
+                        name: 'deskripsi_id',
+                        orderable: false,
+                        searchable: false,
+                        render: function(data, type, full, meta) {
+                            return data.substring(0,
+                                50);
+                        }
+                    },
+                    {
+                        data: 'judul_en',
+                        name: 'judul_en'
+                    },
+                    {
+                        data: 'deskripsi_en',
+                        name: 'deskripsi_en',
                         orderable: false,
                         searchable: false,
                         render: function(data, type, full, meta) {

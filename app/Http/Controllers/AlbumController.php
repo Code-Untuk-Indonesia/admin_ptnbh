@@ -43,12 +43,14 @@ class AlbumController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
+                'judul_id' => 'required|string',
+                'judul_en' => 'required|string',
                 'gambar-album' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             ]);
 
             $album = new Album();
-            $album->judul = $request->input('judul');
+            $album->judul_id = $request->input('judul_id');
+            $album->judul_en = $request->input('judul_en');
 
             if ($request->hasFile('gambar-album')) {
                 $gambar = $request->file('gambar-album');
@@ -66,8 +68,6 @@ class AlbumController extends Controller
         }
     }
 
-
-
     public function edit($id)
     {
         $album = Album::find($id);
@@ -81,7 +81,8 @@ class AlbumController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
+                'judul_id' => 'required|string',
+                'judul_en' => 'required|string',
                 'gambar-album' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             ]);
 
@@ -90,7 +91,8 @@ class AlbumController extends Controller
                 return redirect()->route('album.index')->withErrors(['error' => 'Album tidak ditemukan']);
             }
 
-            $album->judul = $request->input('judul');
+            $album->judul_id = $request->input('judul_id');
+            $album->judul_en = $request->input('judul_en');
 
             if ($request->hasFile('gambar-album')) {
                 // Delete the old image if exists

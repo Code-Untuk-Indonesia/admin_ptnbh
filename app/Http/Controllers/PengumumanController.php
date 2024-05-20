@@ -43,14 +43,18 @@ class PengumumanController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
-                'konten' => 'required|string',
+                'judul_id' => 'required|string',
+                'konten_id' => 'required|string',
+                'judul_en' => 'required|string',
+                'konten_en' => 'required|string',
                 'gambar-pengumuman' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             ]);
 
             $pengumuman = new Pengumuman();
-            $pengumuman->judul = $request->input('judul');
-            $pengumuman->konten = $request->input('konten');
+            $pengumuman->judul_id = $request->input('judul_id');
+            $pengumuman->konten_id = $request->input('konten_id');
+            $pengumuman->judul_en = $request->input('judul_en');
+            $pengumuman->konten_en = $request->input('konten_en');
 
             if ($request->hasFile('gambar-pengumuman')) {
                 $gambar = $request->file('gambar-pengumuman');
@@ -79,8 +83,10 @@ class PengumumanController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
-                'konten' => 'required|string',
+                'judul_id' => 'required|string',
+                'konten_id' => 'required|string',
+                'judul_en' => 'required|string',
+                'konten_en' => 'required|string',
                 'gambar-pengumuman' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             ]);
 
@@ -89,8 +95,10 @@ class PengumumanController extends Controller
                 return response()->json(['status' => 'error', 'message' => 'Pengumuman tidak ditemukan'], 404);
             }
 
-            $pengumuman->judul = $request->input('judul');
-            $pengumuman->konten = $request->input('konten');
+            $pengumuman->judul_id = $request->input('judul_id');
+            $pengumuman->konten_id = $request->input('konten_id');
+            $pengumuman->judul_en = $request->input('judul_en');
+            $pengumuman->konten_en = $request->input('konten_en');
 
             if ($request->hasFile('gambar-pengumuman')) {
                 // Delete the old image if exists

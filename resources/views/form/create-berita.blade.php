@@ -43,12 +43,12 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="judul_en" class="form-label">Judul (EN)</label>
+                            <label for="judul_en" class="form-label">Title (EN)</label>
                             <input type="text" class="form-control" id="judul_en" name="judul_en" value="{{ isset($berita) ? $berita->judul_en : '' }}" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="konten_en" class="form-label">Konten (EN)</label>
+                            <label for="konten_en" class="form-label">Content (EN)</label>
                             <textarea id="summernote_en" name="konten_en">{{ isset($berita) ? $berita->konten_en : '' }}</textarea>
                         </div>
 

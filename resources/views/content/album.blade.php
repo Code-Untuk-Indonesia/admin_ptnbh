@@ -52,7 +52,7 @@
                 </div><!--//row-->
 
 
-                <a class="btn app-btn-secondary mb-2" href="/create-album">
+                <a class="btn app-btn-secondary mb-2" href="{{ route('album.create') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
@@ -66,11 +66,12 @@
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="album-list">
+                                    <table class="table app-table-hover mb-0 text-left" id="album-list" style="text-align: center;">
                                         <thead>
                                             <tr>
                                                 <th class="cell" style="text-align: center;">No</th>
-                                                <th class="cell" style="text-align: center;">Judul</th>
+                                                <th class="cell" style="text-align: center;">Judul (ID)</th>
+                                                <th class="cell" style="text-align: center;">Title (EN)</th>
                                                 <th class="cell" style="text-align: center;">Gambar</th>
                                                 <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
@@ -128,8 +129,12 @@
                         searchable: false
                     },
                     {
-                        data: 'judul',
-                        name: 'judul'
+                        data: 'judul_id',
+                        name: 'judul_id'
+                    },
+                    {
+                        data: 'judul_en',
+                        name: 'judul_en'
                     },
                     {
                         data: 'gambar',

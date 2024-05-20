@@ -8,6 +8,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\TentangController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,25 +31,13 @@ Route::get('/auth/register', function () {
     return view('auth.register');
 });
 
-Route::get('/create-berita', function () {
-    return view('form.create-berita');
-});
-Route::get('/create-pengumuman', function () {
-    return view('form.create-pengumuman');
-});
-Route::get('/create-agenda', function () {
-    return view('form.create-agenda');
-});
-
-Route::get('/create-album', function () {
-    return view('form.create-album');
-});
 
 Route::resource('agenda', AgendaController::class);
 Route::resource('album', AlbumController::class);
 Route::resource('berita', BeritaController::class);
 Route::resource('galeri', GaleriController::class);
 Route::resource('pengumuman', PengumumanController::class);
+Route::resource('video', VideoController::class);
 
 Route::get('/api-berita', [BeritaController::class, 'apiberita']);
 

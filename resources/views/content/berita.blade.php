@@ -52,7 +52,7 @@
                 </div><!--//row-->
 
 
-                <a class="btn app-btn-secondary mb-2" href="/create-berita">
+                <a class="btn app-btn-secondary mb-2" href="{{ route('berita.create') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
@@ -72,10 +72,10 @@
                                             <tr>
                                                 <th class="cell" style="text-align: center;">No</th>
                                                 <th class="cell" style="text-align: center;">Gambar</th>
-                                                <th class="cell" style="text-align: center;">Judul_Id</th>
-                                                <th class="cell" style="text-align: center;">Konten_Id</th>
-                                                <th class="cell" style="text-align: center;">Judul_En</th>
-                                                <th class="cell" style="text-align: center;">Konten_En</th>
+                                                <th class="cell" style="text-align: center;">Judul (ID)</th>
+                                                <th class="cell" style="text-align: center;">Konten (ID)</th>
+                                                <th class="cell" style="text-align: center;">Title (EN)</th>
+                                                <th class="cell" style="text-align: center;">Content (EN)</th>
                                                 <th class="cell" style="text-align: center;">Tanggal</th>
                                                 <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>

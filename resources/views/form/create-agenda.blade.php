@@ -36,14 +36,25 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="judul" class="form-label">Judul</label>
-                                <input type="text" class="form-control" id="judul" name="judul"
-                                    value="{{ $agenda->judul ?? '' }}" required>
+                                <label for="judul_id" class="form-label">Judul (ID)</label>
+                                <input type="text" class="form-control" id="judul_id" name="judul_id"
+                                    value="{{ $agenda->judul_id ?? '' }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <textarea class="form-control styled-textarea" id="deskripsi" name="deskripsi" rows="5">{{ $agenda->deskripsi ?? '' }}</textarea>
+                                <label for="deskripsi_id" class="form-label">Deskripsi (ID)</label>
+                                <textarea class="form-control styled-textarea" id="deskripsi_id" name="deskripsi_id" rows="5">{{ $agenda->deskripsi_id ?? '' }}</textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="judul_en" class="form-label">Title (EN)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                    value="{{ $agenda->judul_en ?? '' }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="deskripsi_en" class="form-label">Description (EN)</label>
+                                <textarea class="form-control styled-textarea" id="deskripsi_en" name="deskripsi_en" rows="5">{{ $agenda->deskripsi_en ?? '' }}</textarea>
                             </div>
 
                             <div class="mb-3">

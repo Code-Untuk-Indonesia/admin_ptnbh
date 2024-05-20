@@ -35,12 +35,19 @@ class AgendaController extends Controller
 
         return view('content.agenda', $data);
     }
+
+    public function create()
+    {
+        return view('form.create-agenda');
+    }
     public function store(Request $request)
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
-                'deskripsi' => 'required|string',
+                'judul_id' => 'required|string',
+                'deskripsi_id' => 'required|string',
+                'judul_en' => 'required|string',
+                'deskripsi_en' => 'required|string',
                 'gambar-agenda' => 'nullable|image|mimes:jpeg,png,jpg,gif',
                 'tanggal' => 'required|date',
                 'waktu' => 'required',
@@ -48,8 +55,10 @@ class AgendaController extends Controller
             ]);
 
             $agenda = new Agenda();
-            $agenda->judul = $request->input('judul');
-            $agenda->deskripsi = $request->input('deskripsi');
+            $agenda->judul_id = $request->input('judul_id');
+            $agenda->deskripsi_id = $request->input('deskripsi_id');
+            $agenda->judul_en = $request->input('judul_en');
+            $agenda->deskripsi_en = $request->input('deskripsi_en');
             $agenda->waktu_agenda = $request->input('waktu');
             $agenda->tanggal_agenda = $request->input('tanggal');
             $agenda->tempat_agenda = $request->input('lokasi');
@@ -83,8 +92,10 @@ class AgendaController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
-                'deskripsi' => 'required|string',
+                'judul_id' => 'required|string',
+                'deskripsi_id' => 'required|string',
+                'judul_en' => 'required|string',
+                'deskripsi_en' => 'required|string',
                 'gambar-agenda' => 'nullable|image|mimes:jpeg,png,jpg,gif',
                 'tanggal' => 'required|date',
                 'waktu' => 'required',
@@ -96,8 +107,10 @@ class AgendaController extends Controller
                 return response()->json(['status' => 'error', 'message' => 'Agenda tidak ditemukan'], 404);
             }
 
-            $agenda->judul = $request->input('judul');
-            $agenda->deskripsi = $request->input('deskripsi');
+            $agenda->judul_id = $request->input('judul_id');
+            $agenda->deskripsi_id = $request->input('deskripsi_id');
+            $agenda->judul_en = $request->input('judul_en');
+            $agenda->deskripsi_en = $request->input('deskripsi_en');
             $agenda->waktu_agenda = $request->input('waktu');
             $agenda->tanggal_agenda = $request->input('tanggal');
             $agenda->tempat_agenda = $request->input('lokasi');

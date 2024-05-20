@@ -14,9 +14,11 @@ class Agenda extends Model
     public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
-        'judul', 
+        'judul_id',
+        'judul_en',  
+        'deskripsi_id',
+        'deskripsi_en',
         'gambar',
-        'deskripsi', 
         'tanggal_agenda',
         'waktu_agenda',
         'tempat_agenda'

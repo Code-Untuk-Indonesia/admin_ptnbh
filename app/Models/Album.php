@@ -14,7 +14,8 @@ class Album extends Model
     public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
-        'judul',
+        'judul_id',
+        'judul_en',
         'gambar',
     ];
 
