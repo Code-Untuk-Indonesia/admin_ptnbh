@@ -111,3 +111,4 @@ Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show
 Route::get('/kontak', function () {
     return view('halaman-user.kontak');
 });
+
