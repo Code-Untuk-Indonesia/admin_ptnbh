@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_ptnbh');
-            $table->text('tentang_ptnbh');
-            $table->text('sambutan_rektor');
+            $table->string('judul_ptnbh_id');
+            $table->text('tentang_ptnbh_id');
+            $table->text('sambutan_rektor_id');
+            $table->string('judul_ptnbh_en');
+            $table->text('tentang_ptnbh_en');
+            $table->text('sambutan_rektor_en');
             $table->string('gambar_rektor');
             $table->timestamps();
         });

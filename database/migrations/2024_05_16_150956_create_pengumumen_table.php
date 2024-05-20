@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
             $table->string('gambar');
-            $table->text('konten');
+            $table->string('judul_id');
+            $table->text('konten_id');
+            $table->string('judul_en');
+            $table->text('konten_en');
             $table->string('slug');
             $table->timestamps();
         });
