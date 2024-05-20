@@ -16,6 +16,12 @@ class OrganisasiController extends Controller
         $data = Organisasi::first();
         return view('crud-organisasi.organisasi', compact('data'));
     }
+    public function fe()
+    {
+
+        $data = Organisasi::first();
+        return view('halaman-user.organisasi', compact('data'));
+    }
 
     /**
      * Show the form for creating a new resource.

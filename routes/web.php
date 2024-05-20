@@ -67,6 +67,7 @@ Route::get('/admin/organisasi-page',  [OrganisasiController::class, 'index'])->n
 Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
 Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
 Route::get('/admin/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
+Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi');
 
 
 
