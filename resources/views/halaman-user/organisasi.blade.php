@@ -16,9 +16,9 @@
 
     <section class="history" data-aos="fade-up" data-aos-duration="3000">
 
-        <h1 class="history-1"><span style="color: #ffea00;">|</span> {{ $data->organisasi }}</h1>
+        <h1 class="history-1"><span style="color: #ffea00;">|</span> {{ $data->organisasi_id }}</h1>
         <p class="history-3">
-            {!! str_replace('pola_pencarian', 'pengganti', $data->isi_organisasi) !!}
+            {!! str_replace('pola_pencarian', 'pengganti', $data->isi_organisasi_id) !!}
         </p>
 
     </section>

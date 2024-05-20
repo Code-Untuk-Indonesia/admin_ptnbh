@@ -9,9 +9,12 @@ class home extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'judul_ptnbh',
-        'tentang_ptnbh',
-        'sambutan_rektor',
+        'judul_ptnbh_id',
+        'judul_ptnbh_en',
+        'tentang_ptnbh_id',
+        'tentang_ptnbh_en',
+        'sambutan_rektor_id',
+        'sambutan_rektor_en',
         'gambar_rektor',
     ];
 }

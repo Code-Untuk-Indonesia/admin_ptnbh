@@ -9,9 +9,9 @@ class Organisasi extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'organisasi',
-        'isi_organisasi',
-        'organization',
-        'organization_content'
+        'organisasi_id',
+        'isi_organisasi_id',
+        'organisasi_en',
+        'isi_organisasi_en'
     ];
 }

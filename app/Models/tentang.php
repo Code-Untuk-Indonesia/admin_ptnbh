@@ -9,12 +9,12 @@ class tentang extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'judul_sejarah',
-        'title_history',
-        'isi_sejarah',
-        'content_history',
-        'visi',
-        'misi',
+        'judul_sejarah_id',
+        'judul_sejarah_en',
+        'isi_sejarah_id',
+        'isi_sejarah_id',
+        'visi_id',
+        'misi_id',
         'visi_eng',
         'misi_eng',
 

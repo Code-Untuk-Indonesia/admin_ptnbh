@@ -14,8 +14,10 @@ class Berita extends Model
     public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
-        'judul', 
-        'konten', 
+        'judul_id',
+        'konten_id',
+        'judul_en',
+        'konten_en',
         'gambar',
         'slug'
     ];
