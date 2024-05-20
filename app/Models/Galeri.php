@@ -12,9 +12,13 @@ class Galeri extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     public $incrementing = true;
-    protected $fillable = [
-        'judul', 
+    protected $fillable = [ 
         'gambar',
         'id_album'
     ];
+
+    public function album()
+    {
+        return $this->belongsTo(Album::class, 'id_album');
+    }
 }

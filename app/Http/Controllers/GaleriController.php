@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Album;
+use App\Models\Galeri;
 
 class GaleriController extends Controller
 {
@@ -20,7 +22,8 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        //
+        $albums = Album::all();
+        return view('form.create-galeri-foto', compact('albums'));
     }
 
     /**
@@ -28,7 +31,24 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_album' => 'required|exists:albums,id',
+            'gambar_foto.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->hasFile('gambar_foto')) {
+            foreach ($request->file('gambar_foto') as $image) {
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $image->move(public_path('images/galeri'), $imageName);
+
+                Galeri::create([
+                    'gambar' => $imageName,
+                    'id_album' => $request->id_album,
+                ]);
+            }
+        }
+
+        return redirect()->route('galeri.index')->with('success', 'Foto berhasil disimpan');
     }
 
     /**

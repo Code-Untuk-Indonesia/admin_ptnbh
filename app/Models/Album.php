@@ -17,4 +17,9 @@ class Album extends Model
         'judul',
         'gambar',
     ];
+
+    public function photos()
+    {
+        return $this->hasMany(Galeri::class, 'id_album');
+    }
 }

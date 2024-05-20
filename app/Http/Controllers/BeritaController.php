@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
@@ -47,14 +48,19 @@ class BeritaController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
-                'konten' => 'required|string',
+                'judul_id' => 'required|string',
+                'konten_id' => 'required|string',
+                'judul_en' => 'required|string',
+                'konten_en' => 'required|string',
                 'gambar-berita' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             ]);
 
             $berita = new Berita();
-            $berita->judul = $request->input('judul');
-            $berita->konten = $request->input('konten');
+            $berita->judul_id = $request->input('judul_id');
+            $berita->konten_id = $request->input('konten_id');
+            $berita->judul_en = $request->input('judul_en');
+            $berita->konten_en = $request->input('konten_en');
+            $berita->slug = Str::slug($request->input('judul_id'));
 
             if ($request->hasFile('gambar-berita')) {
                 $gambar = $request->file('gambar-berita');
@@ -66,12 +72,13 @@ class BeritaController extends Controller
 
             $berita->save();
 
-            // Redirect to berita.index and show success message
             return redirect()->route('berita.index')->with('success', 'Berita berhasil disimpan');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+
 
 
     public function edit($id)
@@ -84,8 +91,10 @@ class BeritaController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'judul' => 'required|string',
-                'konten' => 'required|string',
+                'judul_id' => 'required|string',
+                'konten_id' => 'required|string',
+                'judul_en' => 'required|string',
+                'konten_en' => 'required|string',
                 'gambar-berita' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             ]);
 
@@ -94,8 +103,12 @@ class BeritaController extends Controller
                 return response()->json(['status' => 'error', 'message' => 'Berita tidak ditemukan'], 404);
             }
 
-            $berita->judul = $request->input('judul');
-            $berita->konten = $request->input('konten');
+
+            $berita->judul_id = $request->input('judul_id');
+            $berita->konten_id = $request->input('konten_id');
+            $berita->judul_en = $request->input('judul_en');
+            $berita->konten_en = $request->input('konten_en');
+            $berita->slug = Str::slug($request->input('judul_id'));
 
             if ($request->hasFile('gambar-berita')) {
                 // Delete the old image if exists
@@ -108,17 +121,18 @@ class BeritaController extends Controller
 
                 $gambar = $request->file('gambar-berita');
                 $gambar_berita = time() . '_berita.' . $gambar->getClientOriginalExtension();
-                $gambarPath = public_path('images/berita');
-                $gambar->move($gambarPath, $gambar_berita);
+                $gambar->storeAs('images/berita', $gambar_berita);
                 $berita->gambar = $gambar_berita;
             }
 
             $berita->save();
             return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui');
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => 'Gagal memperbarui berita. Silakan coba lagi.']);
         }
     }
+
+
 
     public function destroy($id)
     {
@@ -148,12 +162,21 @@ class BeritaController extends Controller
         return response()->json($berita);
     }
 
-    public function show($id)
+    public function showID($id)
     {
-        $berita = Berita::find($id);
-        if (!$berita) {
-            return redirect()->route('berita.index')->withErrors(['error' => 'Berita tidak ditemukan']);
-        }
+        $berita = Berita::select('judul_id as judul', 'konten_id as konten', 'gambar')
+                        ->where('id', $id)
+                        ->firstOrFail();
+
+        return view('halaman-user.show', compact('berita'));
+    }
+
+    public function showEN($id)
+    {
+        $berita = Berita::select('judul_en as judul', 'konten_en as konten', 'gambar')
+                        ->where('id', $id)
+                        ->firstOrFail();
+
         return view('halaman-user.show', compact('berita'));
     }
 

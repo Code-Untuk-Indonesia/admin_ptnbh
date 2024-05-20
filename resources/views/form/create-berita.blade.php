@@ -33,13 +33,23 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="judul" class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $berita->judul ?? '' }}" required>
+                            <label for="judul_id" class="form-label">Judul (ID)</label>
+                            <input type="text" class="form-control" id="judul_id" name="judul_id" value="{{ isset($berita) ? $berita->judul_id : '' }}" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="konten" class="form-label">Konten</label>
-                            <textarea id="summernote" name="konten">{{ $berita->konten ?? '' }}</textarea>
+                            <label for="konten_id" class="form-label">Konten (ID)</label>
+                            <textarea id="summernote_id" name="konten_id">{{ isset($berita) ? $berita->konten_id : '' }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="judul_en" class="form-label">Judul (EN)</label>
+                            <input type="text" class="form-control" id="judul_en" name="judul_en" value="{{ isset($berita) ? $berita->judul_en : '' }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="konten_en" class="form-label">Konten (EN)</label>
+                            <textarea id="summernote_en" name="konten_en">{{ isset($berita) ? $berita->konten_en : '' }}</textarea>
                         </div>
 
                         <input type="hidden" id="beritaId" name="id" value="{{ isset($berita) ? $berita->id : '' }}">
@@ -52,9 +62,11 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#summernote').summernote({
+        $('#summernote_id, #summernote_en').summernote({
             height: 300,
             toolbar: [
                 ['style', ['style']],
@@ -72,7 +84,7 @@
     @if ($errors->any())
         Swal.fire({
             icon: 'error',
-            title: 'Gagal Menyimpan Pengumuman!!',
+            title: 'Error!',
             text: '{{ $errors->first() }}',
             onClose: () => {
                 location.reload();

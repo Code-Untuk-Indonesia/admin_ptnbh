@@ -107,7 +107,8 @@ Route::get('/unit-bisnis', function () {
 Route::get('/berita-ptnbh', function () {
     return view('halaman-user.berita');
 });
-Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+Route::get('/detail-berita/{id}/id', [BeritaController::class, 'showID'])->name('berita.show.id');
+Route::get('/detail-berita/{id}/en', [BeritaController::class, 'showEN'])->name('berita.show.en');
 
 Route::get('/kontak', function () {
     return view('halaman-user.kontak');
