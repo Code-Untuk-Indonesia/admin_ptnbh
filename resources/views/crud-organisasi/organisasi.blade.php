@@ -12,14 +12,10 @@
                                     <table class="table app-table-hover mb-0 text-left">
                                         <thead>
                                             <tr>
-                                                <th class="cell" >Judul Sejarah </th>
-                                                <th class="cell" >Judul Sejarah(Eng) </th>
-                                                <th class="cell" >Isi Sejarah </th>
-                                                <th class="cell" >Isi Sejarah(Eng) </th>
-                                                <th class="cell" >Visi</th>
-                                                <th class="cell" >Visi(Eng)</th>
-                                                <th class="cell" >Misi</th>
-                                                <th class="cell" >Misi(Eng)</th>
+                                                <th class="cell" >Judul Organisasi </th>
+                                                <th class="cell" >Judul Organisasi(Eng) </th>
+                                                <th class="cell" >Isi Organisasi </th>
+                                                <th class="cell" >Isi Organisasi(Eng) </th>
                                                 <th class="cell" >aksi</th>
 
 
@@ -30,32 +26,22 @@
                                             {{-- @foreach ($data as $item) --}}
                                             <tr>
                                                 <td class="cell">
-                                                    {{ $data->judul_sejarah }}
+                                                    {{ $data->organisasi }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->title_history }}
+
+                                                    {!! str_replace('pola_pencarian', 'pengganti', $data->isi_organisasi) !!}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->isi_sejarah }}
+                                                    {{ $data->organization }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->content_history }}
+                                                    {!! str_replace('pola_pencarian', 'pengganti', $data->organization_content) !!}
                                                 </td>
-                                                <td class="cell">
-                                                    {{ $data->visi }}
-                                                </td>
-                                                <td class="cell">
-                                                    {{ $data->misi }}
-                                                </td>
-                                                <td class="cell">
-                                                    {{ $data->visi_eng }}
-                                                </td>
-                                                <td class="cell">
-                                                    {{ $data->misi_eng }}
-                                                </td>
+
                                                 <td class="cell">
                                                     <button class="btn-sm app-btn-secondary">
-                                                        <a href="{{ route('tentang.edit', $data->id) }}">Edit</a>
+                                                        <a href="{{ route('organisasi.edit', $data->id) }}">Edit</a>
 
                                                     </button>
                                                 </td>
