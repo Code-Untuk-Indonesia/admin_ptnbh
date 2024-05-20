@@ -45,30 +45,61 @@ Route::resource('pengumuman', PengumumanController::class);
 Route::get('/api-berita', [BeritaController::class, 'apiberita']);
 
 // crud page home
-Route::get('/home-page',  [HomePageController::class, 'index'])->name('home.index');
-Route::get('/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
-Route::put('/home/{id}', [HomePageController::class, 'update'])->name('home.update');
-Route::get('/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
+Route::get('/admin/home-page',  [HomePageController::class, 'index'])->name('home.index');
+Route::get('/admin/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
+Route::put('/admin/home/{id}', [HomePageController::class, 'update'])->name('home.update');
+Route::get('/admin/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
 // crud tentang
-Route::get('/tentang-page',  [TentangController::class, 'index'])->name('tentang.index');
-Route::get('/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit');
-Route::put('/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update');
-Route::get('/api-tentang', [TentangController::class, 'apitentang'])->name('tentang.apitentang');
+Route::get('/admin/tentang-page',  [TentangController::class, 'index'])->name('tentang.index');
+Route::get('/admin/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit');
+Route::put('/admin/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update');
+Route::get('/admin/api-tentang', [TentangController::class, 'apitentang'])->name('tentang.apitentang');
 // crud organisasi
-Route::get('/organisasi-page',  [OrganisasiController::class, 'index'])->name('organisasi.index');
-Route::get('/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
-Route::put('/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
-Route::get('/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
+Route::get('/admin/organisasi-page',  [OrganisasiController::class, 'index'])->name('organisasi.index');
+Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
+Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
+Route::get('/admin/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
 
 
 
 // frontend user
-
-Route::get('/berita-user', function () {
-    return view('halaman-user.berita');
-});
 Route::get('/', function () {
     return view('halaman-user.home');
 });
 
+Route::get('/tentang-ptnbh', function () {
+    return view('halaman-user.tentang');
+});
+
+Route::get('/fakultas', function () {
+    return view('halaman-user.fakultas');
+});
+
+Route::get('/mahasiswa', function () {
+    return view('halaman-user.mahasiswa');
+});
+
+Route::get('/gallery', function () {
+    return view('halaman-user.gallery');
+});
+
+Route::get('/agenda-ptnbh', function () {
+    return view('halaman-user.agenda-ptnbh');
+});
+
+Route::get('/pengumuman-ptnbh', function () {
+    return view('halaman-user.pengumuman-ptnbh');
+});
+
+Route::get('/unit-bisnis', function () {
+    return view('halaman-user.unit-bisnis');
+});
+
+Route::get('/berita-ptnbh', function () {
+    return view('halaman-user.berita');
+});
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+
+Route::get('/kontak', function () {
+    return view('halaman-user.kontak');
+});
