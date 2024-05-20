@@ -24,25 +24,25 @@ class TentangController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'judul_sejarah' => 'required|string|max:255',
-            'title_history' => 'required|string|max:255',
-            'isi_sejarah' => 'required|string',
-            'content_history' => 'required|string',
-            'visi' => 'required|string',
+            'judul_sejarah_id' => 'required|string|max:255',
+            'judul_sejarah_en' => 'required|string|max:255',
+            'isi_sejarah_id' => 'required|string',
+            'isi_sejarah_en' => 'required|string',
+            'visi_id' => 'required|string',
             'visi_eng' => 'required|string',
-            'misi' => 'required|string',
+            'misi_id' => 'required|string',
             'misi_eng' => 'required|string',
         ]);
 
         $data = Tentang::findOrFail($id);
         $data->update([
-            'judul_sejarah' => $request->judul_sejarah,
-            'title_history' => $request->title_history,
-            'isi_sejarah' => $request->isi_sejarah,
-            'content_history' => $request->content_history,
-            'visi' => $request->visi,
+            'judul_sejarah_id' => $request->judul_sejarah_id,
+            'judul_sejarah_en' => $request->judul_sejarah_en,
+            'isi_sejarah_id' => $request->isi_sejarah_id,
+            'isi_sejarah_en' => $request->isi_sejarah_en,
+            'visi_id' => $request->visi_id,
             'visi_eng' => $request->visi_eng,
-            'misi' => $request->misi,
+            'misi_id' => $request->misi_id,
             'misi_eng' => $request->misi_eng,
         ]);
 

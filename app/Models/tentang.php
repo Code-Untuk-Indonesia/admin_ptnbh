@@ -12,7 +12,7 @@ class tentang extends Model
         'judul_sejarah_id',
         'judul_sejarah_en',
         'isi_sejarah_id',
-        'isi_sejarah_id',
+        'isi_sejarah_en',
         'visi_id',
         'misi_id',
         'visi_eng',

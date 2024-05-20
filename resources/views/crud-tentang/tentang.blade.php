@@ -30,22 +30,22 @@
                                             {{-- @foreach ($data as $item) --}}
                                             <tr>
                                                 <td class="cell">
-                                                    {{ $data->judul_sejarah }}
+                                                    {{ $data->judul_sejarah_id }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->title_history }}
+                                                    {{ $data->judul_sejarah_en }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->isi_sejarah }}
+                                                    {{ $data->isi_sejarah_id }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->content_history }}
+                                                    {{ $data->isi_sejarah_en }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->visi }}
+                                                    {{ $data->visi_id }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->misi }}
+                                                    {{ $data->misi_id }}
                                                 </td>
                                                 <td class="cell">
                                                     {{ $data->visi_eng }}
