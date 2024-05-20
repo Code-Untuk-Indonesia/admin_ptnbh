@@ -21,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// auth admin
+
+Route::get('/auth/login', function () {
+    return view('auth.login');
+});
+Route::get('/auth/register', function () {
+    return view('auth.register');
+});
 
 Route::get('/create-berita', function () {
     return view('form.create-berita');
