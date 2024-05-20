@@ -8,7 +8,6 @@
                 KONTAK </h1>
             <p class="profile-2" data-aos="fade-up" data-aos-duration="2500">Universitas Tanjungpura</p>
         </div>
-        </div>
     </section>
     <!-- end hero -->
 
@@ -57,4 +56,16 @@
         </div>
     </section>
     <!-- end kontak -->
+
+    <script>
+        // leaflet
+        var map = L.map('leaflet-map').setView([-0.060646, 109.3423133], 15)
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map)
+
+        var marker = L.marker([-0.060646, 109.3423133]).addTo(map)
+        marker.bindPopup('<b>Universitas Tanjungpura</b>').openPopup()
+    </script>
 @endsection

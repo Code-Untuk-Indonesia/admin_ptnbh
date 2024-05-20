@@ -21,6 +21,10 @@
     <!-- aos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
     <link rel="stylesheet" href="{{ asset('/ptnbh/style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/ptnbh/style/responsive.css') }}">
     <title>PTNBH Universitas Tanjungpura</title>
@@ -32,7 +36,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="logo"
                     width="30" height="30" class="d-inline-block align-text-top me-2">Universitas Tanjungpura
             </a>
@@ -43,7 +47,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Beranda</a>
+                        <a class="nav-link" href="/">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
@@ -51,10 +55,10 @@
                             Tentang
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="tentang.html">Profil</a></li>
-                            <li><a class="dropdown-item" href="galery.html">Galeri</a></li>
-                            <li><a class="dropdown-item" href="agenda.html">Agenda</a></li>
-                            <li><a class="dropdown-item" href="pengumuman.html">Pengumuman</a></li>
+                            <li><a class="dropdown-item" href="/tentang-ptnbh">Profil</a></li>
+                            <li><a class="dropdown-item" href="/gallery">Galeri</a></li>
+                            <li><a class="dropdown-item" href="/agenda-ptnbh">Agenda</a></li>
+                            <li><a class="dropdown-item" href="/pengumuman-ptnbh">Pengumuman</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -63,33 +67,35 @@
                             Lembaga
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <li><a class="dropdown-item" href="unit.html">Unit Bisnis</a></li>
-                            <li><a class="dropdown-item" href="fakultas.html">Fakultas</a></li>
-                            <li><a class="dropdown-item" href="mahasiswa.html">Mahasiswa</a></li>
+                            <li><a class="dropdown-item" href="/unit-bisnis">Unit Bisnis</a></li>
+                            <li><a class="dropdown-item" href="/fakultas">Fakultas</a></li>
+                            <li><a class="dropdown-item" href="/mahasiswa">Mahasiswa</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="berita.html">Berita</a>
+                        <a class="nav-link" href="/berita-ptnbh">Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="kontak.html">Kontak</a>
+                        <a class="nav-link" href="/kontak">Kontak</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="asset/Indonesia.png" alt="" class="flag-img"> Indonesia
+                            <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt="" class="flag-img">
+                            Indonesia
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="#"><img src="asset/Indonesia.png" alt=""
+                            <li><a class="dropdown-item" href="#"><img
+                                        src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt=""
                                         class="flag-img"> Indonesia</a>
                             </li>
-                            <li><a class="dropdown-item" href="#"><img src="asset/Uk.png" alt=""
-                                        class="flag-img">English</a></li>
+                            <li><a class="dropdown-item" href="#"><img src="{{ asset('ptnbh/asset/Uk.png') }}"
+                                        alt="" class="flag-img">English</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="fa fa-search"></i>
