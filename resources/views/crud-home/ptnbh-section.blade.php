@@ -24,9 +24,11 @@
                                     <table class="table app-table-hover mb-0 text-left">
                                         <thead>
                                             <tr>
-                                                <th class="cell" >Judul </th>
-                                                <th class="cell" >Content PTNBH</th>
-                                                <th class="cell" >aksi</th>
+                                                <th class="cell">Judul PTNBH </th>
+                                                <th class="cell">Content PTNBH</th>
+                                                <th class="cell">Judul Rektor </th>
+                                                <th class="cell">Sambutan Rektor</th>
+                                                <th class="cell">aksi</th>
 
 
                                             </tr>
@@ -36,10 +38,16 @@
                                             {{-- @foreach ($data as $item) --}}
                                             <tr>
                                                 <td class="cell">
-                                                    {{ $data->judul_ptnbh }}
+                                                    {{ $data->judul_ptnbh_id }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->tentang_ptnbh }}
+                                                    {{ $data->tentang_ptnbh_id }}
+                                                </td>
+                                                <td class="cell">
+                                                    {{ $data->judul_rektor_id }}
+                                                </td>
+                                                <td class="cell">
+                                                    {{ $data->sambutan_rektor_id }}
                                                 </td>
                                                 <td class="cell">
                                                     <button class="btn-sm app-btn-secondary">
@@ -55,47 +63,55 @@
 
                                 </div><!--//table-responsive-->
 
+
                             </div><!--//app-card-body-->
+                            <div style="margin-bottom: 40px"></div>
+                            <div class="app-card-body">
+                                <div class="table-responsive">
+                                    <table class="table app-table-hover mb-0 text-left">
+                                        <thead>
+                                            <tr>
+                                                <th class="cell">Judul PTNBH </th>
+                                                <th class="cell">Content PTNBH</th>
+                                                <th class="cell">Judul Rektor </th>
+                                                <th class="cell">Sambutan Rektor</th>
+                                                <th class="cell">aksi</th>
+
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {{-- @foreach ($data as $item) --}}
+                                            <tr>
+                                                <td class="cell">
+                                                    {{ $data->judul_ptnbh_en }}
+                                                </td>
+                                                <td class="cell">
+                                                    {{ $data->tentang_ptnbh_en }}
+                                                </td>
+                                                <td class="cell">
+                                                    {{ $data->judul_rektor_en }}
+                                                </td>
+                                                <td class="cell">
+                                                    {{ $data->sambutan_rektor_en }}
+                                                </td>
+                                                <td class="cell">
+                                                    <button class="btn-sm app-btn-secondary">
+                                                        <a href="{{ route('home.edit', $data->id) }}">Edit</a>
+
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            {{-- @endforeach --}}
+
+                                        </tbody>
+                                    </table>
+
+                                </div><!--//table-responsive-->
+                            </div>
                         </div><!--//app-card-->
-                        <div class="table-responsive">
-                            <table class="table app-table-hover mb-0 text-left">
-                                <thead>
-                                    <tr>
-                                        <th class="cell" >Foto Rektor </th>
-                                        <th class="cell" >Sambutan Rektor</th>
-                                        <th></th>
 
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                        <td class="cell" >
-                                           <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" style="width: 200px">
-                                        </td>
-                                        <td class="cell">
-                                            {{$data->sambutan_rektor}}
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-
-                        </div><!--//table-responsive-->
-                        {{-- <nav class="app-pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav><!--//app-pagination--> --}}
 
                     </div><!--//tab-pane-->
 
@@ -110,6 +126,4 @@
 
 
     </div><!--//app-wrapper-->
-
-
 @endsection
