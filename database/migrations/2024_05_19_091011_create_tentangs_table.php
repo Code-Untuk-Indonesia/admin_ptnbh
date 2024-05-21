@@ -15,20 +15,28 @@ return new class extends Migration
             $table->id();
             $table->string('judul_sejarah_id');
             $table->string('judul_sejarah_en');
+
             $table->text('isi_sejarah_id');
             $table->text('isi_sejarah_en');
+
             $table->text('judul_visi_id');
             $table->text('judul_visi_en');
+
             $table->text('judul_misi_id');
             $table->text('judul_misi_en');
+
             $table->text('visi_id');
             $table->text('misi_id');
-            $table->text('visi_eng');
-            $table->text('misi_eng');
+
+            $table->text('visi_en');
+            $table->text('misi_en');
+
             $table->text('judul_tujuan_id');
-            $table->text('judul_tujuan_eng');
+            $table->text('judul_tujuan_en');
+
             $table->text('tujuan_id');
-            $table->text('tujuan_eng');
+            $table->text('tujuan_en');
+
             $table->timestamps();
         });
     }

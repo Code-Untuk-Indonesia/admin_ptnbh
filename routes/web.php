@@ -61,7 +61,7 @@ Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi
 
 
 // frontend user
-Route::get('/tentang', [TentangController::class, 'fesejarah'])->name('tentang');
+Route::get('/tentang-ptnbh', [TentangController::class, 'fesejarah'])->name('tentang');
 
 Route::get('/', function () {
     return view('halaman-user.home');

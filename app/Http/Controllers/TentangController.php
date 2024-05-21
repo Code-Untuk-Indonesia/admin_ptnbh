@@ -26,12 +26,20 @@ class TentangController extends Controller
         $request->validate([
             'judul_sejarah_id' => 'required|string|max:255',
             'judul_sejarah_en' => 'required|string|max:255',
-            'isi_sejarah_id' => 'required|string',
-            'isi_sejarah_en' => 'required|string',
-            'visi_id' => 'required|string',
-            'visi_eng' => 'required|string',
-            'misi_id' => 'required|string',
-            'misi_eng' => 'required|string',
+            'isi_sejarah_id' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'isi_sejarah_en' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'visi_id' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'visi_en' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'misi_id' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'misi_en' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'judul_misi_id' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'judul_misi_en' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'judul_visi_id' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'judul_visi_en' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'judul_tujuan_id' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'judul_tujuan_en' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'tujuan_id' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
+            'tujuan_en' => 'required|string', // ini seharusnya bisa disesuaikan jika ingin menjadi 'text'
         ]);
 
         $data = Tentang::findOrFail($id);
@@ -40,12 +48,18 @@ class TentangController extends Controller
             'judul_sejarah_en' => $request->judul_sejarah_en,
             'isi_sejarah_id' => $request->isi_sejarah_id,
             'isi_sejarah_en' => $request->isi_sejarah_en,
+            'judul_visi_id' => $request->judul_visi_id,
+            'judul_visi_en' => $request->judul_visi_en, // Revisi di sini
+            'judul_misi_id' => $request->judul_misi_id,
+            'judul_misi_en' => $request->judul_misi_en, // Revisi di sini
             'visi_id' => $request->visi_id,
-            'visi_eng' => $request->visi_eng,
+            'visi_en' => $request->visi_en, // Revisi di sini
             'misi_id' => $request->misi_id,
-            'misi_eng' => $request->misi_eng,
+            'misi_en' => $request->misi_en, // Revisi di sini
+            'judul_tujuan_id' => $request->judul_tujuan_id,
+            'judul_tujuan_en' => $request->judul_tujuan_en, // Revisi di sini
             'tujuan_id' => $request->tujuan_id,
-            'tujuan_eng' => $request->tujuan_eng,
+            'tujuan_en' => $request->tujuan_en, // Revisi di sini
         ]);
 
         return redirect()->route('tentang.index')->with('success', 'Data updated successfully');
