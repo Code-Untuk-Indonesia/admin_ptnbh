@@ -121,41 +121,54 @@
     <!-- end galery -->
     <!-- rektor -->
     <section class="rektor" data-aos="fade-up" data-aos-duration="2000">
-        <div class="row" style="height: 100%;">
-            <div class="col-md-7">
-                <h1 class="text-rektor">
-                    Sambutan Rektor Universitas Tanjungpura
-                </h1>
-                <p class="text-rektor2">
-                    Sekapur Sirih – Selamat datang di website resmi Universitas Tanjungpura Pontianak. Universitas
-                    Tanjungpura Pontianak berdiri sejak 20 Mei 1959, dan banyak prestasi yang sudah ditorehkan bidang
-                    Tri Dharma Perguruan Tinggi, sehingga kini Universitas Tanjungpura Pontianak dikenal oleh masyarakat
-                    luas disamping sebagai universitas pertama di Kalimantan Barat, juga sebagai institusi preservasi
-                    ilmiah memiliki reputasi pendidikan berkualitas.
-                    Sebagai wujud kepedulian terhadap tujuan pembangunan nasional terutama dalam mencerdaskan bangsa,
-                    Universitas Tanjungpura terus melakukan pengembangan dan pembaruan untuk merespon kebutuhan
-                    stakeholders (mahasiswa, orangtua mahasiswa, masyarakat profesi dan masyarakat pengguna lulusan).
-                    Langkah-langkah riil ini telah dilakukan antara lain penataan dan penerapan kurikulum berbasis
-                    kompetensi (KBK) pada semua program studi baik pada program sarjana, diploma, magister dan program
-                    doktor. Proses pendidikan di baku mutu melalui kegiatan penjaminan mutu oleh Lembaga Pengembangan
-                    Pembelajaran dan Penjaminan Mutu (LP3M) Universitas sebagai bentuk pertanggung-jawaban internal
-                    universitas dalam hal mutu lulusan terhadap stakeholders. Selain itu, penjaminan mutu eksternal juga
-                    dilakukan melalui Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT) dan hasilnya hampir semua
-                    program studi memperoleh peringkat B, bahkan beberapa program studi memperoleh peringkat Akreditasi
-                    A. Pada tahun 2019 Universitas Tanjungpura telah memperoleh peringkat Akreditasi Institusi A dari
-                    Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT).
-                </p>
-                <h1 class="text-rektor3">
-                    Prof. Dr. Garuda Wiko, S.H., M.Si
-                </h1>
-            </div>
-            <div class="col-md-5" style="display:flex ; justify-content: end;">
-                <div class="card-rektor">
-                    <img src="{{ asset('ptnbh/asset/Prof.-Garuda-Wiko.png') }}" alt="rektor" class="img-rektor">
-
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h1 class="text-rektor display-4">
+                        Sambutan Rektor Universitas Tanjungpura
+                    </h1>
+                    <p class="text-rektor2 lead">
+                        Sekapur Sirih – Selamat datang di website resmi Universitas Tanjungpura Pontianak. Universitas
+                        Tanjungpura Pontianak berdiri sejak 20 Mei 1959, dan banyak prestasi yang sudah ditorehkan
+                        bidang
+                        Tri Dharma Perguruan Tinggi, sehingga kini Universitas Tanjungpura Pontianak dikenal oleh
+                        masyarakat
+                        luas disamping sebagai universitas pertama di Kalimantan Barat, juga sebagai institusi
+                        preservasi
+                        ilmiah memiliki reputasi pendidikan berkualitas. Sebagai wujud kepedulian terhadap tujuan
+                        pembangunan nasional terutama dalam mencerdaskan bangsa, Universitas Tanjungpura terus melakukan
+                        pengembangan dan pembaruan untuk merespon kebutuhan stakeholders (mahasiswa, orangtua mahasiswa,
+                        masyarakat profesi dan masyarakat pengguna lulusan). Langkah-langkah riil ini telah dilakukan
+                        antara
+                        lain penataan dan penerapan kurikulum berbasis kompetensi (KBK) pada semua program studi baik
+                        pada
+                        program sarjana, diploma, magister dan program doktor. Proses pendidikan di baku mutu melalui
+                        kegiatan penjaminan mutu oleh Lembaga Pengembangan Pembelajaran dan Penjaminan Mutu (LP3M)
+                        Universitas sebagai bentuk pertanggung-jawaban internal universitas dalam hal mutu lulusan
+                        terhadap
+                        stakeholders. Selain itu, penjaminan mutu eksternal juga dilakukan melalui Badan Akreditasi
+                        Nasional
+                        Perguruan Tinggi (BAN-PT) dan hasilnya hampir semua program studi memperoleh peringkat B, bahkan
+                        beberapa program studi memperoleh peringkat Akreditasi A. Pada tahun 2019 Universitas
+                        Tanjungpura
+                        telah memperoleh peringkat Akreditasi Institusi A dari Badan Akreditasi Nasional Perguruan
+                        Tinggi
+                        (BAN-PT).
+                    </p>
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0 text-rektor3 display-5 text-uppercase"
+                            style=" font-family: 'Arial Black', sans-serif; letter-spacing: 2px;">
+                            Prof. Dr. Garuda Wiko, S.H., M.Si
+                        </p>
+                    </blockquote>
+                </div>
+                <div class="col-md-5" style="text-align: center;">
+                    <div class="card card-rektor" style="border: none;">
+                        <img src="{{ asset('ptnbh/asset/Prof.-Garuda-Wiko.png') }}" alt="rektor"
+                            class="img-fluid img-rektor rounded-circle shadow">
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
     <!--  -->
