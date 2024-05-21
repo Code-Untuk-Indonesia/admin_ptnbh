@@ -44,10 +44,17 @@ class TentangController extends Controller
             'visi_eng' => $request->visi_eng,
             'misi_id' => $request->misi_id,
             'misi_eng' => $request->misi_eng,
+            'tujuan_id' => $request->tujuan_id,
+            'tujuan_eng' => $request->tujuan_eng,
         ]);
 
         return redirect()->route('tentang.index')->with('success', 'Data updated successfully');
     }
 
+
+    public function fesejarah () {
+        $data = tentang::first();
+        return view('halaman-user.tentang', compact('data'));
+    }
 
 }

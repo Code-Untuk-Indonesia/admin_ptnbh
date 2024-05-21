@@ -61,13 +61,12 @@ Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi
 
 
 // frontend user
+Route::get('/tentang', [TentangController::class, 'fesejarah'])->name('tentang');
+
 Route::get('/', function () {
     return view('halaman-user.home');
 });
 
-Route::get('/tentang-ptnbh', function () {
-    return view('halaman-user.tentang');
-});
 
 Route::get('/fakultas', function () {
     return view('halaman-user.fakultas');

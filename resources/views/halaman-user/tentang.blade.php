@@ -14,32 +14,9 @@
     <!-- history -->
     <section class="history" data-aos="fade-up" data-aos-duration="3000">
         <div class="card-pengantar">
-            <h1 class="history-1">Sejarah</h1>
-            <p class="history-2">Universitas Tanjungpura didirikan pada tanggal 20 Mei 1959 dengan nama Universitas Daya
-                Nasional di bawah naungan Yayasan Perguruan Tinggi Daya Nasional sebagai sebuah universitas swasta.
-                Pendirinya merupakan tokoh-tokoh politik dan pemuka masyarakat Kalimantan Barat, yang dikoordinasikan
-                langsung oleh Oevaang Oeraay. Pada saat berdiri universitas ini memiliki dua fakultas yaitu Fakultas
-                Hukum
-                dan Fakultas Tata Niaga. Para tenaga pengajar pada masa-masa tersebut adalah para sarjana dan sarjana
-                muda
-                yang terdapat di daerah Kalimantan Barat.</p>
-            <p class="history-2">Status Universitas Daya Nasional berubah menjadi Universitas Negeri Pontianak
-                berdasarkan
-                Surat Keputusan Menteri PTIP Nomor 53 Tahun 1963 Tanggal 16 Mei 1963. Namun tanggal peringatan penetapan
-                status universitas negeri ditetapkan 20 Mei 1963 dengan nama Universitas Negeri Pontianak dan ditandai
-                pula
-                dengan dibukanya dua fakultas baru yaitu Fakultas Pertanian dan Fakultas Teknik serta perubahan nama
-                Fakultas Tata Niaga menjadi Fakultas Ekonomi.</p>
-            <p class="history-2">Sejalan dengan situasi politik RI tahun 1965, nama universitas diubah menjadi
-                Universitas
-                Dwikora (berdasarkan Surat Keputusan Presiden RI Nomor 278 Tahun 1965 tanggal 14 September 1965),
-                sekaligus
-                menandai pembukaan Fakultas Ilmu Sosial dan Ilmu Politik (Fisipol). Akhirnya nama Universitas Dwikora
-                berganti lagi menjadi Universitas Tanjungpura (Untan), berdasarkan Surat Keputusan Presiden RI Nomor 171
-                Tahun 1967. Nama Universitas Tanjungpura ini berasal dari nama Kerajaan Tanjungpura yang terletak di
-                Kalimantan Barat. Hingga saat ini, Untan telah memiliki sembilan Fakultas dengan jenjang pendidikan
-                hingga
-                doktoral (S3) serta memiliki Rumah Sakit Universitas Tanjungpura.</p>
+            <h1 class="history-1">{{$data->judul_sejarah_id}}</h1>
+            <p class="history-2">{!! str_replace('isi', 'sejarah', $data->isi_sejarah_id) !!}</p>
+
         </div>
 
     </section>
@@ -53,9 +30,7 @@
                     <span style="color: #ffea00;">|</span> Visi
                 </h1>
                 <p class="misi-profile">
-                    Visi UNTAN menjadi institusi preservasi dan pusat informasi ilmiah di Kalimantan Barat, serta
-                    menghasilkan luaran yang bermoral Pancasila dan mampu berkompetisi di tingkat dunia, baik ditingkat
-                    daerah, nasional, regional maupun internasional.
+                    {!! str_replace('isi', 'sejarah', $data->visi_id) !!}
                 </p>
             </div>
             <div class="col">
@@ -63,14 +38,9 @@
                     <span style="color: #ffea00;">|</span> Misi
                 </h1>
                 <p class="misi-profile">
-                    a. menyelenggarakan pendidikan tinggi untuk menghasilkan luaran yang berkualitas dan bermoral
-                    Pancasila, serta mampu mengikuti, mengembangkan dan memajukan ilmu pengetahuan dan teknologi
+                    {!! str_replace('isi', 'misi', $data->misi_id) !!}
                 </p>
-                <p class="misi-profile">
-                    b. menyelenggarakan penelitian dan pengabdian kepada masyarakat untuk menjadi sebuah institusi
-                    preservasi dan pusat informasi Kalimantan Barat.
 
-                </p>
             </div>
         </div>
     </section>
