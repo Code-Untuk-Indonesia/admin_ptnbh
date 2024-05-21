@@ -34,20 +34,22 @@
                     <h2 class="auth-heading text-center mb-4">Sign up to Admin PTNBH Untan</h2>
 
                     <div class="auth-form-container text-start mx-auto">
-                        <form class="auth-form auth-signup-form">
+                        <form class="auth-form auth-signup-form" action="/auth/register" method="POST">
+                            @csrf
+
                             <div class="email mb-3">
                                 <label class="sr-only" for="signup-email">Your Name</label>
-                                <input id="signup-name" name="signup-name" type="text"
-                                    class="form-control signup-name" placeholder="Full name" required="required">
+                                <input id="signup-name" name="name" type="text" class="form-control signup-name"
+                                    placeholder="Full name" required="required">
                             </div>
                             <div class="email mb-3">
                                 <label class="sr-only" for="signup-email">Your Email</label>
-                                <input id="signup-email" name="signup-email" type="email"
-                                    class="form-control signup-email" placeholder="Email" required="required">
+                                <input id="signup-email" name="email" type="email" class="form-control signup-email"
+                                    placeholder="Email" required="required">
                             </div>
                             <div class="password mb-3">
                                 <label class="sr-only" for="signup-password">Password</label>
-                                <input id="signup-password" name="signup-password" type="password"
+                                <input id="signup-password" name="password" type="password"
                                     class="form-control signup-password" placeholder="Create a password"
                                     required="required">
                             </div>

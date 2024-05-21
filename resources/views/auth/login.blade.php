@@ -32,21 +32,22 @@
                                 alt="logo"></a></div>
                     <h2 class="auth-heading text-center mb-5">Log in to Admin PTNB Untan</h2>
                     <div class="auth-form-container text-start">
-                        <form class="auth-form login-form">
+                        <form class="auth-form login-form" action="/auth/login" method="POST">
+                            @csrf
                             <div class="email mb-3">
                                 <label class="sr-only" for="signin-email">Email</label>
-                                <input id="signin-email" name="signin-email" type="email"
-                                    class="form-control signin-email" placeholder="Email address" required="required">
+                                <input id="signin-email" name="email" type="email" class="form-control signin-email"
+                                    placeholder="Email address" required="required">
                             </div><!--//form-group-->
                             <div class="password mb-3">
                                 <label class="sr-only" for="signin-password">Password</label>
-                                <input id="signin-password" name="signin-password" type="password"
+                                <input id="signin-password" name="password" type="password"
                                     class="form-control signin-password" placeholder="Password" required="required">
                                 <div class="extra mt-3 row justify-content-between">
                                     <div class="col-6">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="RememberPassword">
+                                                id="RememberPassword" name="remember">
                                             <label class="form-check-label" for="RememberPassword">
                                                 Remember me
                                             </label>

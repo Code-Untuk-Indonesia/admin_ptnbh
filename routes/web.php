@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PengumumanController;
@@ -24,40 +25,52 @@ use Illuminate\Support\Facades\Route;
 
 // auth admin
 
-Route::get('/auth/login', function () {
-    return view('auth.login');
+// Route::get('/auth/login', function () {
+//     return view('auth.login');
+// });
+// Route::get('/auth/register', function () {
+//     return view('auth.register');
+// });
+
+Route::get('/auth/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/auth/login', [AuthController::class, 'login']);
+Route::get('/auth/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', function () {
+    return view('dashboard-admin.dashboard');
+})->middleware('auth');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('agenda', AgendaController::class);
+    Route::resource('album', AlbumController::class);
+    Route::resource('berita', BeritaController::class);
+    Route::resource('galeri', GaleriController::class);
+    Route::resource('pengumuman', PengumumanController::class);
+    Route::resource('video', VideoController::class);
+
+    Route::get('/api-berita', [BeritaController::class, 'apiberita']);
+
+    // CRUD page home
+    Route::get('/admin/home-page', [HomePageController::class, 'index'])->name('home.index');
+    Route::get('/admin/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
+    Route::put('/admin/home/{id}', [HomePageController::class, 'update'])->name('home.update');
+    Route::get('/admin/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
+
+    // CRUD tentang
+    Route::get('/admin/tentang-page', [TentangController::class, 'index'])->name('tentang.index');
+    Route::get('/admin/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit');
+    Route::put('/admin/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update');
+    Route::get('/admin/api-tentang', [TentangController::class, 'apitentang'])->name('tentang.apitentang');
+
+    // CRUD organisasi
+    Route::get('/admin/organisasi-page', [OrganisasiController::class, 'index'])->name('organisasi.index');
+    Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
+    Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
+    Route::get('/admin/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
 });
-Route::get('/auth/register', function () {
-    return view('auth.register');
-});
-
-
-Route::resource('agenda', AgendaController::class);
-Route::resource('album', AlbumController::class);
-Route::resource('berita', BeritaController::class);
-Route::resource('galeri', GaleriController::class);
-Route::resource('pengumuman', PengumumanController::class);
-Route::resource('video', VideoController::class);
-
-Route::get('/api-berita', [BeritaController::class, 'apiberita']);
-
-// crud page home
-Route::get('/admin/home-page',  [HomePageController::class, 'index'])->name('home.index');
-Route::get('/admin/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
-Route::put('/admin/home/{id}', [HomePageController::class, 'update'])->name('home.update');
-Route::get('/admin/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
-// crud tentang
-Route::get('/admin/tentang-page',  [TentangController::class, 'index'])->name('tentang.index');
-Route::get('/admin/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit');
-Route::put('/admin/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update');
-Route::get('/admin/api-tentang', [TentangController::class, 'apitentang'])->name('tentang.apitentang');
-// crud organisasi
-Route::get('/admin/organisasi-page',  [OrganisasiController::class, 'index'])->name('organisasi.index');
-Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
-Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
-Route::get('/admin/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
 Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi');
-
 
 
 // frontend user
@@ -101,4 +114,3 @@ Route::get('/detail-berita/{id}/en', [BeritaController::class, 'showEN'])->name(
 Route::get('/kontak', function () {
     return view('halaman-user.kontak');
 });
-
