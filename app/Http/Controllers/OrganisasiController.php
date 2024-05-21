@@ -61,18 +61,18 @@ class OrganisasiController extends Controller
    public function update(Request $request, $id)
    {
        $request->validate([
-           'organisasi' => 'required|string|max:255',
-           'organization' => 'required|string|max:255',
-           'isi_organisasi' => 'required|string',
-           'organization_content' => 'required|string',
+           'organisasi_id' => 'required|string',
+           'isi_organisasi_id' => 'required|string',
+           'organisasi_en' => 'required|string',
+           'isi_organisasi_en' => 'required|string',
        ]);
 
        $data = Organisasi::findOrFail($id);
        $data->update([
-           'organisasi' => $request->organisasi,
-           'organization' => $request->organization,
-           'isi_organisasi' => $request->isi_organisasi,
-           'organization_content' => $request->organization_content,
+           'organisasi_id' => $request->organisasi_id,
+           'isi_organisasi_id' => $request->isi_organisasi_id,
+           'organisasi_en' => $request->organisasi_en,
+           'isi_organisasi_en' => $request->isi_organisasi_en,
        ]);
 
        return redirect()->route('organisasi.index')->with('success', 'Data updated successfully');

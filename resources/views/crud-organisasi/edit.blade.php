@@ -10,23 +10,23 @@
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="organisasi">Judul Organisasi</label>
-                    <input type="text" name="organisasi" class="form-control" value="{{ old('organisasi', $data->organisasi) }}" required>
+                    <label for="organisasi_id">Judul Organisasi</label>
+                    <input type="text" name="organisasi_id" class="form-control" value="{{ old('organisasi_id', $data->organisasi_id) }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="organization">Judul Organisasi (Eng)</label>
-                    <input type="text" name="organization" class="form-control" value="{{ old('organization', $data->organization) }}" required>
+                    <label for="organisasi_en">Judul Organisasi (Eng)</label>
+                    <input type="text" name="organisasi_en" class="form-control" value="{{ old('organisasi_en', $data->organisasi_en) }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="isi_organisasi">Isi Organisasi</label>
-                    <textarea name="isi_organisasi" id="summernote" class="form-control" required>{{ old('isi_organisasi', $data->isi_organisasi) }}</textarea>
+                    <label for="isi_organisasi_id">Isi Organisasi</label>
+                    <textarea name="isi_organisasi_id" id="summernote" class="form-control" required>{{ old('isi_organisasi_id', $data->isi_organisasi_id) }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="organization_content">Isi Organisasi (Eng)</label>
-                    <textarea name="organization_content" id="summernote2" class="form-control" required>{{ old('organization_content', $data->organization_content) }}</textarea>
+                    <label for="isi_organisasi_en">Isi Organisasi (Eng)</label>
+                    <textarea name="isi_organisasi_en" id="summernote2" class="form-control" required>{{ old('isi_organisasi_en', $data->isi_organisasi_en) }}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>

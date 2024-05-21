@@ -13,8 +13,9 @@
                                         <thead>
                                             <tr>
                                                 <th class="cell" >Judul Organisasi </th>
-                                                <th class="cell" >Judul Organisasi(Eng) </th>
                                                 <th class="cell" >Isi Organisasi </th>
+                                                <th class="cell" >Judul Organisasi(Eng) </th>
+
                                                 <th class="cell" >Isi Organisasi(Eng) </th>
                                                 <th class="cell" >aksi</th>
 
