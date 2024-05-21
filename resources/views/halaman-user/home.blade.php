@@ -12,19 +12,11 @@
     <!-- pengantar -->
     <section class="pengantar" data-aos="fade-up" data-aos-duration="3000">
         <div class="container">
-            <h1 class="pengantar-1">Tentang PTNBH</h1>
+            <h1 class="pengantar-1">{{ $data->judul_ptnbh_id }}</h1>
             <div class="card-pengantar">
                 <p class="pengantar-2">
-                    Perubahan PTN menjadi PTN-BH merupakan perubahan status pengelolaan pendidikan pada perguruan tinggi
-                    negeri. Sesuai dengan amanat UU Nomor 12 tahun 2012 (tentang Pendidikan Tinggi) Pasal 65 ayat (1),
-                    yaitu
-                    penyelenggaraan otonomi Perguruan Tinggi dapat diberikan secara selektif berdasarkan evaluasi
-                    kinerja
-                    oleh Menteri kepada PTN dengan menerapkan Pola Pengelolaan Keuangan Badan Layanan Umum (PK-BLU) atau
-                    dengan membentuk PTN badan hukum (PTN-BH) untuk menghasilkan Pendidikan Tinggi bermutu. Sejalan juga
-                    dengan kebijakan Menteri Dikbudristek yang mengarahkan PTN untuk menjadi PTN-BH agar kemandirian PTN
-                    dapat ditingkatkan. Untuk itu, Untan sudah selayaknya meningkatkan kelasnya menjadi PTN-BH dalam
-                    menyelenggarakan pendidikan dengan lebih mandiri.
+                    {!! str_replace('pola_pencarian', 'pengganti', $data->tentang_ptnbh_id) !!}
+
                 </p>
             </div>
         </div>
@@ -37,44 +29,22 @@
         <h1 class="berita-1">
             Berita Terbaru
         </h1>
-        <div class="row">
-            <div class="col">
-                <div class="card card-news">
-                    <img src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Berita Selengkapnya</a>
+
+            <div class="row">
+                @foreach ($berita as $item)
+                <div class="col">
+                    <div class="card card-news">
+                        <img src="{{ asset('/images/berita/' . $item->gambar) }}" class="img-berita-home"
+                            alt="...">
+                        <div class="card-body">
+                            <p class="card-text date-news">{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('l, j F Y H:i') }}</p>
+                            <h5 class="card-title title-news">{{$item->judul_id}}</h5>
+                            <a href="#" class="btn btn-primary">Berita Selengkapnya</a>
+                        </div>
                     </div>
                 </div>
+        @endforeach
             </div>
-            <div class="col">
-                <div class="card card-news">
-                    <img src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Berita Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-news">
-                    <img src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Berita Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <button class="btn-news">
             <a class="a-btn-news" href="/berita-user">

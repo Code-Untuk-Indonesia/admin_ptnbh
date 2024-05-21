@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\home;
 use Illuminate\Http\Request;
 
@@ -101,5 +102,13 @@ class HomepageController extends Controller
     public function apihome() {
         $data = home::all();
         return response()->json($data);
+    }
+
+    public function fehome() {
+        $data = home::first();
+        $berita = Berita::latest()->take(3)->get();
+
+
+        return view('halaman-user.home', compact('data', 'berita'));
     }
 }
