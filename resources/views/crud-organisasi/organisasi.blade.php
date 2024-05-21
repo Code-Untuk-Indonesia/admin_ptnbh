@@ -26,17 +26,17 @@
                                             {{-- @foreach ($data as $item) --}}
                                             <tr>
                                                 <td class="cell">
-                                                    {{ $data->organisasi }}
+                                                    {{ $data->organisasi_id }}
                                                 </td>
                                                 <td class="cell">
 
-                                                    {!! str_replace('pola_pencarian', 'pengganti', $data->isi_organisasi) !!}
+                                                    {!! str_replace('pola_pencarian', 'pengganti', $data->isi_organisasi_id) !!}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->organization }}
+                                                    {{ $data->organisasi_en }}
                                                 </td>
                                                 <td class="cell">
-                                                    {!! str_replace('pola_pencarian', 'pengganti', $data->organization_content) !!}
+                                                    {!! str_replace('pola_pencarian', 'pengganti', $data->isi_organisasi_en) !!}
                                                 </td>
 
                                                 <td class="cell">
