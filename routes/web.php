@@ -8,7 +8,9 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrganisasiController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TentangController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,33 +45,41 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('agenda', AgendaController::class);
-    Route::resource('album', AlbumController::class);
-    Route::resource('berita', BeritaController::class);
-    Route::resource('galeri', GaleriController::class);
-    Route::resource('pengumuman', PengumumanController::class);
-    Route::resource('video', VideoController::class);
 
+    // Resource controllers untuk entitas tertentu
+    Route::resource('agenda', AgendaController::class)->middleware('permission:manage agenda');
+    Route::resource('album', AlbumController::class)->middleware('permission:manage album');
+    Route::resource('berita', BeritaController::class)->middleware('permission:manage berita');
+    Route::resource('galeri', GaleriController::class)->middleware('permission:manage galeri');
+    Route::resource('pengumuman', PengumumanController::class)->middleware('permission:manage pengumuman');
+    Route::resource('video', VideoController::class)->middleware('permission:manage videos');
+
+    // Resource controller untuk pengguna hanya dapat diakses oleh pengguna dengan izin 'manage_users'
+    Route::resource('users', UserController::class)->middleware('permission:manage users');
+    Route::resource('roles', RoleController::class)->middleware('permission:manage roles');
+
+    // Rute API
     Route::get('/api-berita', [BeritaController::class, 'apiberita']);
 
-    // CRUD page home
+    // Rute CRUD untuk halaman beranda
     Route::get('/admin/home-page', [HomePageController::class, 'index'])->name('home.index');
     Route::get('/admin/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
     Route::put('/admin/home/{id}', [HomePageController::class, 'update'])->name('home.update');
     Route::get('/admin/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
 
-    // CRUD tentang
+    // Rute CRUD untuk halaman tentang
     Route::get('/admin/tentang-page', [TentangController::class, 'index'])->name('tentang.index');
     Route::get('/admin/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit');
     Route::put('/admin/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update');
     Route::get('/admin/api-tentang', [TentangController::class, 'apitentang'])->name('tentang.apitentang');
 
-    // CRUD organisasi
+    // Rute CRUD untuk halaman organisasi
     Route::get('/admin/organisasi-page', [OrganisasiController::class, 'index'])->name('organisasi.index');
     Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
     Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
     Route::get('/admin/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
 });
+
 Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi');
 
 

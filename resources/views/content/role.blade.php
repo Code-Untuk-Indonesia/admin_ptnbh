@@ -1,10 +1,9 @@
 @extends('admin-template.navbar-footer')
+
 @section('content')
     <div class="app-wrapper">
-
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
-
                 <div class="row g-3 mb-4 align-items-center justify-content-between">
                     <div class="col-auto">
                         <h1 class="app-page-title mb-0">{{ $title }}</h1>
@@ -15,35 +14,27 @@
                                 <div class="col-auto">
                                     <form class="table-search-form row gx-1 align-items-center">
                                         <div class="col-auto">
-                                            <input type="text" id="search-orders" name="searchorders"
-                                                class="form-control search-orders" placeholder="Search">
+                                            <input type="text" id="search-roles" name="searchroles" class="form-control search-roles" placeholder="Search">
                                         </div>
                                         <div class="col-auto">
                                             <button type="submit" class="btn app-btn-secondary">Search</button>
                                         </div>
                                     </form>
-
                                 </div><!--//col-->
                                 <div class="col-auto">
-
                                     <select class="form-select w-auto">
                                         <option selected value="option-1">All</option>
                                         <option value="option-2">This week</option>
                                         <option value="option-3">This month</option>
                                         <option value="option-4">Last 3 months</option>
-
                                     </select>
                                 </div>
                                 <div class="col-auto">
-                                    <a class="btn app-btn-secondary" href="#">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download me-1"
-                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                            <path fill-rule="evenodd"
-                                                d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                                    <a class="btn app-btn-secondary" href="{{ route('roles.create') }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em" viewBox="0 0 448 512">
+                                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                         </svg>
-                                        Download CSV
+                                        Tambah Role
                                     </a>
                                 </div>
                             </div><!--//row-->
@@ -51,38 +42,30 @@
                     </div><!--//col-auto-->
                 </div><!--//row-->
 
-
-                <a class="btn app-btn-secondary mb-2" href="{{ route('galeri.create') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
-                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path
-                            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
-                    </svg>
-                    Tambah Foto Galeri
-                </a>
-
-                <div class="tab-content" id="orders-table-tab-content">
-                    <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+                <div class="tab-content" id="roles-table-tab-content">
+                    <div class="tab-pane fade show active" id="roles-all" role="tabpanel" aria-labelledby="roles-all-tab">
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="galerifoto-list"
-                                        style="text-align: center;">
+                                    <table class="table app-table-hover mb-0 text-left" id="role-list" style="text-align: center;">
                                         <thead>
                                             <tr>
-                                                <th class="cell" style="text-align: center;">No</th>
-                                                <th class="cell" style="text-align: center;">Gambar</th>
-                                                <th class="cell" style="text-align: center;">Album</th>
+                                                <th class="cell" style="text-align: center;">Role</th>
                                                 <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <!-- Data will be populated by DataTables -->
                                         </tbody>
                                     </table>
                                 </div><!--//table-responsive-->
-
                             </div><!--//app-card-body-->
                         </div><!--//app-card-->
+                        <nav class="app-pagination">
+                            <ul class="pagination justify-content-center">
+                                <!-- Pagination will be handled by DataTables -->
+                            </ul>
+                        </nav><!--//app-pagination-->
                     </div><!--//tab-pane-->
                 </div><!--//tab-content-->
             </div><!--//container-fluid-->
@@ -90,47 +73,33 @@
     </div><!--//app-wrapper-->
 
     <script>
-        assetUrl = "{{ asset('images/galeri') }}";
         $(document).ready(function() {
-            var table = $('#galerifoto-list').DataTable({
-                processing: false,
+            var table = $('#role-list').DataTable({
+                processing: true,
                 serverSide: true,
                 searching: true,
-                info: false,
-                order: true,
-                paging: false,
-                ajax: "{{ route('galeri.index') }}",
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'gambar',
-                        name: 'gambar',
-                        orderable: false,
+                info: true,
+                paging: true,
+                ajax: "{{ route('roles.index') }}",
+                columns: [
+                    { data: 'name', name: 'name' },
+                    { 
+                        data: 'action', 
+                        name: 'action', 
+                        orderable: false, 
                         searchable: false,
-                        render: function(data, type, full, meta) {
-                            return '<img src="' + assetUrl + '/' + data +
-                                '" alt="Gambar Album" style="max-width: 100px;">';
+                        render: function(data, type, row) {
+                            return `
+                                <a href="roles/${row.id}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <button class="btn btn-sm btn-danger deleteRole" data-id="${row.id}">Delete</button>
+                            `;
                         }
-                    },
-                    {
-                        data: 'id_album',
-                        name: 'id_album'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
                     }
                 ]
             });
 
-            $('body').on('click', '.deleteGaleri', function() {
-                var galeri_id = $(this).data("id");
+            $('body').on('click', '.deleteRole', function() {
+                var role_id = $(this).data("id");
                 Swal.fire({
                     title: 'Apakah Anda Yakin?',
                     text: "Data akan dihapus secara permanen",
@@ -143,11 +112,8 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "DELETE",
-                            url: "{{ route('galeri.index') }}" + '/' + galeri_id,
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
-                                    'content')
-                            },
+                            url: "{{ route('roles.index') }}" + '/' + role_id,
+                            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                             success: function(data) {
                                 Swal.fire({
                                     icon: 'success',
@@ -161,17 +127,12 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Terjadi Kesalahaan Saat Menghapus',
+                                    text: 'Terjadi Kesalahan Saat Menghapus',
                                 });
                             }
                         });
                     }
                 });
-            });
-
-            $('body').on('click', '.editGaleri', function() {
-                var galeri_id = $(this).data('id');
-                window.location.href = 'galeri/' + galeri_id + '/edit';
             });
 
             var successMessage = "{{ session('success') }}";

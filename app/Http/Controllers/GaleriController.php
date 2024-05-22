@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 use App\Models\Album;
 use App\Models\Galeri;
 
@@ -12,9 +14,26 @@ class GaleriController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $q_galeri = Galeri::select('*')->orderByDesc('created_at');
+            return DataTables::of($q_galeri)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a class="btn-sm app-btn-danger deleteGaleri" data-id="' . $row->id . '" href="#">Hapus</a>';
+                    //$btn .= '<a class="btn-sm app-btn-primary editGaleri" data-id="' . $row->id . '" href="#">Edit</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        $data = [
+            'title' => 'Galeri Foto',
+        ];
+
+        return view('content.galeri-foto', $data);
     }
 
     /**
