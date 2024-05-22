@@ -12,9 +12,11 @@
                         <div class="page-utilities">
                             <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                                 <div class="col-auto">
-                                    <form class="table-search-form row gx-1 align-items-center">
+                                    <form class="table-search-form row gx-1 align-items-center" method="GET"
+                                        action="{{ route('roles.index') }}">
                                         <div class="col-auto">
-                                            <input type="text" id="search-roles" name="searchroles" class="form-control search-roles" placeholder="Search">
+                                            <input type="text" id="search-roles" name="searchroles"
+                                                class="form-control search-roles" placeholder="Search">
                                         </div>
                                         <div class="col-auto">
                                             <button type="submit" class="btn app-btn-secondary">Search</button>
@@ -22,17 +24,19 @@
                                     </form>
                                 </div><!--//col-->
                                 <div class="col-auto">
-                                    <select class="form-select w-auto">
-                                        <option selected value="option-1">All</option>
-                                        <option value="option-2">This week</option>
-                                        <option value="option-3">This month</option>
-                                        <option value="option-4">Last 3 months</option>
+                                    <select class="form-select w-auto" id="filter-time-period">
+                                        <option selected value="all">All</option>
+                                        <option value="week">This week</option>
+                                        <option value="month">This month</option>
+                                        <option value="3-months">Last 3 months</option>
                                     </select>
                                 </div>
                                 <div class="col-auto">
                                     <a class="btn app-btn-secondary" href="{{ route('roles.create') }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em" viewBox="0 0 448 512">
-                                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
+                                            viewBox="0 0 448 512">
+                                            <path
+                                                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
                                         </svg>
                                         Tambah Role
                                     </a>
@@ -47,15 +51,15 @@
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="role-list" style="text-align: center;">
+                                    <table class="table app-table-hover mb-0 text-left" id="role-list"
+                                        style="text-align: center;">
                                         <thead>
                                             <tr>
                                                 <th class="cell" style="text-align: center;">Role</th>
                                                 <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <!-- Data will be populated by DataTables -->
+                                        <tbody style="text-align: center;">
                                         </tbody>
                                     </table>
                                 </div><!--//table-responsive-->
@@ -77,25 +81,35 @@
             var table = $('#role-list').DataTable({
                 processing: true,
                 serverSide: true,
-                searching: true,
+                searching: false,
                 info: true,
                 paging: true,
-                ajax: "{{ route('roles.index') }}",
-                columns: [
-                    { data: 'name', name: 'name' },
-                    { 
-                        data: 'action', 
-                        name: 'action', 
-                        orderable: false, 
+                ajax: {
+                    url: "{{ route('roles.index') }}",
+                    data: function(d) {
+                        d.search = $('#search-roles').val();
+                        d.time_period = $('#filter-time-period').val();
+                    }
+                },
+                columns: [{
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
                         searchable: false,
-                        render: function(data, type, row) {
-                            return `
-                                <a href="roles/${row.id}/edit" class="btn btn-sm btn-warning">Edit</a>
-                                <button class="btn btn-sm btn-danger deleteRole" data-id="${row.id}">Delete</button>
-                            `;
-                        }
                     }
                 ]
+            });
+
+            $('#search-roles').on('keyup', function() {
+                table.draw();
+            });
+
+            $('#filter-time-period').on('change', function() {
+                table.draw();
             });
 
             $('body').on('click', '.deleteRole', function() {
@@ -113,7 +127,9 @@
                         $.ajax({
                             type: "DELETE",
                             url: "{{ route('roles.index') }}" + '/' + role_id,
-                            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
                             success: function(data) {
                                 Swal.fire({
                                     icon: 'success',
@@ -135,16 +151,15 @@
                 });
             });
 
-            var successMessage = "{{ session('success') }}";
-            if (successMessage) {
+            @if (session('success'))
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
-                    text: successMessage,
+                    text: '{{ session('success') }}',
                     showConfirmButton: false,
                     timer: 1000
                 });
-            }
+            @endif
         });
     </script>
 @endsection

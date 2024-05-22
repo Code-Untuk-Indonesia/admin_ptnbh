@@ -59,7 +59,7 @@
 
                             <div class="mb-3">
                                 <label for="roles" class="form-label">Roles</label>
-                                <select class="form-control" id="roles" name="roles[]" multiple="multiple" required>
+                                <select class="form-control" id="roles" name="roles" required>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role }}"
                                             {{ isset($user) && in_array($role, $userRoles) ? 'selected' : '' }}>
@@ -78,6 +78,15 @@
             </div>
         </div>
     </div>
+
+    <style>
+        #togglePassword {
+            cursor: pointer;
+        }
+        #passwordIcon {
+            font-size: 1.2em;
+        }
+    </style>
 
     <script>
         document.getElementById('togglePassword').addEventListener('click', function(e) {
