@@ -22,18 +22,13 @@
                 <img class="img-news-last" src="{{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}}" alt="">
             </div>
             <div class="col" style="width: 100%; height: 100%;">
-                <p class="date-news-last">07 Mei 2024 </p>
+                <p class="date-news-last">{{ \Carbon\Carbon::parse($berita1->created_at)->translatedFormat('l, j F Y H:i') }}</p>
                 <h1 class="title-news-last">
-                    UNTAN Mewisuda 2.096 Wisudawan: Membangun Kualifikasi dan Soft Skills untuk Masa Depan Kalimantan
-                    Barat
+                    {{$berita1->judul_id}}
                 </h1>
-                <p class="content-news-last">
-                    Universitas Tanjungpura (UNTAN) mewisuda 2.096 wisudawan pada tanggal 24-25 April 2024. Ini adalah
-                    sebuah pencapaian yang membanggakan bagi UNTAN dan juga untuk masyarakat secara keseluruhan.
-                    Keberadaan para wisudawan ini tidak hanya menambah jumlah sumber daya manusia (SDM), tetapi juga
-                    membawa beragam kualifikasi dan jenjang pendidikan tinggi yang sangat diperlukan untuk memenuhi
-                    kebutuhan zaman.
-                </p>
+                <div class="content-news-last">
+                    {!! str_replace('news', 'search', $berita1->konten_id) !!}
+                </div>
                 <button class="btn-last-news">
                     <a href="" style="text-decoration: none; color: #ffea00;">
                         Selengkapnya..

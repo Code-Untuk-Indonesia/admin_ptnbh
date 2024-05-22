@@ -15,13 +15,13 @@ class RolesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::create(['name' => 'create users']);
-        Permission::create(['name' => 'read users']);
-        Permission::create(['name' => 'update users']);
-        Permission::create(['name' => 'delete users']);
-        Permission::create(['name' => 'create roles']);
-        Permission::create(['name' => 'read roles']);
-        Permission::create(['name' => 'update roles']);
-        Permission::create(['name' => 'delete roles']);
+        Permission::create(['name' => 'manage users']);
+        Permission::create(['name' => 'manage roles']);
+        Permission::create(['name' => 'manage berita']);
+        Permission::create(['name' => 'manage galeri']);
+        Permission::create(['name' => 'manage pengumuman']);
+        Permission::create(['name' => 'manage agenda']);
+        Permission::create(['name' => 'manage album']);
+        Permission::create(['name' => 'manage tentang']);
     }
 }
