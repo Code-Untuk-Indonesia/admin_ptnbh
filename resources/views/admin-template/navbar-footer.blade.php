@@ -66,7 +66,6 @@
                                 <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle"
                                     data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
                                     title="Notifications">
-                                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell icon"
                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
@@ -170,7 +169,6 @@
                             </div><!--//app-utility-item-->
                             <div class="app-utility-item">
                                 <a href="settings.html" title="Settings">
-                                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear icon"
                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -217,7 +215,6 @@
                 <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
                     <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link" href="index.html">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -229,8 +226,40 @@
                                 <span class="nav-link-text">Dashboard</span>
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
+                        @can('manage roles')
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                            <a class="nav-link" href="{{ route('roles.index') }}">
+                                <span class="nav-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
+                                        <path
+                                            d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                        <path
+                                            d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492z" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-text">Master Role</span>
+                            </a><!--//nav-link-->
+                        </li><!--//nav-item-->
+                        @endcan
+                        @can('manage roles')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.index') }}">
+                                <span class="nav-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                                        <path
+                                            d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-text">Master User</span>
+                            </a><!--//nav-link-->
+                        </li><!--//nav-item-->
+                        @endcan
+                        @can('manage berita')
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('berita.index') }}">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -244,8 +273,9 @@
                                 <span class="nav-link-text">Berita</span>
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
+                        @endcan
+                        @can('manage pengumuman')
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link" href="{{ route('pengumuman.index') }}">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -259,8 +289,9 @@
                                 <span class="nav-link-text">Pengumuman</span>
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
+                        @endcan
+                        @can('manage agenda')
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link" href="{{ route('agenda.index') }}">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -276,8 +307,9 @@
                                 <span class="nav-link-text">Agenda</span>
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
+                        @endcan
+
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link" href="{{ route('home.index') }}">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -291,8 +323,9 @@
                                 <span class="nav-link-text">Home</span>
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
+
+                        @can('manage tentang')
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link" href="{{ route('tentang.index') }}">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -306,8 +339,10 @@
                                 <span class="nav-link-text">Tentang</span>
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
+                        @endcan
+
+
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link" href="{{ route('organisasi.index') }}">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -322,7 +357,6 @@
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
                         <li class="nav-item has-submenu">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse"
                                 data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
                                 <span class="nav-icon">
@@ -355,7 +389,6 @@
                             </div>
                         </li><!--//nav-item-->
                         <li class="nav-item">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <a class="nav-link" href="{{ route('video.index') }}">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -374,7 +407,6 @@
                     <nav class="app-nav app-nav-footer">
                         <ul class="app-menu footer-menu list-unstyled">
                             <li class="nav-item">
-                                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                                 <a class="nav-link" href="settings.html">
                                     <span class="nav-icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear"
@@ -389,7 +421,6 @@
                                 </a><!--//nav-link-->
                             </li><!--//nav-item-->
                             <li class="nav-item">
-                                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                                 <a class="nav-link"
                                     href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">
                                     <span class="nav-icon">
@@ -406,7 +437,6 @@
                                 </a><!--//nav-link-->
                             </li><!--//nav-item-->
                             <li class="nav-item">
-                                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                                 <a class="nav-link"
                                     href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">
                                     <span class="nav-icon">
