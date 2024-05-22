@@ -181,9 +181,23 @@ class BeritaController extends Controller
     }
 
 
-    public function beritaathome()
-    {
-        $berita = Berita::orderBy('created_at', 'desc')->take(6)->get();
-        return view('halaman-user.home', compact('berita'));
+    // public function beritaathome()
+    // {
+    //     $berita = Berita::orderBy('created_at', 'desc')->take(6)->get();
+    //     return view('halaman-user.home', compact('berita'));
+    // }
+
+    public function beritapage() {
+        $berita1 = Berita::latest()->first();
+
+        $berita = Berita::orderBy('created_at', 'desc')->paginate(6);
+        return view('halaman-user.berita', compact('berita', 'berita1'));
     }
+
+    public function showathome($slug) {
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+        return view('halaman-user.show', compact('berita'));
+    }
+
+
 }

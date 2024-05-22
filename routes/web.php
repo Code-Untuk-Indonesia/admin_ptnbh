@@ -84,8 +84,10 @@ Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi
 
 
 // frontend user
+Route::get('/berita-ptnbh', [BeritaController::class, 'beritapage'])->name('berita');
 Route::get('/tentang-ptnbh', [TentangController::class, 'fesejarah'])->name('tentang');
 Route::get('/', [HomepageController::class, 'fehome'])->name('home');
+Route::get('/berita/{slug}', [BeritaController::class, 'showathome'])->name('berita.show');
 
 
 
@@ -113,9 +115,7 @@ Route::get('/unit-bisnis', function () {
     return view('halaman-user.unit-bisnis');
 });
 
-Route::get('/berita-ptnbh', function () {
-    return view('halaman-user.berita');
-});
+
 Route::get('/detail-berita/{id}/id', [BeritaController::class, 'showID'])->name('berita.show.id');
 Route::get('/detail-berita/{id}/en', [BeritaController::class, 'showEN'])->name('berita.show.en');
 
