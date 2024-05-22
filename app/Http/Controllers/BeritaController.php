@@ -194,4 +194,10 @@ class BeritaController extends Controller
         return view('halaman-user.berita', compact('berita', 'berita1'));
     }
 
+    public function showathome($slug) {
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+        return view('halaman-user.show', compact('berita'));
+    }
+
+
 }

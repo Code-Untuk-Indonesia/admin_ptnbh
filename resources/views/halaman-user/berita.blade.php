@@ -30,7 +30,7 @@
                     {!! str_replace('news', 'search', $berita1->konten_id) !!}
                 </div>
                 <button class="btn-last-news">
-                    <a href="" style="text-decoration: none; color: #ffea00;">
+                    <a href="{{ route('berita.show', $berita1->slug) }}" style="text-decoration: none; color: #ffea00;">
                         Selengkapnya..
                     </a>
                 </button>

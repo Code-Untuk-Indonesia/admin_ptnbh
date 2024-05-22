@@ -87,6 +87,7 @@ Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi
 Route::get('/berita-ptnbh', [BeritaController::class, 'beritapage'])->name('berita');
 Route::get('/tentang-ptnbh', [TentangController::class, 'fesejarah'])->name('tentang');
 Route::get('/', [HomepageController::class, 'fehome'])->name('home');
+Route::get('/berita/{slug}', [BeritaController::class, 'showathome'])->name('berita.show');
 
 
 
