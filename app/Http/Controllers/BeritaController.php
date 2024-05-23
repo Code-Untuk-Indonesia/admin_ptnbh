@@ -162,19 +162,19 @@ class BeritaController extends Controller
         return response()->json($berita);
     }
 
-    public function showID($id)
+    public function showID($slug)
     {
         $berita = Berita::select('judul_id as judul', 'konten_id as konten', 'gambar')
-                        ->where('id', $id)
+                        ->where('slug', $slug)
                         ->firstOrFail();
 
         return view('halaman-user.show', compact('berita'));
     }
 
-    public function showEN($id)
+    public function showEN($slug)
     {
         $berita = Berita::select('judul_en as judul', 'konten_en as konten', 'gambar')
-                        ->where('id', $id)
+                        ->where('slug', $slug)
                         ->firstOrFail();
 
         return view('halaman-user.show', compact('berita'));

@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col">
-                <img class="img-news-last" src="{{asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg')}}" alt="">
+                <img class="img-news-last" src="{{ asset('/images/berita/' . $berita1->gambar) }}" alt="">
             </div>
             <div class="col" style="width: 100%; height: 100%;">
                 <p class="date-news-last">{{ \Carbon\Carbon::parse($berita1->created_at)->translatedFormat('l, j F Y H:i') }}</p>
@@ -30,9 +30,10 @@
                     {!! str_replace('news', 'search', $berita1->konten_id) !!}
                 </div>
                 <button class="btn-last-news">
-                    <a href="{{ route('berita.show', $berita1->slug) }}" style="text-decoration: none; color: #ffea00;">
+                    <a href="{{ route('berita.show.id', $berita1->slug) }}" style="text-decoration: none; color: #ffea00;">
                         Selengkapnya..
                     </a>
+
                 </button>
             </div>
         </div>
@@ -41,12 +42,44 @@
     <section style="padding: 0 100px;">
         <hr style="width: 100%; height: 2px; background-color: #7a8a99; border: none;">
 
+
     </section>
 
     <!-- news  -->
 
     <section class="news-all">
+        <h1 class="berita-1">
+            Berita Terbaru
+        </h1>
 
+        <div class="row mb-3" >
+            @foreach ($berita as $item)
+                <div class="col mb-3">
+                    <div class="card card-news">
+                        <img src="{{ asset('/images/berita/' . $item->gambar) }}" class="img-berita-home" alt="...">
+                        <div class="card-body" style="padding: 0">
+                            <p class="card-text date-news">
+                                {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('H:i ') }}
+                          <span
+                            style="margin-left: 5px; margin-right: 5px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"
+                                fill="none">
+                                <circle cx="2" cy="2.5" r="2" fill="#7a8a99" />
+                            </svg></span>
+                                {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}</p>
+                            <h5 class="card-title title-news">{{ $item->judul_id }}</h5>
+                            <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}" class="btn btn-warning">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <button class="btn-news">
+            <a class="a-btn-news" href="">
+                Berita Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+            </a>
+        </button>
     </section>
     <!-- end news -->
 
