@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
+use App\Models\Berita;
+use App\Models\Pengumuman;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,7 +15,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $berita = Berita::all();
+        $totalBerita = Berita::count();
+        $totalPengumuman = Pengumuman::count();
+        $totalVideo = Video::count();
+        $totalAlbum = Album::count();
+        return view('admin.dashboard-admin.dashboard', compact('berita', 'totalBerita','totalPengumuman','totalVideo','totalAlbum'));
     }
 
     /**

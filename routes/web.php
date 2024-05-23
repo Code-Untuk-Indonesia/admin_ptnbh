@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\HomepageController;
@@ -78,6 +79,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
     Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
     Route::get('/admin/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
+
+
+    // Dashboard admin
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 });
 
 Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi');
