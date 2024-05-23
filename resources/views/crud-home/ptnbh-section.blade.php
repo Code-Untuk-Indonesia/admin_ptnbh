@@ -65,6 +65,10 @@
 
 
                             </div><!--//app-card-body-->
+
+                        </div><!--//app-card-->
+                        <div class="app-card app-card-orders-table shadow-sm mb-5">
+
                             <div style="margin-bottom: 40px"></div>
                             <div class="app-card-body">
                                 <div class="table-responsive">
@@ -111,7 +115,8 @@
                                 </div><!--//table-responsive-->
                             </div>
                         </div><!--//app-card-->
-
+                        <h5>Gambar Rektor</h5>
+                        <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" style="width: 150px" alt="rek">
 
                     </div><!--//tab-pane-->
 
