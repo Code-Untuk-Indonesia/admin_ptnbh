@@ -33,12 +33,12 @@ class AgendaController extends Controller
             'title' => 'Agenda',
         ];
 
-        return view('content.agenda', $data);
+        return view('admin.content.agenda', $data);
     }
 
     public function create()
     {
-        return view('form.create-agenda');
+        return view('admin.form.create-agenda');
     }
     public function store(Request $request)
     {
@@ -81,11 +81,11 @@ class AgendaController extends Controller
     }
 
 
-    
+
     public function edit($id)
     {
         $agenda = Agenda::find($id);
-        return view('form.create-agenda', compact('agenda'));
+        return view('admin.form.create-agenda', compact('agenda'));
     }
 
     public function update(Request $request, $id)

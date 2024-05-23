@@ -33,7 +33,7 @@ class GaleriController extends Controller
             'title' => 'Galeri Foto',
         ];
 
-        return view('content.galeri-foto', $data);
+        return view('admin.content.galeri-foto', $data);
     }
 
     /**
@@ -42,7 +42,7 @@ class GaleriController extends Controller
     public function create()
     {
         $albums = Album::all();
-        return view('form.create-galeri-foto', compact('albums'));
+        return view('admin.form.create-galeri-foto', compact('albums'));
     }
 
     /**

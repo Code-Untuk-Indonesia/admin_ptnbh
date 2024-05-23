@@ -36,12 +36,12 @@ class BeritaController extends Controller
             'title' => 'Berita',
         ];
 
-        return view('content.berita', $data);
+        return view('admin.content.berita', $data);
     }
 
     public function create()
     {
-        return view('form.create-berita');
+        return view('admin.form.create-berita');
     }
 
     public function store(Request $request)
@@ -84,7 +84,7 @@ class BeritaController extends Controller
     public function edit($id)
     {
         $berita = Berita::find($id);
-        return view('form.create-berita', compact('berita'));
+        return view('admin.form.create-berita', compact('berita'));
     }
 
     public function update(Request $request, $id)

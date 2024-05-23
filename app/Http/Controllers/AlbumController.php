@@ -31,12 +31,12 @@ class AlbumController extends Controller
             'title' => 'Album',
         ];
 
-        return view('content.album', $data);
+        return view('admin.content.album', $data);
     }
 
     public function create()
     {
-        return view('form.create-album');
+        return view('admin.form.create-album');
     }
 
     public function store(Request $request)
@@ -74,7 +74,7 @@ class AlbumController extends Controller
         if (!$album) {
             return redirect()->route('album.index')->withErrors(['error' => 'Album tidak ditemukan']);
         }
-        return view('form.create-album', compact('album'));
+        return view('admin.form.create-album', compact('album'));
     }
 
     public function update(Request $request, $id)
