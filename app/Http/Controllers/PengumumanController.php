@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Pengumuman;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+
 class PengumumanController extends Controller
 {
     /**
@@ -55,6 +57,7 @@ class PengumumanController extends Controller
             $pengumuman->konten_id = $request->input('konten_id');
             $pengumuman->judul_en = $request->input('judul_en');
             $pengumuman->konten_en = $request->input('konten_en');
+            $pengumuman->slug = Str::slug($request->input('judul_id'));
 
             if ($request->hasFile('gambar-pengumuman')) {
                 $gambar = $request->file('gambar-pengumuman');
