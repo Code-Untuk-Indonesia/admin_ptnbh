@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col">
                 <h1 class="title-profile">
-                    <span style="color: #ffea00;">|</span> {{$data->judul_visi_id}}
+                    <span style="color: #ffea00;">|</span> {{$data->judul_misi_id}}
                 </h1>
                 <p class="misi-profile">
                     {!! str_replace('isi', 'sejarah', $data->visi_id) !!}
