@@ -30,14 +30,14 @@
             <div class="row">
                 <div class="col-4" style="display: flex;align-items: center; padding: 20px">
                     <div class="image-section">
-                        <img src="{{ asset('ptnbh/asset/Prof.-Garuda-Wiko.png') }}" alt="rektor" class="img-rektor">
-                        <h1 class="text-rektor3">Prof. Dr. Garuda Wiko, S.H., M.Si</h1>
+                        <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" alt="rektor" class="img-rektor">
+                        {{-- <h1 class="text-rektor3">Prof. Dr. Garuda Wiko, S.H., M.Si</h1> --}}
                     </div>
                 </div>
                 <div class="col">
                     <h1 class="text-rektor">{{ $data->judul_rektor_id }}</h1>
                     <div>
-                        {!! str_replace(['<p '], ['<img class="img-detail" ', ' <p class="text-rektor2" '], $data->sambutan_rektor_id) !!}
+                        {!! str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_id) !!}
                     </div>
 
 
@@ -71,7 +71,7 @@
                             {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}
                         </p>
                         <h5 class="card-title title-news " style="padding-left: 5px">{{ $item->judul_id }}</h5>
-                        <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}" class="btn btn-news btn-warning mb-2">Baca
+                        <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}" class="btn btn-news btn-warning mb-3">Baca
                             Selengkapnya</a>
                     </div>
                 </div>
