@@ -105,16 +105,15 @@
                     {
                         data: 'judul_en',
                         name: 'judul_en'
-                    },
-                    {
+                    }, {
                         data: 'link',
                         name: 'link',
                         orderable: false,
                         searchable: false,
                         render: function(data, type, row) {
-                            var embedUrl = convertToEmbedUrl(
-                            data);
-                            return '<button class="btn btn-success btn-sm showVideo">' +
+                            var embedUrl = convertToEmbedUrl(data);
+                            return '<button class="btn btn-success btn-sm showVideo" data-file="' +
+                                data + '">' +
                                 '<i class="fa fa-play-circle"></i> Play Video<br><span style="font-size: smaller;">' +
                                 data + '</span></button>';
                         }
@@ -132,7 +131,7 @@
             function convertToEmbedUrl(url) {
                 var videoId = url.split('v=')[1];
                 var ampersandPosition = videoId.indexOf('&');
-                if (ampersandPosition != -1) {
+                if (ampersandPosition !== -1) {
                     videoId = videoId.substring(0, ampersandPosition);
                 }
                 return 'https://www.youtube.com/embed/' + videoId;
@@ -140,14 +139,15 @@
 
             // Event listener untuk tombol showVideo
             $('#video-list').on('click', '.showVideo', function() {
-                var fileUrl = $(this).data('file');
-                $('#videoFrame').attr('src', fileUrl);
+                var fileUrl = $(this).data('file'); // Mengambil URL video dari data-file
+                var embedUrl = convertToEmbedUrl(fileUrl); // Mengonversi URL ke format sematkan
+                $('#videoFrame').attr('src', embedUrl); // Menetapkan URL sematkan ke iframe
                 $('#videoModal').modal('show');
             });
 
             // Reset iframe src when modal is closed
             $('#videoModal').on('hidden.bs.modal', function(e) {
-                $('#videoFrame').attr('src', '');
+                $('#videoFrame').attr('src', ''); // Menghentikan pemutaran video saat modal ditutup
             });
 
             $(function() {
