@@ -110,8 +110,8 @@
                         searchable: false,
                         render: function(data, type, full, meta) {
                             var fileUrl = '/files/unduh/' + data;
-                            return '<button class="btn btn-info btn-sm showDokumen" data-file="' +
-                                fileUrl + '">Show</button>';
+                            return '<button class="btn btn-primary btn-sm showDokumen" data-file="' +
+                                fileUrl + '"><i class="fas fa-eye"></i><br>Show</button>';
                         }
                     },
                     {

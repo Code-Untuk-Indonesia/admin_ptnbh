@@ -16,8 +16,11 @@ class RoleController extends Controller
             $roles = Role::query();
             return datatables()->of($roles)
                 ->addColumn('action', function ($role) {
-                    return '<a href="' . route('roles.edit', $role->id) . '" class="btn btn-primary btn-sm">Edit</a>
-                            <button type="button" class="deleteRole btn btn-danger btn-sm" data-id="' . $role->id . '">Delete</button>';
+                    $btnGroup = '<div class="btn-group" role="group" aria-label="Role Actions">';
+                    $btnGroup .= '<a href="' . route('roles.edit', $role->id) . '" class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Edit</a>';
+                    $btnGroup .= '<button type="button" class="deleteRole btn btn-sm btn-danger" data-id="' . $role->id . '"><i class="fa fa-trash"></i> Delete</button>';
+                    $btnGroup .= '</div>';
+                    return $btnGroup;
                 })
                 ->rawColumns(['action'])
                 ->make(true);

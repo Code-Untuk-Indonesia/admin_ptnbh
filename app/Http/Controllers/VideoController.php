@@ -22,8 +22,12 @@ class VideoController extends Controller
             return DataTables::of($q_video)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a class="btn-sm app-btn-danger deleteAlbum" data-id="' . $row->id . '" href="#">Hapus</a>';
-                    $btn .= '<a class="btn-sm app-btn-primary editAlbum" data-id="' . $row->id . '" href="#">Edit</a>';
+                    $btn = '<div class="btn-group" role="group" aria-label="Action Buttons">';
+                    $btn .= '<a class="btn btn-sm btn-danger w-50 d-flex flex-column align-items-center deleteVideo" data-id="' . $row->id . '" href="#">';
+                    $btn .= '<i class="fa fa-trash mb-1"></i> <span>Hapus</span></a>';
+                    $btn .= '<a class="btn btn-sm btn-success w-50 d-flex flex-column align-items-center editVideo" data-id="' . $row->id . '" href="#">';
+                    $btn .= '<i class="fa fa-edit mb-1"></i> <span>Edit</span></a>';
+                    $btn .= '</div>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
