@@ -25,8 +25,10 @@ class GaleriController extends Controller
             return DataTables::of($q_galeri)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a class="btn-sm app-btn-danger deleteGaleri" data-id="' . $row->id . '" href="#">Hapus</a>';
-                    //$btn .= '<a class="btn-sm app-btn-primary editGaleri" data-id="' . $row->id . '" href="#">Edit</a>';
+                    $btn = '<div class="d-flex flex-column align-items-center">';
+                    $btn .= '<a class="btn btn-sm btn-danger w-50 d-flex flex-column align-items-center deleteGaleri" data-id="' . $row->id . '" href="#">';
+                    $btn .= '<i class="fa fa-trash mb-1"></i> <span>Hapus</span></a>';
+                    $btn .= '</div>';
                     return $btn;
                 })
                 ->rawColumns(['action'])

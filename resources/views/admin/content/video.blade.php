@@ -113,10 +113,10 @@
                         searchable: false,
                         render: function(data, type, row) {
                             var embedUrl = convertToEmbedUrl(
-                                data); // convert the URL to embed format
-                            return '<button class="btn btn-success btn-sm showVideo" data-file="' +
-                                embedUrl + '">' +
-                                '<i class="fa fa-play"></i> Show</button>';
+                            data);
+                            return '<button class="btn btn-success btn-sm showVideo">' +
+                                '<i class="fa fa-play-circle"></i> Play Video<br><span style="font-size: smaller;">' +
+                                data + '</span></button>';
                         }
                     },
                     {
@@ -158,7 +158,7 @@
                 });
             });
 
-            $('body').on('click', '.deleteAlbum', function() {
+            $('body').on('click', '.deleteVideo', function() {
                 var video_id = $(this).data("id");
                 Swal.fire({
                     title: 'Apakah Anda Yakin?',
@@ -197,7 +197,7 @@
                 });
             });
 
-            $('body').on('click', '.editAlbum', function() {
+            $('body').on('click', '.editVideo', function() {
                 var video_id = $(this).data('id');
                 window.location.href = 'video/' + video_id + '/edit';
             });

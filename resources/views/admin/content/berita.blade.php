@@ -103,7 +103,7 @@
                         searchable: false,
                         render: function(data, type, full, meta) {
                             return '<a href="detail-berita/' + full.id +
-                                '/id" class="btn btn-info btn-sm showBerita">Show</a>';
+                                '/id" class="btn btn-info btn-sm showBerita"><i class="fa fa-eye"></i> Show</a>';
                         }
                     },
                     {
@@ -117,7 +117,7 @@
                         searchable: false,
                         render: function(data, type, full, meta) {
                             return '<a href="detail-berita/' + full.id +
-                                '/en" class="btn btn-info btn-sm showBerita">Show</a>';
+                                '/en" class="btn btn-info btn-sm showBerita"><i class="fa fa-eye"></i> Show</a>';
                         }
                     },
                     {

@@ -21,8 +21,12 @@ class AgendaController extends Controller
             return DataTables::of($q_agenda)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a class="btn-sm app-btn-danger deleteAgenda" data-id="' . $row->id . '" href="#">Hapus</a>';
-                    $btn .= '<a class="btn-sm app-btn-primary editAgenda" data-id="' . $row->id . '" href="#">Edit</a>';
+                    $btn = '<div class="btn-group" role="group" aria-label="Action Buttons">';
+                    $btn .= '<a class="btn btn-sm btn-danger w-50 d-flex flex-column align-items-center deleteAgenda" data-id="' . $row->id . '" href="#">';
+                    $btn .= '<i class="fa fa-trash mb-1"></i> <span>Hapus</span></a>';
+                    $btn .= '<a class="btn btn-sm btn-success w-50 d-flex flex-column align-items-center editAgenda" data-id="' . $row->id . '" href="#">';
+                    $btn .= '<i class="fa fa-edit mb-1"></i> <span>Edit</span></a>';
+                    $btn .= '</div>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -140,7 +144,7 @@ class AgendaController extends Controller
 
     public function destroy($id)
     {
-        $data =Agenda::find($id);
+        $data = Agenda::find($id);
         try {
             DB::transaction(function () use ($data) {
                 if ($data != null) {
