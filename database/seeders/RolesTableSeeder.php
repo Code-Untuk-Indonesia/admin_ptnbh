@@ -23,5 +23,6 @@ class RolesTableSeeder extends Seeder
         Permission::create(['name' => 'manage agenda']);
         Permission::create(['name' => 'manage album']);
         Permission::create(['name' => 'manage tentang']);
+        Permission::create(['name' => 'manage video']);
     }
 }
