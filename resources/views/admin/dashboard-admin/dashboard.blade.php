@@ -44,7 +44,7 @@
                             <div class="app-card-body p-3 p-lg-4">
                                 <h4 class="stats-type mb-1">Total Album</h4>
                                 <div class="stats-figure">{{$totalAlbum}}</div>
-                                <div class="stats-meta">New</div>
+
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
