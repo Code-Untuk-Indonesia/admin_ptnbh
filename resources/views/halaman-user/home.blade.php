@@ -63,18 +63,17 @@
                             <p class="card-text date-news">
                                 {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('l, j F Y H:i') }}</p>
                             <h5 class="card-title title-news">{{ $item->judul_id }}</h5>
-                            <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}" class="btn btn-warning">Berita Selengkapnya</a>
+                            <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}" class="btn btn-warning">Berita
+                                Selengkapnya</a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-
-        <button class="btn-news">
-            <a class="a-btn-news" href="/berita-user">
+        <a class="a-btn-news" href="/berita-ptnbh">
+            <button class="btn-news">
                 Berita Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
-            </a>
-        </button>
+            </button> </a>
     </section>
     <!-- end berita -->
 
@@ -89,7 +88,7 @@
                     <div class="card card-galery img-hover-zoom" style="width: 18rem;">
                         <img src="{{ asset('/images/album/' . $album->gambar) }}" class="card-img-top img-news"
                             alt="...">
-                            <h5 class="card-title title-news">{{ $album->judul_id }}</h5>
+                        <h5 class="card-title title-news">{{ $album->judul_id }}</h5>
                     </div>
                 </div>
             @endforeach

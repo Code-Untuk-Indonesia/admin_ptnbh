@@ -96,7 +96,7 @@ Route::get('/berita-ptnbh', [BeritaController::class, 'beritapage'])->name('beri
 Route::get('/tentang-ptnbh', [TentangController::class, 'fesejarah'])->name('tentang');
 Route::get('/', [HomepageController::class, 'fehome'])->name('home');
 Route::get('/berita/{slug}', [BeritaController::class, 'showathome'])->name('berita.showfe');
-
+Route::get('/beritapage', [BeritaController::class, 'beritapage'])->name('beritapage');
 
 
 Route::get('/fakultas', function () {

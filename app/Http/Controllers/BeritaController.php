@@ -187,12 +187,26 @@ class BeritaController extends Controller
     //     return view('halaman-user.home', compact('berita'));
     // }
 
-    public function beritapage() {
-        $berita1 = Berita::latest()->first();
+    public function beritapage(Request $request)
+    {
+        $query = Berita::query();
 
-        $berita = Berita::orderBy('created_at', 'desc')->paginate(6);
+        if ($request->has('search')) {
+            $search = $request->get('search');
+            $query->where('judul_id', 'like', "%$search%");
+        }
+
+        if ($request->ajax()) {
+            $page = $request->get('page', 1); // Default to page 1 if not provided
+            $berita = $query->orderBy('created_at', 'desc')->paginate(6, ['*'], 'page', $page);
+            return view('halaman-user.partial-berita', compact('berita'))->render();
+        }
+
+        $berita1 = Berita::latest()->first();
+        $berita = $query->orderBy('created_at', 'desc')->paginate(6);
         return view('halaman-user.berita', compact('berita', 'berita1'));
     }
+
 
     public function showathome($slug) {
         $berita = Berita::where('slug', $slug)->firstOrFail();
