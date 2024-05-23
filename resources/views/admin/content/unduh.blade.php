@@ -54,7 +54,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="myclose">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -134,7 +134,13 @@
                 $('#pdfModal .modal-body').html('');
             });
 
+            $(function() {
+                $('#myclose').click(function(e) {
+                    e.preventDefault();
+                    $('#pdfModal').modal('hide')
 
+                });
+            });
 
             $('body').on('click', '.deleteUnduh', function() {
                 var unduh_id = $(this).data("id");

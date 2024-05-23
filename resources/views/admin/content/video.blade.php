@@ -46,6 +46,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="videoModalLabel">Video</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="myclose">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="videoFrame" width="100%" height="315" src="" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <style>
@@ -89,7 +110,14 @@
                         data: 'link',
                         name: 'link',
                         orderable: false,
-                        searchable: false
+                        searchable: false,
+                        render: function(data, type, row) {
+                            var embedUrl = convertToEmbedUrl(
+                                data); // convert the URL to embed format
+                            return '<button class="btn btn-success btn-sm showVideo" data-file="' +
+                                embedUrl + '">' +
+                                '<i class="fa fa-play"></i> Show</button>';
+                        }
                     },
                     {
                         data: 'action',
@@ -98,6 +126,36 @@
                         searchable: false
                     }
                 ]
+            });
+
+            // Fungsi untuk mengonversi URL YouTube menjadi format sematkan
+            function convertToEmbedUrl(url) {
+                var videoId = url.split('v=')[1];
+                var ampersandPosition = videoId.indexOf('&');
+                if (ampersandPosition != -1) {
+                    videoId = videoId.substring(0, ampersandPosition);
+                }
+                return 'https://www.youtube.com/embed/' + videoId;
+            }
+
+            // Event listener untuk tombol showVideo
+            $('#video-list').on('click', '.showVideo', function() {
+                var fileUrl = $(this).data('file');
+                $('#videoFrame').attr('src', fileUrl);
+                $('#videoModal').modal('show');
+            });
+
+            // Reset iframe src when modal is closed
+            $('#videoModal').on('hidden.bs.modal', function(e) {
+                $('#videoFrame').attr('src', '');
+            });
+
+            $(function() {
+                $('#myclose').click(function(e) {
+                    e.preventDefault();
+                    $('#videoModal').modal('hide')
+
+                });
             });
 
             $('body').on('click', '.deleteAlbum', function() {
