@@ -54,7 +54,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'roles' => 'required|array',
+            'roles' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -67,10 +67,12 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Assign the role to the user
         $user->assignRole($request->roles);
 
         return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -100,7 +102,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
-            'roles' => 'required|array',
+            'roles' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -116,10 +118,12 @@ class UserController extends Controller
 
         $user->save();
 
+        // Synchronize roles
         $user->syncRoles($request->roles);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.

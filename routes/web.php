@@ -52,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('berita', BeritaController::class)->middleware('permission:manage berita');
     Route::resource('galeri', GaleriController::class)->middleware('permission:manage galeri');
     Route::resource('pengumuman', PengumumanController::class)->middleware('permission:manage pengumuman');
-    Route::resource('video', VideoController::class)->middleware('permission:manage videos');
+    Route::resource('video', VideoController::class)->middleware('permission:manage video');
 
     // Resource controller untuk pengguna hanya dapat diakses oleh pengguna dengan izin 'manage_users'
     Route::resource('users', UserController::class)->middleware('permission:manage users');
@@ -87,7 +87,7 @@ Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi
 Route::get('/berita-ptnbh', [BeritaController::class, 'beritapage'])->name('berita');
 Route::get('/tentang-ptnbh', [TentangController::class, 'fesejarah'])->name('tentang');
 Route::get('/', [HomepageController::class, 'fehome'])->name('home');
-Route::get('/berita/{slug}', [BeritaController::class, 'showathome'])->name('berita.show');
+//Route::get('/berita/{slug}', [BeritaController::class, 'showathome'])->name('berita.show');
 
 
 
