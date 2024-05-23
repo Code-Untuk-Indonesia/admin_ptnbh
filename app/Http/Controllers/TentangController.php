@@ -11,13 +11,13 @@ class TentangController extends Controller
     public function index()
     {
         $data = tentang::first();
-        return view('crud-tentang.tentang', compact('data'));
+        return view('admin.crud-tentang.tentang', compact('data'));
     }
 
     public function edit($id)
     {
         $data = Tentang::findOrFail($id);
-        return view('crud-tentang.edit', compact('data'));
+        return view('admin.crud-tentang.edit', compact('data'));
     }
 
     // Menyimpan perubahan

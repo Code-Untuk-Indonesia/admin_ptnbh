@@ -24,14 +24,14 @@ class RoleController extends Controller
         }
 
         $title = 'Role Management';
-        return view('content.role', compact('title'));
+        return view('admin.content.role', compact('title'));
     }
 
     public function create()
     {
         // Mengambil semua izin untuk pembuatan peran baru
         $permissions = Permission::all();
-        return view('form.create-role', ['permissions' => $permissions]);
+        return view('admin.form.create-role', ['permissions' => $permissions]);
     }
 
     public function store(Request $request)
@@ -68,7 +68,7 @@ class RoleController extends Controller
         $permissions = Permission::all();
         // Mengambil semua izin yang dimiliki oleh peran
         $rolePermissions = $role->permissions->pluck('id')->toArray();
-        return view('form.create-role', ['role' => $role, 'permissions' => $permissions, 'rolePermissions' => $rolePermissions]);
+        return view('admin.form.create-role', ['role' => $role, 'permissions' => $permissions, 'rolePermissions' => $rolePermissions]);
     }
 
     public function update(Request $request, Role $role)

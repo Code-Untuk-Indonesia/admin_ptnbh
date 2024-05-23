@@ -34,12 +34,12 @@ class VideoController extends Controller
             'title' => 'Dokumentasi Video',
         ];
 
-        return view('content.video', $data);
+        return view('admin.content.video', $data);
     }
 
     public function create()
     {
-        return view('form.create-video');
+        return view('admin.form.create-video');
     }
 
     /**

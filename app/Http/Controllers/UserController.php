@@ -34,7 +34,7 @@ class UserController extends Controller
             'title' => 'User',
         ];
 
-        return view('content.user', $data);
+        return view('admin.content.user', $data);
     }
     /**
      * Show the form for creating a new resource.
@@ -42,7 +42,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name', 'name')->all();
-        return view('form.create-users', compact('roles'));
+        return view('admin.form.create-users', compact('roles'));
     }
 
     /**
@@ -91,7 +91,7 @@ class UserController extends Controller
         $roles = Role::pluck('name', 'name')->all();
         $userRoles = $user->roles->pluck('name')->toArray();
 
-        return view('form.create-users', compact('user', 'roles', 'userRoles'));
+        return view('admin.form.create-users', compact('user', 'roles', 'userRoles'));
     }
 
     public function update(Request $request, $id)

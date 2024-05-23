@@ -14,7 +14,7 @@ class OrganisasiController extends Controller
     {
 
         $data = Organisasi::first();
-        return view('crud-organisasi.organisasi', compact('data'));
+        return view('admin.crud-organisasi.organisasi', compact('data'));
     }
     public function fe()
     {
@@ -54,7 +54,7 @@ class OrganisasiController extends Controller
    public function edit($id)
    {
        $data = Organisasi::findOrFail($id);
-       return view('crud-organisasi.edit', compact('data'));
+       return view('admin.crud-organisasi.edit', compact('data'));
    }
 
    // Menyimpan perubahan

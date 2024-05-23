@@ -14,7 +14,7 @@ class HomepageController extends Controller
     public function index()
     {
         $data = home::first();
-        return view('crud-home.ptnbh-section', compact('data'));
+        return view('admin.crud-home.ptnbh-section', compact('data'));
     }
 
     /**
@@ -46,7 +46,7 @@ class HomepageController extends Controller
     public function edit(string $id)
     {
         $data = Home::findOrFail($id);
-        return view('crud-home.edit', compact('data'));
+        return view('admin.crud-home.edit', compact('data'));
     }
 
     /**

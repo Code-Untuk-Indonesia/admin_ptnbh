@@ -34,11 +34,11 @@ class PengumumanController extends Controller
             'title' => 'Pengumuman',
         ];
 
-        return view('content.pengumuman', $data);
+        return view('admin.content.pengumuman', $data);
     }
     public function create()
     {
-        return view('form.create-pengumuman');
+        return view('admin.form.create-pengumuman');
     }
 
     public function store(Request $request)
@@ -79,7 +79,7 @@ class PengumumanController extends Controller
     public function edit($id)
     {
         $pengumuman = Pengumuman::find($id);
-        return view('form.create-pengumuman', compact('pengumuman'));
+        return view('admin.form.create-pengumuman', compact('pengumuman'));
     }
 
     public function update(Request $request, $id)
