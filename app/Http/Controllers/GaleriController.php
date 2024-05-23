@@ -17,7 +17,11 @@ class GaleriController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $q_galeri = Galeri::select('*')->orderByDesc('created_at');
+            // Join galeri table with album table to get the album title
+            $q_galeri = Galeri::join('albums', 'galeris.id_album', '=', 'albums.id')
+                ->select('galeris.*', 'albums.judul_id as album_title')
+                ->orderByDesc('galeris.created_at');
+
             return DataTables::of($q_galeri)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -35,7 +39,6 @@ class GaleriController extends Controller
 
         return view('admin.content.galeri-foto', $data);
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -69,36 +72,21 @@ class GaleriController extends Controller
 
         return redirect()->route('galeri.index')->with('success', 'Foto berhasil disimpan');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function destroy($id)
     {
-        //
-    }
+        $galeri = Galeri::find($id);
+        if (!$galeri) {
+            return response()->json(['status' => 'error', 'message' => 'Foto tidak ditemukan'], 404);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        try {
+            DB::transaction(function () use ($galeri) {
+                $galeri->delete();
+            });
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            return response()->json(['status' => 'success', 'message' => 'Foto berhasil dihapus']);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
+        }
     }
 }

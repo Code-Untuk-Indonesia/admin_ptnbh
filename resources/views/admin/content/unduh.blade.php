@@ -52,13 +52,13 @@
                 </div><!--//row-->
 
 
-                <a class="btn app-btn-secondary mb-2" href="{{ route('galeri.create') }}">
+                <a class="btn app-btn-secondary mb-2" href="{{ route('unduh.create') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
                             d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
                     </svg>
-                    Tambah Foto Galeri
+                    Tambah Unduhan
                 </a>
 
                 <div class="tab-content" id="orders-table-tab-content">
@@ -66,13 +66,14 @@
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="galerifoto-list"
+                                    <table class="table app-table-hover mb-0 text-left" id="unduh-list"
                                         style="text-align: center;">
                                         <thead>
                                             <tr>
                                                 <th class="cell" style="text-align: center;">No</th>
-                                                <th class="cell" style="text-align: center;">Gambar</th>
-                                                <th class="cell" style="text-align: center;">Album</th>
+                                                <th class="cell" style="text-align: center;">Judul (ID)</th>
+                                                <th class="cell" style="text-align: center;">Title (EN)</th>
+                                                <th class="cell" style="text-align: center;">File</th>
                                                 <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
@@ -83,23 +84,62 @@
 
                             </div><!--//app-card-body-->
                         </div><!--//app-card-->
+                        <nav class="app-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav><!--//app-pagination-->
+
                     </div><!--//tab-pane-->
+
+
                 </div><!--//tab-content-->
+
+
+
             </div><!--//container-fluid-->
         </div><!--//app-content-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- PDF content will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div><!--//app-wrapper-->
 
     <script>
-        assetUrl = "{{ asset('images/galeri') }}";
         $(document).ready(function() {
-            var table = $('#galerifoto-list').DataTable({
+            var table = $('#unduh-list').DataTable({
                 processing: false,
                 serverSide: true,
                 searching: true,
                 info: false,
                 order: true,
                 paging: false,
-                ajax: "{{ route('galeri.index') }}",
+                ajax: "{{ route('unduh.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -107,18 +147,23 @@
                         searchable: false
                     },
                     {
-                        data: 'gambar',
-                        name: 'gambar',
+                        data: 'judul_id',
+                        name: 'judul_id'
+                    },
+                    {
+                        data: 'judul_en',
+                        name: 'judul_en'
+                    },
+                    {
+                        data: 'file',
+                        name: 'file',
                         orderable: false,
                         searchable: false,
                         render: function(data, type, full, meta) {
-                            return '<img src="' + assetUrl + '/' + data +
-                                '" alt="Gambar Album" style="max-width: 100px;">';
+                            var fileUrl = '/files/unduh/' + data;
+                            return '<button class="btn btn-info btn-sm showDokumen" data-file="' +
+                                fileUrl + '">Show</button>';
                         }
-                    },
-                    {
-                        data: 'album_title',
-                        name: 'album_title'
                     },
                     {
                         data: 'action',
@@ -129,8 +174,21 @@
                 ]
             });
 
-            $('body').on('click', '.deleteGaleri', function() {
-                var galeri_id = $(this).data("id");
+            $(document).on('click', '.showDokumen', function() {
+                var fileUrl = $(this).data('file');
+                $('#pdfModal .modal-body').html('<iframe src="' + fileUrl +
+                    '" width="100%" height="500px"></iframe>');
+                $('#pdfModal').modal('show');
+            });
+
+            $('#pdfModal').on('hidden.bs.modal', function() {
+                $('#pdfModal .modal-body').html('');
+            });
+
+
+
+            $('body').on('click', '.deleteUnduh', function() {
+                var unduh_id = $(this).data("id");
                 Swal.fire({
                     title: 'Apakah Anda Yakin?',
                     text: "Data akan dihapus secara permanen",
@@ -143,10 +201,9 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "DELETE",
-                            url: "{{ route('galeri.index') }}" + '/' + galeri_id,
+                            url: "{{ route('unduh.index') }}" + '/' + unduh_id,
                             headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
-                                    'content')
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(data) {
                                 Swal.fire({
@@ -169,9 +226,9 @@
                 });
             });
 
-            $('body').on('click', '.editGaleri', function() {
-                var galeri_id = $(this).data('id');
-                window.location.href = 'galeri/' + galeri_id + '/edit';
+            $('body').on('click', '.editUnduh', function() {
+                var unduh_id = $(this).data('id');
+                window.location.href = 'unduh/' + unduh_id + '/edit';
             });
 
             var successMessage = "{{ session('success') }}";

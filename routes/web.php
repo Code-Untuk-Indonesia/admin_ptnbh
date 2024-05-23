@@ -11,6 +11,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TentangController;
+use App\Http\Controllers\UnduhController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
@@ -48,16 +49,18 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
 
     // Resource controllers untuk entitas tertentu
-    Route::resource('agenda', AgendaController::class)->middleware('permission:manage agenda');
-    Route::resource('album', AlbumController::class)->middleware('permission:manage album');
-    Route::resource('berita', BeritaController::class)->middleware('permission:manage berita');
-    Route::resource('galeri', GaleriController::class)->middleware('permission:manage galeri');
-    Route::resource('pengumuman', PengumumanController::class)->middleware('permission:manage pengumuman');
-    Route::resource('video', VideoController::class)->middleware('permission:manage video');
+    Route::resource('/admin/agenda', AgendaController::class)->middleware('permission:manage agenda');
+    Route::resource('/admin/album', AlbumController::class)->middleware('permission:manage album');
+    Route::resource('/admin/berita', BeritaController::class)->middleware('permission:manage berita');
+    Route::resource('/admin/galeri', GaleriController::class)->middleware('permission:manage galeri');
+    Route::resource('/admin/pengumuman', PengumumanController::class)->middleware('permission:manage pengumuman');
+    Route::resource('/admin/video', VideoController::class)->middleware('permission:manage video');
+    Route::resource('/admin/unduh', UnduhController::class);
+
 
     // Resource controller untuk pengguna hanya dapat diakses oleh pengguna dengan izin 'manage_users'
-    Route::resource('users', UserController::class)->middleware('permission:manage users');
-    Route::resource('roles', RoleController::class)->middleware('permission:manage roles');
+    Route::resource('/admin/users', UserController::class)->middleware('permission:manage users');
+    Route::resource('/admin/roles', RoleController::class)->middleware('permission:manage roles');
 
     // Rute API
     Route::get('/api-berita', [BeritaController::class, 'apiberita']);

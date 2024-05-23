@@ -81,7 +81,7 @@ class VideoController extends Controller
     public function edit($id)
     {
         $video = Video::find($id);
-        return view('form.create-video', compact('video'));
+        return view('admin.form.create-video', compact('video'));
     }
 
     public function update(Request $request, $id)
