@@ -17,51 +17,32 @@
         <h1 class="berita-1">
             Agenda Terbaru
         </h1>
-        <div class="row">
-            <div class="col">
-                <div class="card card-news">
-                    <img src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Selengkapnya</a>
+        <div class="row" id="agenda-container">
+            @foreach ($agenda as $item)
+                <div class="col-md-4">
+                    <div class="card card-news">
+                        <img src="{{ asset('images/agenda') }}/{{ $item->gambar }}" class="card-img-top"
+                            alt="{{ $item->judul_id }}">
+                        <div class="card-body">
+                            <p class="card-text date-news">{{ $item->tanggal_agenda }}</p>
+                            <h5 class="card-title title-news">{{ $item->judul_id }}</h5>
+                            <p class="card-text">{{ substr($item->deskripsi_id, 0, 100) }}...</p>
+                            <a href="{{ route('agenda.show', ['id' => $item->id]) }}"
+                                class="btn btn-primary">Selengkapnya</a>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card card-news">
-                    <img src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-news">
-                    <img src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text date-news">Minggu, 5 Mei 2024</p>
-                        <h5 class="card-title title-news">UNTAN Gelar Upacara Peringatan Hardiknas 2024 dan Dies Natalis
-                            ke-65 UNTAN</h5>
-                        <a href="#" class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
-        <button class="btn-news">
+        <button id="load-more-agenda" class="btn-news">
             <a class="a-btn-news">
                 Agenda Lainnya <span><img src="asset/arrow.svg" alt=""></span>
             </a>
         </button>
     </section>
+
     <!-- end agenda -->
 
     <!-- Section Dukung PTN BH -->
@@ -82,4 +63,58 @@
         </div>
     </section>
     <!-- End Section Dukung PTN BH -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var skip = 3;
+            var totalAgenda = {{ $totalAgenda }};
+
+            $('#load-more-agenda').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ route('agenda.loadMoreAgenda') }}",
+                    method: "GET",
+                    data: {
+                        skip: skip
+                    },
+                    success: function(response) {
+                        if (response.length > 0) {
+                            var html = '';
+                            response.forEach(function(agenda) {
+                                html += '<div class="col-md-4 mt-4">';
+                                html += '    <div class="card card-news">';
+                                html +=
+                                    '        <img src="{{ asset('images/agenda') }}/' +
+                                    agenda.gambar + '" class="card-img-top" alt="' +
+                                    agenda.judul_id + '">';
+                                html += '        <div class="card-body">';
+                                html += '            <p class="card-text date-news">' +
+                                    agenda.tanggal_agenda + '</p>';
+                                html +=
+                                    '            <h5 class="card-title title-news">' +
+                                    agenda.judul_id + '</h5>';
+                                html += '            <p class="card-text">' + agenda
+                                    .deskripsi_id.substring(0, 100) + '...</p>';
+                                html +=
+                                    '            <a href="/agenda-ptnbh/' + agenda.id +
+                                    '" class="btn btn-primary">Selengkapnya</a>';
+                                html += '        </div>';
+                                html += '    </div>';
+                                html += '</div>';
+                            });
+                            $('#agenda-container').append(html);
+                            skip += 3;
+                            if (skip >= totalAgenda) {
+                                $('#load-more-agenda')
+                                    .hide();
+                            }
+                        } else {
+                            $('#load-more-agenda')
+                                .hide();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

@@ -168,4 +168,54 @@ class AgendaController extends Controller
         $agenda = Agenda::orderBy('created_at', 'desc')->get();
         return response()->json($agenda);
     }
+
+    public function agendapage()
+    {
+        $totalAgenda = Agenda::count();
+        $agenda = Agenda::orderBy('created_at', 'desc')->take(3)->get();
+
+        return view('halaman-user.agenda-ptnbh', [
+            'agenda' => $agenda,
+            'totalAgenda' => $totalAgenda,
+        ]);
+    }
+
+    public function loadMoreAgenda(Request $request)
+    {
+        if ($request->ajax()) {
+            $skip = $request->input('skip', 0);
+            $take = 3; // Ambil 3 agenda tambahan
+            $agendas = Agenda::orderBy('created_at', 'desc')
+                ->skip($skip)
+                ->take($take)
+                ->get();
+
+            return response()->json($agendas);
+        }
+    }
+
+    public function show($id)
+    {
+        $agenda = Agenda::findOrFail($id);
+        return view('halaman-user.show-agenda', compact('agenda'));
+    }
+
+
+    public function showID($slug)
+    {
+        $agenda = Agenda::select('judul_id as judul', 'deskripsi_id as konten', 'gambar')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        return view('halaman-user.show-agenda', compact('agenda'));
+    }
+
+    public function showEN($slug)
+    {
+        $agenda = Agenda::select('judul_en as judul', 'deskripsi_en as konten', 'gambar')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        return view('halaman-user.show-agenda', compact('agenda'));
+    }
 }

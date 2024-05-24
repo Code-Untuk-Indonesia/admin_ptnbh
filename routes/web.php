@@ -14,6 +14,7 @@ use App\Http\Controllers\TentangController;
 use App\Http\Controllers\UnduhController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
+use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -111,9 +112,12 @@ Route::get('/gallery', function () {
     return view('halaman-user.gallery');
 });
 
-Route::get('/agenda-ptnbh', function () {
-    return view('halaman-user.agenda-ptnbh');
-});
+Route::get(
+    '/agenda-ptnbh',
+    [AgendaController::class, 'agendapage']
+)->name('agenda');
+Route::get('/load-more-agenda', [AgendaController::class, 'loadMoreAgenda'])->name('agenda.loadMoreAgenda');
+Route::get('/agenda-ptnbh/{id}', [AgendaController::class, 'show'])->name('agenda.show');
 
 Route::get('/pengumuman-ptnbh', [PengumumanController::class, 'pengumumanpage'])->name('pengumuman');
 Route::get('/load-more-pengumuman', [PengumumanController::class, 'loadMore'])->name('pengumuman.loadMore');
@@ -123,11 +127,13 @@ Route::get('/unit-bisnis', function () {
     return view('halaman-user.unit-bisnis');
 });
 
-
 Route::get('/detail-berita/{slug}/id', [BeritaController::class, 'showID'])->name('berita.show.id');
 Route::get('/detail-berita/{slug}/en', [BeritaController::class, 'showEN'])->name('berita.show.en');
 Route::get('/detail-pengumuman/{slug}/id', [PengumumanController::class, 'showID'])->name('pengumuman.showpengumuman.id');
 Route::get('/detail-pengumuman/{slug}/en', [PengumumanController::class, 'showEN'])->name('pengumuman.showpengumuman.en');
+Route::get('/detail-agenda/{id}/id', [AgendaController::class, 'showID'])->name('agenda.showagenda.id');
+Route::get('/detail-agenda/{id}/en', [AgendaController::class, 'showEN'])->name('agenda.showagenda.en');
+
 
 Route::get('/kontak', function () {
     return view('halaman-user.kontak');
