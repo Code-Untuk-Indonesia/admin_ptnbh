@@ -47,6 +47,8 @@ Route::get('/dashboard', function () {
     return view('dashboard-admin.dashboard');
 })->middleware('auth');
 
+Route::resource('/admin/video', VideoController::class);
+
 Route::middleware(['auth'])->group(function () {
 
     // Resource controllers untuk entitas tertentu
@@ -55,7 +57,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/berita', BeritaController::class)->middleware('permission:manage berita');
     Route::resource('/admin/galeri', GaleriController::class)->middleware('permission:manage galeri');
     Route::resource('/admin/pengumuman', PengumumanController::class)->middleware('permission:manage pengumuman');
-    Route::resource('/admin/video', VideoController::class)->middleware('permission:manage video');
+    // Route::resource('/admin/video', VideoController::class)->middleware('permission:manage video');
     Route::resource('/admin/unduh', UnduhController::class);
 
 

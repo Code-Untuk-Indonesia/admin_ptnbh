@@ -74,9 +74,10 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function showVideos()
     {
-        //
+        $videos = Video::orderBy('created_at', 'desc')->get();
+        return view('halaman-user.home', compact('videos'));
     }
 
     /**

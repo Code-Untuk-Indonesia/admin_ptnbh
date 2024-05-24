@@ -56,26 +56,27 @@
 
         <div class="row">
             @foreach ($berita as $item)
-            <div class="col mb-3">
-                <div class="card card-news">
-                    <img src="{{ asset('/images/berita/' . $item->gambar) }}" class="img-berita-home" alt="...">
-                    <div class="card-body" style="padding: 0">
-                        <p class="card-text date-news" style="padding-left: 5px">
-                            {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('H:i ') }}
-                            <span style="margin-left: 5px; margin-right: 5px">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"
-                                    fill="none">
-                                    <circle cx="2" cy="2.5" r="2" fill="#7a8a99" />
-                                </svg>
-                            </span>
-                            {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}
-                        </p>
-                        <h5 class="card-title title-news " style="padding-left: 5px">{{ $item->judul_id }}</h5>
-                        <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}" class="btn btn-news btn-warning mb-3">Baca
-                            Selengkapnya</a>
+                <div class="col mb-3">
+                    <div class="card card-news">
+                        <img src="{{ asset('/images/berita/' . $item->gambar) }}" class="img-berita-home" alt="...">
+                        <div class="card-body" style="padding: 0">
+                            <p class="card-text date-news" style="padding-left: 5px">
+                                {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('H:i ') }}
+                                <span style="margin-left: 5px; margin-right: 5px">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"
+                                        fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="#7a8a99" />
+                                    </svg>
+                                </span>
+                                {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}
+                            </p>
+                            <h5 class="card-title title-news " style="padding-left: 5px">{{ $item->judul_id }}</h5>
+                            <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}"
+                                class="btn btn-news btn-warning mb-3">Baca
+                                Selengkapnya</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
         <a class="a-btn-news" href="/berita-ptnbh">
@@ -112,6 +113,33 @@
     </section>
     <!-- end galery -->
 
+    <!-- video  -->
+    <section class="gallery">
+        <h1 class="gallery-1" data-aos="fade-up" data-aos-duration="2000">
+            Dokumentasi Video
+        </h1>
+        <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            @foreach ($video as $item)
+                <div class="col-md-4 mb-4">
+                    <div class="card card-gallery img-hover-zoom" style="width: 18rem;">
+                        <video controls>
+                            <source src="{{ $item->link }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->judul_id }}</h5>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <button class="btn-news">
+            <a class="a-btn-news" href="#">
+                Lihat Semua Video <span><img src="{{ asset('asset/arrow.svg') }}" alt=""></span>
+            </a>
+        </button>
+    </section>
 
     <!-- Section Dukung PTN BH -->
     <section class="dukung">
