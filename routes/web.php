@@ -140,3 +140,12 @@ Route::get('/detail-agenda/{id}/en', [AgendaController::class, 'showEN'])->name(
 Route::get('/kontak', function () {
     return view('halaman-user.kontak');
 });
+
+// ganti bahasa
+Route::get('language/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'id'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+});
+
