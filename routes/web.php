@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\AlbumController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\PengumumanController;
-use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\OrganisasiController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\TentangController;
-use App\Http\Controllers\UnduhController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\VideoController;
 use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\UnduhController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\TentangController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrganisasiController;
+use App\Http\Controllers\PengumumanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,11 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard admin
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    // footer
+    Route::resource('footers', FooterController::class);
+    Route::get('/admin/footer-page', [FooterController::class, 'index'])->name('footer.index');
+    Route::get('/admin/footer/{id}/edit', [FooterController::class, 'edit'])->name('footer.edit');
 });
 
 Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi');
