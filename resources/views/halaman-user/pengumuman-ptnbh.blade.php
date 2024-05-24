@@ -66,6 +66,7 @@
     <script>
         $(document).ready(function() {
             var skip = 3; // Already loaded 3 items
+            var totalPengumuman = {{ $totalPengumuman }};
 
             $('#load-more-btn').click(function(e) {
                 e.preventDefault();
@@ -108,6 +109,10 @@
                             });
                             $('#pengumuman-container').append(html);
                             skip += 3; // Increment skip by 3
+                            if (skip >= totalPengumuman) {
+                                $('#load-more-btn')
+                            .hide(); // Hide button if no more items to load
+                            }
                         } else {
                             $('#load-more-btn').hide(); // Hide button if no more items to load
                         }

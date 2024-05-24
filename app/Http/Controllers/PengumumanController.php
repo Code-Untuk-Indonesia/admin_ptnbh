@@ -159,9 +159,13 @@ class PengumumanController extends Controller
 
     public function pengumumanpage()
     {
+        $totalPengumuman = Pengumuman::count();
         $pengumuman = Pengumuman::orderBy('created_at', 'desc')->take(3)->get();
 
-        return view('halaman-user.pengumuman-ptnbh', ['pengumuman' => $pengumuman]);
+        return view('halaman-user.pengumuman-ptnbh', [
+            'pengumuman' => $pengumuman,
+            'totalPengumuman' => $totalPengumuman,
+        ]);
     }
 
     public function loadMore(Request $request)
@@ -177,7 +181,6 @@ class PengumumanController extends Controller
             return response()->json($pengumuman);
         }
     }
-
 
     public function showhome($slug)
     {
