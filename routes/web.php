@@ -115,9 +115,9 @@ Route::get('/agenda-ptnbh', function () {
     return view('halaman-user.agenda-ptnbh');
 });
 
-Route::get('/pengumuman-ptnbh', function () {
-    return view('halaman-user.pengumuman-ptnbh');
-});
+Route::get('/pengumuman-ptnbh', [PengumumanController::class, 'pengumumanpage'])->name('pengumuman');
+Route::get('/load-more-pengumuman', [PengumumanController::class, 'loadMore'])->name('pengumuman.loadMore');
+Route::get('/pengumuman/{slug}', [PengumumanController::class, 'showhome'])->name('pengumuman.showfe');
 
 Route::get('/unit-bisnis', function () {
     return view('halaman-user.unit-bisnis');
@@ -126,6 +126,8 @@ Route::get('/unit-bisnis', function () {
 
 Route::get('/detail-berita/{slug}/id', [BeritaController::class, 'showID'])->name('berita.show.id');
 Route::get('/detail-berita/{slug}/en', [BeritaController::class, 'showEN'])->name('berita.show.en');
+Route::get('/detail-pengumuman/{slug}/id', [PengumumanController::class, 'showID'])->name('pengumuman.showpengumuman.id');
+Route::get('/detail-pengumuman/{slug}/en', [PengumumanController::class, 'showEN'])->name('pengumuman.showpengumuman.en');
 
 Route::get('/kontak', function () {
     return view('halaman-user.kontak');

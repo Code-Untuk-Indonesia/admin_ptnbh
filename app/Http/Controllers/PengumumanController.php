@@ -156,4 +156,50 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::orderBy('created_at', 'desc')->get();
         return response()->json($pengumuman);
     }
+
+    public function pengumumanpage()
+    {
+        $pengumuman = Pengumuman::orderBy('created_at', 'desc')->take(3)->get();
+
+        return view('halaman-user.pengumuman-ptnbh', ['pengumuman' => $pengumuman]);
+    }
+
+    public function loadMore(Request $request)
+    {
+        if ($request->ajax()) {
+            $skip = $request->input('skip', 0);
+            $take = 3;
+            $pengumuman = Pengumuman::orderBy('created_at', 'desc')
+                ->skip($skip)
+                ->take($take)
+                ->get();
+
+            return response()->json($pengumuman);
+        }
+    }
+
+
+    public function showhome($slug)
+    {
+        $pengumuman = Pengumuman::where('slug', $slug)->firstOrFail();
+        return view('halaman-user.show-pengumuman', compact('pengumuman'));
+    }
+
+    public function showID($slug)
+    {
+        $pengumuman = Pengumuman::select('judul_id as judul', 'konten_id as konten', 'gambar')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        return view('halaman-user.show-pengumuman', compact('pengumuman'));
+    }
+
+    public function showEN($slug)
+    {
+        $pengumuman = Pengumuman::select('judul_en as judul', 'konten_en as konten', 'gambar')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        return view('halaman-user.show-pengumuman', compact('pengumuman'));
+    }
 }

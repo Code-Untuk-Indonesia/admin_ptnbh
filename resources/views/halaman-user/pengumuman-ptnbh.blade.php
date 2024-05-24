@@ -18,47 +18,25 @@
     <section class="berita">
         <div class="container">
             <h1 class="berita-1">Pengumuman Terbaru</h1>
-            <div class="row">
-                <div class="col">
-                    <div class="card card-news">
-                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text date-news">Senin, 10 Mei 2024</p>
-                            <h5 class="card-title title-news">Pengumuman Penting: Jadwal Ujian Semester Ganjil 2024</h5>
-                            <p class="card-text">Berdasarkan keputusan Senat Universitas Tanjungpura, berikut adalah
-                                jadwal ujian semester ganjil tahun akademik 2024/2025.</p>
-                            <a href="#" class="btn btn-primary">Selengkapnya</a>
+            <div class="row" id="pengumuman-container">
+                @foreach ($pengumuman as $item)
+                    <div class="col-md-4">
+                        <div class="card card-news">
+                            <img src="{{ asset('images/pengumuman/' . $item->gambar) }}" class="card-img-top"
+                                alt="{{ $item->judul_id }}">
+                            <div class="card-body">
+                                <p class="card-text date-news">
+                                    {{ \Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM YYYY') }}</p>
+                                <h5 class="card-title title-news">{{ $item->judul_id }}</h5>
+                                <p class="card-text">{{ \Illuminate\Support\Str::limit($item->konten_id, 100) }}</p>
+                                <a href="{{ route('pengumuman.showpengumuman.id', ['slug' => $item->slug]) }}"
+                                    class="btn btn-primary">Selengkapnya</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card card-news">
-                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text date-news">Rabu, 12 Mei 2024</p>
-                            <h5 class="card-title title-news">Pengumuman Beasiswa Penuh untuk Mahasiswa Berprestasi</h5>
-                            <p class="card-text">Universitas Tanjungpura memberikan kesempatan kepada mahasiswa
-                                berprestasi
-                                untuk mendapatkan beasiswa penuh. Silakan daftar segera!</p>
-                            <a href="#" class="btn btn-primary">Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-news">
-                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text date-news">Jumat, 15 Mei 2024</p>
-                            <h5 class="card-title title-news">Pendaftaran Seminar Nasional Kesehatan Terbuka</h5>
-                            <p class="card-text">Seminar Nasional Kesehatan akan diselenggarakan pada tanggal 20 Mei
-                                2024. Daftar sekarang dan dapatkan ilmu yang bermanfaat!</p>
-                            <a href="#" class="btn btn-primary">Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-
-            <button class="btn-news">
+            <button id="load-more-btn" class="btn-news">
                 <a class="a-btn-news">Pengumuman Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}"
                             alt=""></span></a>
             </button>
@@ -84,4 +62,58 @@
         </div>
     </section>
     <!-- End Section Dukung PTN BH -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var skip = 3; // Already loaded 3 items
+
+            $('#load-more-btn').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ route('pengumuman.loadMore') }}",
+                    method: "GET",
+                    data: {
+                        skip: skip
+                    },
+                    success: function(response) {
+                        if (response.length > 0) {
+                            var html = '';
+                            response.forEach(function(item) {
+                                html += '<div class="col-md-4">';
+                                html += '    <div class="card card-news">';
+                                html +=
+                                    '        <img src="{{ asset('images/pengumuman') }}/' +
+                                    item.gambar + '" class="card-img-top" alt="' + item
+                                    .judul_id + '">';
+                                html += '        <div class="card-body">';
+                                html += '            <p class="card-text date-news">' +
+                                    new Date(item.created_at).toLocaleDateString(
+                                        'id-ID', {
+                                            weekday: 'long',
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        }) + '</p>';
+                                html +=
+                                    '            <h5 class="card-title title-news">' +
+                                    item.judul_id + '</h5>';
+                                html += '            <p class="card-text">' + item
+                                    .konten_id.substring(0, 100) + '...</p>';
+                                html += '            <a href="/pengumuman/' + item
+                                    .slug +
+                                    '" class="btn btn-primary">Selengkapnya</a>';
+                                html += '        </div>';
+                                html += '    </div>';
+                                html += '</div>';
+                            });
+                            $('#pengumuman-container').append(html);
+                            skip += 3; // Increment skip by 3
+                        } else {
+                            $('#load-more-btn').hide(); // Hide button if no more items to load
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
