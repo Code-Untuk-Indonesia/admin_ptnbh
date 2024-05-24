@@ -116,7 +116,7 @@
     <!-- end galery -->
 
     <!-- video  -->
-    {{-- <section class="gallery">
+    <section class="gallery">
         <h1 class="gallery-1" data-aos="fade-up" data-aos-duration="2000">
             Galeri
         </h1>
@@ -136,7 +136,7 @@
                 Lihat Semua Video <span><img src="{{ asset('asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
-    </section> --}}
+    </section>
 
 
     <!-- Section Dukung PTN BH -->
