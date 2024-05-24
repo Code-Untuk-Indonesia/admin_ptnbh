@@ -14,8 +14,17 @@
     <!-- history -->
     <section class="history" data-aos="fade-up" data-aos-duration="3000">
         <div class="card-pengantar">
-            <h1 class="history-1">{{$data->judul_sejarah_id}}</h1>
-            <p class="history-2">{!! str_replace('isi', 'sejarah', $data->isi_sejarah_id) !!}</p>
+            <h1 class="history-1">
+                {{app()->getLocale() == 'id'
+                ? $data->judul_sejarah_id
+                : $data->judul_sejarah_en }}
+
+            </h1>
+            <p class="history-2">
+                {!! app()->getLocale() == 'id'
+                ? str_replace('isi', 'sejarah', $data->isi_sejarah_id)
+                : str_replace('historyc', 'content', $data->isi_sejarah_en) !!}
+            </p>
 
         </div>
 

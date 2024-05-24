@@ -20,41 +20,33 @@
                                 <textarea name="isi_sejarah_id" id="summernote" class="form-control" required>{{ old('isi_sejarah_id', $data->isi_sejarah_id) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="judul_visi_en">Judul Visi</label>
+                                <label for="judul_visi_id">Judul Visi</label>
                                 <input type="text" name="judul_visi_id" class="form-control"
                                     value="{{ old('judul_visi_id', $data->judul_visi_id) }}" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="visi_id">Visi</label>
                                 <textarea name="visi_id" class="form-control" id="summernote3" required>{{ old('visi_id', $data->visi_id) }}</textarea>
                             </div>
-
                             <div class="form-group">
                                 <label for="judul_misi_id">Judul Misi</label>
                                 <input type="text" name="judul_misi_id" class="form-control"
                                     value="{{ old('judul_misi_id', $data->judul_misi_id) }}" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="misi_id">Misi</label>
                                 <textarea name="misi_id" class="form-control" id="summernote5" required>{{ old('misi_id', $data->misi_id) }}</textarea>
                             </div>
-
                             <div class="form-group">
                                 <label for="judul_tujuan_id">Judul Tujuan</label>
                                 <input type="text" name="judul_tujuan_id" class="form-control"
                                     value="{{ old('judul_tujuan_id', $data->judul_tujuan_id) }}" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="tujuan_id">Tujuan</label>
                                 <textarea name="tujuan_id" class="form-control" id="summernote11" required>{{ old('tujuan_id', $data->tujuan_id) }}</textarea>
                             </div>
                         </div>
-
-
-
                         <div class="col">
                             <div class="form-group">
                                 <label for="judul_sejarah_en">Judul Sejarah (Eng)</label>
@@ -66,33 +58,30 @@
                                 <textarea name="isi_sejarah_en" id="summernote2" class="form-control" required>{{ old('isi_sejarah_en', $data->isi_sejarah_en) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="judul_visi_en">Judul Visi</label>
+                                <label for="judul_visi_en">Judul Visi (Eng)</label>
                                 <input type="text" name="judul_visi_en" class="form-control"
                                     value="{{ old('judul_visi_en', $data->judul_visi_en) }}" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="visi_en">Visi (Eng)</label>
                                 <textarea name="visi_en" class="form-control" id="summernote4" required>{{ old('visi_en', $data->visi_en) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="judul_misi_en">Judul Misi(En)</label>
+                                <label for="judul_misi_en">Judul Misi (Eng)</label>
                                 <input type="text" name="judul_misi_en" class="form-control"
                                     value="{{ old('judul_misi_en', $data->judul_misi_en) }}" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="misi_en">Misi (Eng)</label>
                                 <textarea name="misi_en" class="form-control" id="summernote6" required>{{ old('misi_en', $data->misi_en) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="judul_tujuan_en">Judul Tujuan(En)</label>
+                                <label for="judul_tujuan_en">Judul Tujuan (Eng)</label>
                                 <input type="text" name="judul_tujuan_en" class="form-control"
                                     value="{{ old('judul_tujuan_en', $data->judul_tujuan_en) }}" required>
                             </div>
-
                             <div class="form-group">
-                                <label for="tujuan_en">Tujuan(En)</label>
+                                <label for="tujuan_en">Tujuan (Eng)</label>
                                 <textarea name="tujuan_en" class="form-control" id="summernote1" required>{{ old('tujuan_en', $data->tujuan_en) }}</textarea>
                             </div>
                         </div>
