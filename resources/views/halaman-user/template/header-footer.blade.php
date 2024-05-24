@@ -333,18 +333,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt="" class="flag-img">
-                            Indonesia
+                            <img src="{{ app()->getLocale() == 'id' ? asset('ptnbh/asset/Indonesia.png') : asset('ptnbh/asset/Uk.png') }}" alt="" class="flag-img">
+                            {{ app()->getLocale() == 'id' ? 'Indonesia' : 'English' }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="#"><img
-                                        src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt=""
-                                        class="flag-img"> Indonesia</a>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('language/id') }}">
+                                    <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt="" class="flag-img"> Indonesia
+                                </a>
                             </li>
-                            <li><a class="dropdown-item" href="#"><img src="{{ asset('ptnbh/asset/Uk.png') }}"
-                                        alt="" class="flag-img">English</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('language/en') }}">
+                                    <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="" class="flag-img"> English
+                                </a>
+                            </li>
                         </ul>
                     </li>
+
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>
                     </li> --}}

@@ -15,9 +15,11 @@
             <h1 class="pengantar-1">{{ $data->judul_ptnbh_id }}</h1>
             <div class="card-pengantar">
                 <p class="pengantar-2">
-                    {!! str_replace('pola_pencarian', 'pengganti', $data->tentang_ptnbh_id) !!}
-
+                    {!! app()->getLocale() == 'id'
+                        ? str_replace('pola_pencarian', 'pengganti', $data->tentang_ptnbh_id)
+                        : str_replace('pola_pencarian', 'pengganti', $data->tentang_ptnbh_en) !!}
                 </p>
+
             </div>
         </div>
     </section>
@@ -114,7 +116,7 @@
     <!-- end galery -->
 
     <!-- video  -->
-    <section class="gallery">
+    {{-- <section class="gallery">
         <h1 class="gallery-1" data-aos="fade-up" data-aos-duration="2000">
             Galeri
         </h1>
@@ -134,7 +136,7 @@
                 Lihat Semua Video <span><img src="{{ asset('asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
-    </section>
+    </section> --}}
 
 
     <!-- Section Dukung PTN BH -->
