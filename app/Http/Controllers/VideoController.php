@@ -77,7 +77,7 @@ class VideoController extends Controller
     public function showVideos()
     {
         $videos = Video::orderBy('created_at', 'desc')->get();
-        return view('halaman-user.home', compact('videos'));
+        return view('halaman-user.videos', compact('videos'));
     }
 
     /**

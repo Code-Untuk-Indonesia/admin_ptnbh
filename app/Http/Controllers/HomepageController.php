@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use App\Models\Berita;
 use App\Models\home;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -110,15 +111,18 @@ class HomepageController extends Controller
         //
     }
 
-    public function apihome() {
+    public function apihome()
+    {
         $data = home::all();
         return response()->json($data);
     }
 
-    public function fehome() {
+    public function fehome()
+    {
         $data = home::first();
         $berita = Berita::latest()->take(3)->get();
         $galeri = Album::latest()->take(3)->get();
-        return view('halaman-user.home', compact('data', 'berita','galeri'));
+        $videos = Video::latest()->take(3)->get();
+        return view('halaman-user.home', compact('data', 'berita', 'galeri', 'videos'));
     }
 }

@@ -116,30 +116,26 @@
     <!-- video  -->
     <section class="gallery">
         <h1 class="gallery-1" data-aos="fade-up" data-aos-duration="2000">
-            Dokumentasi Video
+            Galeri
         </h1>
         <div class="row" data-aos="fade-up" data-aos-duration="3000">
-            @foreach ($video as $item)
+            @foreach ($videos as $video)
                 <div class="col-md-4 mb-4">
-                    <div class="card card-gallery img-hover-zoom" style="width: 18rem;">
-                        <video controls>
-                            <source src="{{ $item->link }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $item->judul_id }}</h5>
-                        </div>
-                    </div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $video->link }}"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             @endforeach
         </div>
 
         <button class="btn-news">
-            <a class="a-btn-news" href="#">
+            <a class="a-btn-news" href="{{ route('video.index') }}">
                 Lihat Semua Video <span><img src="{{ asset('asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
     </section>
+
 
     <!-- Section Dukung PTN BH -->
     <section class="dukung">
