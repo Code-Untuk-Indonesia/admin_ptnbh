@@ -18,7 +18,7 @@ class FooterController extends Controller
 
     public function create()
     {
-        return view('footers.create');
+        return view('admin.crud-footer.create');
     }
 
     public function store(Request $request)

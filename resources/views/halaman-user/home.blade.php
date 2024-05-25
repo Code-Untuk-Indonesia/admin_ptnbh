@@ -73,7 +73,7 @@
                                 {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}
                             </p>
                             <h5 class="card-title title-news " style="padding-left: 5px">{{ $item->judul_id }}</h5>
-                            <a href="{{ route('berita.show.id', ['slug' => $item->slug]) }}"
+                            <a href="{{ route('berita.showfe', ['slug' => $item->slug]) }}"
                                 class="btn btn-news btn-warning mb-3">Baca
                                 Selengkapnya</a>
                         </div>

@@ -44,7 +44,7 @@ Route::get('/auth/register', [AuthController::class, 'showRegistrationForm'])->n
 Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
+Route::get('/admin/dashboard', function () {
     return view('dashboard-admin.dashboard');
 })->middleware('auth');
 

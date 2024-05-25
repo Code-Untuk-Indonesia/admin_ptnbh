@@ -97,10 +97,10 @@
                                                 </td>
 
                                                 <td class="cell">
-                                                    {{ $data->visi_eng }}
+                                                    {{ $data->visi_en }}
                                                 </td>
                                                 <td class="cell">
-                                                    {{ $data->misi_eng }}
+                                                    {{ $data->misi_en }}
                                                 </td>
                                                 <td class="cell">
                                                     {{ $data->judul_tujuan_en }}

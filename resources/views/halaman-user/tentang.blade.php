@@ -3,8 +3,11 @@
     <!-- hero profile -->
     <section class="hero-profile" style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }});">
         <div class="row">
-            <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
-                TENTANG </h1>
+            <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500">
+                <span style="color: #ffea00;">|</span>
+                {{ app()->getLocale() == 'id' ? 'TENTANG' : 'ABOUT' }}
+            </h1>
+
             <p class="profile-2" data-aos="fade-up" data-aos-duration="2500">Universitas Tanjungpura</p>
         </div>
         </div>
@@ -39,7 +42,9 @@
                     <span style="color: #ffea00;">|</span> {{$data->judul_misi_id}}
                 </h1>
                 <p class="misi-profile">
-                    {!! str_replace('isi', 'sejarah', $data->visi_id) !!}
+                    {!! app()->getLocale() == 'id'
+                    ? str_replace('isi', 'sejarah', $data->visi_id)
+                    : str_replace('historyc', 'content', $data->visi_en) !!}
                 </p>
             </div>
             <div class="col">
@@ -47,7 +52,10 @@
                     <span style="color: #ffea00;">|</span> {{$data->judul_misi_id}}
                 </h1>
                 <p class="misi-profile">
-                    {!! str_replace('isi', 'misi', $data->misi_id) !!}
+                    {!! app()->getLocale() == 'id'
+                    ? str_replace('isi', 'sejarah', $data->misi_id)
+                    : str_replace('historyc', 'content', $data->misi_en) !!}
+
                 </p>
 
             </div>
@@ -56,9 +64,16 @@
     <!-- end profil -->
     <section class="history" data-aos="fade-up" data-aos-duration="3000">
 
-        <h1 class="history-1"><span style="color: #ffea00;">|</span> {{$data->judul_tujuan_id}}</h1>
+        <h1 class="history-1"><span style="color: #ffea00;">|</span>
+            {{app()->getLocale() == 'id'
+            ? $data->judul_tujuan_id
+            : $data->judul_tujuan_en }}
+
+        </h1>
         <p class="history-3">
-            {!! str_replace('isi', 'misi', $data->tujuan_id) !!}
+            {!! app()->getLocale() == 'id'
+            ? str_replace('isi', 'sejarah', $data->tujuan_id)
+            : str_replace('historyc', 'content', $data->tujuan_en) !!}
         </p>
 
     </section>

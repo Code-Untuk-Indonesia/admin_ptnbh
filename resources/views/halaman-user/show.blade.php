@@ -1,7 +1,8 @@
 @extends('halaman-user.template.header-footer')
 @section('content')
     <!-- hero profile -->
-    <section class="hero-profile" style="background-image: url({{asset('ptnbh/asset/rektorat.jpg')}}); background-position: 30% 70%;">
+    <section class="hero-profile"
+        style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
         <div class="row">
             <h1 class="profile-1"><span style="color: #ffea00;">|</span> Berita </h1>
             <p class="profile-2">Universitas Tanjungpura</p>
@@ -30,7 +31,7 @@
                             </div>
                         </div>
                         <div class="article-content">
-                            {!! str_replace('pola_pencarian', 'pengganti', $berita->konten) !!}
+                            {!! str_replace('pola_pencarian', 'pengganti', $berita->konten_id) !!}
                         </div>
                     </article>
                     <div class="contact-form article-comment">
@@ -51,8 +52,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea name="message" id="message" placeholder="Your message *" rows="4"
-                                            class="form-control"></textarea>
+                                        <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -72,58 +72,30 @@
                         <div class="widget-title">
                             <h3>Latest Post</h3>
                         </div>
+
+
+
                         <div class="widget-body">
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
+                            @foreach ($news as $new)
+                                <div class="latest-post-aside media">
+                                    <div class="lpa-left media-body">
+                                        <div class="lpa-title">
+                                            <h5><a href="{{ route('berita.showfe', ['slug' => $new->slug]) }}">{{ $new->judul_id }}</a></h5>
+                                        </div>
+                                        <div class="date lpa-meta">
+
+                                                {{ $new->created_at }}
+
+                                        </div>
                                     </div>
-                                    <div class="lpa-meta">
-                                        <a class="date" href="#">
-                                            26 FEB 2020
+                                    <div class="lpa-right">
+                                        <a href="{{ route('berita.showfe', ['slug' => $new->slug]) }}">
+                                            <img src="{{ asset('/images/berita/' . $new->gambar) }}" title=""
+                                                alt="">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- End Latest Post -->
@@ -150,5 +122,3 @@
     </section>
     <!-- End Section Dukung PTN BH -->
 @endsection
-
-

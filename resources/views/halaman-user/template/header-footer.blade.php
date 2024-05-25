@@ -298,12 +298,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Beranda</a>
+                        <a class="nav-link" href="/">  {{ app()->getLocale() == 'id' ? 'Beranda' : 'Home' }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Tentang
+
+                            {{ app()->getLocale() == 'id' ? 'Tentang' : 'About' }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <li><a class="dropdown-item" href="/tentang-ptnbh">Profil</a></li>

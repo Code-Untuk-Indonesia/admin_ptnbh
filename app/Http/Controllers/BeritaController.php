@@ -215,6 +215,14 @@ class BeritaController extends Controller
     public function showathome($slug)
     {
         $berita = Berita::where('slug', $slug)->firstOrFail();
-        return view('halaman-user.show', compact('berita'));
+        $news = Berita::where('slug', '!=', $slug)
+                           ->orderBy('created_at', 'desc')
+                           ->take(3)
+                           ->get();
+
+        // Debugging: log atau dd() untuk memeriksa data
+        // dd($berita, $news);
+
+        return view('halaman-user.show', compact('berita', 'news'));
     }
 }
