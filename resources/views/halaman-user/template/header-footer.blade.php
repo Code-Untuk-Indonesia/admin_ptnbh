@@ -298,7 +298,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">  {{ app()->getLocale() == 'id' ? 'Beranda' : 'Home' }}</a>
+                        <a class="nav-link" href="/"> {{ app()->getLocale() == 'id' ? 'Beranda' : 'Home' }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
@@ -334,18 +334,21 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ app()->getLocale() == 'id' ? asset('ptnbh/asset/Indonesia.png') : asset('ptnbh/asset/Uk.png') }}" alt="" class="flag-img">
+                            <img src="{{ app()->getLocale() == 'id' ? asset('ptnbh/asset/Indonesia.png') : asset('ptnbh/asset/Uk.png') }}"
+                                alt="" class="flag-img">
                             {{ app()->getLocale() == 'id' ? 'Indonesia' : 'English' }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <li>
                                 <a class="dropdown-item" href="{{ url('language/id') }}">
-                                    <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt="" class="flag-img"> Indonesia
+                                    <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt=""
+                                        class="flag-img"> Indonesia
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ url('language/en') }}">
-                                    <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="" class="flag-img"> English
+                                    <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="" class="flag-img">
+                                    English
                                 </a>
                             </li>
                         </ul>
@@ -418,19 +421,20 @@
                     <div class="col-md-3 col-sm-12">
                         <div class="footer-widget">
                             <div class="widget-about">
-                                <img src="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="" class="img-foot">
+                                <img src="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}"
+                                    alt="" class="img-foot">
                                 <p>UNIVERSITAS TANJUNGPURA
                                     “Membangun Ekosistem Digital Menuju Universitas Siber”</p>
                             </div>
                         </div>
                     </div>
-                    @foreach(App\Models\Footer::all()->chunk(5) as $chunk)
+                    @foreach (App\Models\Footer::all()->chunk(5) as $chunk)
                         <div class="col-md-3 col-sm-4">
                             <div class="footer-widget">
                                 <div class="footer-menu">
                                     <h4 class="footer-widget-title">Layanan Informasi</h4>
                                     <ul>
-                                        @foreach($chunk as $footer)
+                                        @foreach ($chunk as $footer)
                                             <li>
                                                 <a href="{{ $footer->url }}">{{ $footer->title }}</a>
                                             </li>

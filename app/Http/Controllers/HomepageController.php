@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use App\Models\Berita;
 use App\Models\home;
+use App\Models\Unduh;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -123,6 +124,7 @@ class HomepageController extends Controller
         $berita = Berita::latest()->take(3)->get();
         $galeri = Album::latest()->take(3)->get();
         $videos = Video::latest()->take(3)->get();
-        return view('halaman-user.home', compact('data', 'berita', 'galeri', 'videos'));
+        $unduhan = Unduh::latest()->take(3)->get();
+        return view('halaman-user.home', compact('data', 'berita', 'galeri', 'videos', 'unduhan'));
     }
 }

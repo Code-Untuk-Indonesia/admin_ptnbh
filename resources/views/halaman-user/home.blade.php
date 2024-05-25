@@ -115,29 +115,78 @@
     </section>
     <!-- end galery -->
 
-    <!-- video  -->
-    <section class="gallery">
-        <h1 class="gallery-1" data-aos="fade-up" data-aos-duration="2000">
-            Galeri
+    <section class="galery">
+        <h1 class="galery-1" data-aos="fade-up" data-aos-duration="2000">
+            Dokumentasi Video
         </h1>
         <div class="row" data-aos="fade-up" data-aos-duration="3000">
             @foreach ($videos as $video)
                 <div class="col-md-4 mb-4">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $video->link }}"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="card card-galery img-hover-zoom">
+                        <iframe src="https://www.youtube.com/embed/{{ $video->link }}" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <span
+                            style="display: block;
+                            text-align: center; margin-top: 10px;
+                            font-size: 1.25rem;
+                            font-weight: 500;
+                            color: #333;
+                            transition: color 0.3s;">{{ $video->judul_id }}</span>
+                    </div>
                 </div>
             @endforeach
         </div>
 
         <button class="btn-news">
-            <a class="a-btn-news" href="{{ route('video.index') }}">
-                Lihat Semua Video <span><img src="{{ asset('asset/arrow.svg') }}" alt=""></span>
+            <a class="a-btn-news" href="">
+                Dokumentasi Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
+
+
     </section>
 
+    <section class="galery">
+        <h1 class="galery-1" data-aos="fade-up" data-aos-duration="2000">
+            Unduhan
+        </h1>
+        <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            @foreach ($unduhan as $item)
+                <div class="col-md-4 mb-4">
+                    <div class="card card-unduhan shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="file-preview mb-3">
+                                @if (pathinfo($item->file, PATHINFO_EXTENSION) == 'pdf')
+                                    <i class="fas fa-file-pdf fa-5x text-danger"></i>
+                                @elseif(pathinfo($item->file, PATHINFO_EXTENSION) == 'doc' || pathinfo($item->file, PATHINFO_EXTENSION) == 'docx')
+                                    <i class="fas fa-file-word fa-5x text-primary"></i>
+                                @elseif(pathinfo($item->file, PATHINFO_EXTENSION) == 'jpg' ||
+                                        pathinfo($item->file, PATHINFO_EXTENSION) == 'jpeg' ||
+                                        pathinfo($item->file, PATHINFO_EXTENSION) == 'png')
+                                    <img src="{{ asset('/files/unduh/' . $item->file) }}" class="img-fluid"
+                                        alt="{{ $item->judul_id }}">
+                                @else
+                                    <i class="fas fa-file-alt fa-5x text-secondary"></i>
+                                @endif
+                            </div>
+                            <h5 class="card-title">{{ $item->judul_id }}</h5>
+                            <a href="{{ asset('/files/unduh/' . $item->file) }}" class="btn btn-primary">Unduh</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <button class="btn-news">
+            <a class="a-btn-news" href="">
+                Unduhan Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+            </a>
+        </button>
+
+
+    </section>
 
     <!-- Section Dukung PTN BH -->
     <section class="dukung">
