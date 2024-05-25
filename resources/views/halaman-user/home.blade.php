@@ -158,18 +158,7 @@
                     <div class="card card-unduhan shadow-sm">
                         <div class="card-body text-center">
                             <div class="file-preview mb-3">
-                                @if (pathinfo($item->file, PATHINFO_EXTENSION) == 'pdf')
-                                    <i class="fas fa-file-pdf fa-5x text-danger"></i>
-                                @elseif(pathinfo($item->file, PATHINFO_EXTENSION) == 'doc' || pathinfo($item->file, PATHINFO_EXTENSION) == 'docx')
-                                    <i class="fas fa-file-word fa-5x text-primary"></i>
-                                @elseif(pathinfo($item->file, PATHINFO_EXTENSION) == 'jpg' ||
-                                        pathinfo($item->file, PATHINFO_EXTENSION) == 'jpeg' ||
-                                        pathinfo($item->file, PATHINFO_EXTENSION) == 'png')
-                                    <img src="{{ asset('/files/unduh/' . $item->file) }}" class="img-fluid"
-                                        alt="{{ $item->judul_id }}">
-                                @else
-                                    <i class="fas fa-file-alt fa-5x text-secondary"></i>
-                                @endif
+                                <i class="fas fa-file-pdf fa-5x"></i>
                             </div>
                             <h5 class="card-title">{{ $item->judul_id }}</h5>
                             <a href="{{ asset('/files/unduh/' . $item->file) }}" class="btn btn-primary">Unduh</a>

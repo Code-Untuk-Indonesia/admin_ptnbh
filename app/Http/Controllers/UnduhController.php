@@ -148,4 +148,20 @@ class UnduhController extends Controller
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
         }
     }
+
+    public function unduhan(Request $request)
+    {
+        $unduhan = Unduh::orderByDesc('created_at')->take(3)->get();
+        $totalUnduhan = Unduh::count();
+        return view('halaman-user.unduhan-ptnbh', compact('unduhan', 'totalUnduhan'));
+    }
+
+    public function loadMoreUnduhan(Request $request)
+    {
+        if ($request->ajax()) {
+            $skip = $request->skip;
+            $unduhan = Unduh::orderByDesc('created_at')->skip($skip)->take(10)->get();
+            return response()->json($unduhan);
+        }
+    }
 }

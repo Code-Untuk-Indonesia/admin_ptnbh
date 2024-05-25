@@ -142,6 +142,8 @@ Route::get('/detail-pengumuman/{slug}/en', [PengumumanController::class, 'showEN
 Route::get('/detail-agenda/{id}/id', [AgendaController::class, 'showID'])->name('agenda.showagenda.id');
 Route::get('/detail-agenda/{id}/en', [AgendaController::class, 'showEN'])->name('agenda.showagenda.en');
 
+Route::get('/unduhan', [UnduhController::class, 'unduhan'])->name('unduh.unduhan');
+Route::get('/unduhan/load-more', [UnduhController::class, 'loadMoreUnduhan'])->name('unduh.loadMoreUnduhan');
 
 Route::get('/kontak', function () {
     return view('halaman-user.kontak');
@@ -154,4 +156,3 @@ Route::get('language/{locale}', function ($locale) {
     }
     return redirect()->back();
 });
-
