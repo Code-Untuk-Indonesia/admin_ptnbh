@@ -16,7 +16,7 @@
 
     <!-- pengumuman -->
     <section class="berita">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="3000">
             <h1 class="berita-1">Pengumuman Terbaru</h1>
             <div class="row" id="pengumuman-container">
                 @foreach ($pengumuman as $item)
@@ -80,7 +80,8 @@
                         if (response.length > 0) {
                             var html = '';
                             response.forEach(function(item) {
-                                html += '<div class="col-md-4">';
+                                html +=
+                                    '<div class="col-md-4" data-aos="fade-up" data-aos-duration="1500">';
                                 html += '    <div class="card card-news">';
                                 html +=
                                     '        <img src="{{ asset('images/pengumuman') }}/' +
@@ -111,7 +112,7 @@
                             skip += 3; // Increment skip by 3
                             if (skip >= totalPengumuman) {
                                 $('#load-more-btn')
-                            .hide(); // Hide button if no more items to load
+                                    .hide(); // Hide button if no more items to load
                             }
                         } else {
                             $('#load-more-btn').hide(); // Hide button if no more items to load

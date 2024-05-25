@@ -19,7 +19,7 @@
         </h1>
         <div class="row" id="agenda-container">
             @foreach ($agenda as $item)
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1500">
                     <div class="card card-news">
                         <img src="{{ asset('images/agenda') }}/{{ $item->gambar }}" class="card-img-top"
                             alt="{{ $item->judul_id }}">
@@ -81,7 +81,8 @@
                         if (response.length > 0) {
                             var html = '';
                             response.forEach(function(agenda) {
-                                html += '<div class="col-md-4 mt-4">';
+                                html +=
+                                    '<div class="col-md-4 mt-4" data-aos="fade-up" data-aos-duration="1500">';
                                 html += '    <div class="card card-news">';
                                 html +=
                                     '        <img src="{{ asset('images/agenda') }}/' +
