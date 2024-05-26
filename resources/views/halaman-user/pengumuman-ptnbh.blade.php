@@ -27,8 +27,8 @@
                             <div class="card-body">
                                 <p class="card-text date-news">
                                     {{ \Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM YYYY') }}</p>
-                                <h5 class="card-title title-news">{{ $item->judul_id }}</h5>
-                                <p class="card-text">{{ \Illuminate\Support\Str::limit($item->konten_id, 100) }}</p>
+                                <h5 class="card-title title-news">{{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</h5>
+                                <p class="card-text">{{  app()->getLocale() == 'id'? \Illuminate\Support\Str::limit($item->konten_id, 100) : \Illuminate\Support\Str::limit($item->konten_en, 100) }}</p>
                                 <a href="{{ route('pengumuman.showpengumuman.id', ['slug' => $item->slug]) }}"
                                     class="btn btn-primary">Selengkapnya</a>
                             </div>

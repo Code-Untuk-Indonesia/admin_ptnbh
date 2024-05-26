@@ -25,8 +25,10 @@
                             alt="{{ $item->judul_id }}">
                         <div class="card-body">
                             <p class="card-text date-news">{{ $item->tanggal_agenda }}</p>
-                            <h5 class="card-title title-news">{{ $item->judul_id }}</h5>
-                            <p class="card-text">{{ substr($item->deskripsi_id, 0, 100) }}...</p>
+                            <h5 class="card-title title-news">
+                                {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}
+                            </h5>
+                            <p class="card-text">{{ app()->getLocale() == 'id'? substr($item->deskripsi_id, 0, 100): substr($item->deskripsi_en, 0, 100)  }}...</p>
                             <a href="{{ route('agenda.show', ['id' => $item->id]) }}"
                                 class="btn btn-primary">Selengkapnya</a>
 

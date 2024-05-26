@@ -105,7 +105,11 @@
                     <div class="card card-galery img-hover-zoom" style="width: 18rem;">
                         <img src="{{ asset('/images/album/' . $album->gambar) }}" class="card-img-top img-news"
                             alt="...">
-                        <h5 class="card-title title-news">{{ $album->judul_id }}</h5>
+                        <h5 class="card-title title-news">
+                            {{app()->getLocale() == 'id'
+                            ? $album->judul_id
+                            : $album->judul_en }}
+                        </h5>
                     </div>
                 </div>
             @endforeach
@@ -139,7 +143,11 @@
                             font-size: 1.25rem;
                             font-weight: 500;
                             color: #333;
-                            transition: color 0.3s;">{{ $video->judul_id }}</span>
+                            transition: color 0.3s;">
+                           {{app()->getLocale() == 'id'
+                           ? $video->judul_id
+                           : $video->judul_en }}
+                        </span>
                     </div>
                 </div>
             @endforeach
@@ -166,8 +174,14 @@
                             <div class="file-preview mb-3">
                                 <i class="fas fa-file-pdf fa-5x"></i>
                             </div>
-                            <h5 class="card-title">{{ $item->judul_id }}</h5>
-                            <a href="{{ asset('/files/unduh/' . $item->file) }}" class="btn btn-primary">Unduh</a>
+                            <h5 class="card-title">
+                                {{app()->getLocale() == 'id'
+                                ? $item->judul_id
+                                : $item->judul_en }}
+                            </h5>
+                            <a href="{{ asset('/files/unduh/' . $item->file) }}" class="btn btn-primary">
+                                {{ app()->getLocale() == 'id' ? 'Unduh' : 'Download' }}
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +190,7 @@
 
         <button class="btn-news">
             <a class="a-btn-news" href="">
-                Unduhan Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+                {{ app()->getLocale() == 'id' ? 'Unduhan Lainnya' : 'Download more' }}<span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
 

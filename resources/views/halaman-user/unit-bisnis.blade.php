@@ -17,13 +17,20 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2>Unit Bisnis Universitas Tanjungpura</h2>
-                    <p>Unit Bisnis Universitas Tanjungpura (UNTAN) merupakan bagian dari struktur organisasi yang
-                        bertanggung jawab atas pengelolaan kegiatan bisnis yang terkait dengan operasional universitas.
-                        Unit
-                        bisnis ini mencakup berbagai aspek, termasuk layanan katering, penjualan produk-produk akademik,
-                        pengelolaan aset universitas, dan sebagainya.</p>
-                    <p>Berikut adalah beberapa unit bisnis yang umumnya ditemukan di UNTAN:</p>
+                    <h2>Unit Bisnis Universitas Tanjungpura
+                        {{ app()->getLocale() == 'id' ? 'Unit Bisnis Universitas Tanjungpura' : 'The Business Unit of Tanjungpura University ' }}
+                    </h2>
+                    <p>
+                        {{ app()->getLocale() == 'id'
+                            ? 'Unit Bisnis Universitas Tanjungpura (UNTAN) merupakan bagian dari struktur organisasi yang bertanggung jawab atas pengelolaan kegiatan bisnis yang terkait dengan operasional universitas. Unit bisnis ini mencakup berbagai aspek, termasuk layanan katering, penjualan produk-produk akademik, pengelolaan aset universitas, dan sebagainya.'
+                            : 'The Business Unit of Tanjungpura University (UNTAN) is an integral part of the organizational structure responsible for managing business activities related to the university\'s operations. This business unit encompasses various aspects, including catering services, sales of academic products, asset management, and more.' }}
+                    </p>
+                    <p> {{ app()->getLocale() == 'id'
+                        ? '   Berikut adalah beberapa unit bisnis yang umumnya ditemukan di UNTAN:'
+                        : ' Here are some of the business units commonly found at UNTAN:' }}
+
+
+                    </p>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
