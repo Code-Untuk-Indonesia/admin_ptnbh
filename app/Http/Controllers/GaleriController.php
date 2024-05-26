@@ -91,4 +91,29 @@ class GaleriController extends Controller
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
         }
     }
+
+    public function galeripage()
+    {
+        $totalGaleri = Galeri::count();
+        $galeri = Galeri::orderBy('created_at', 'desc')->take(3)->get();
+
+        return view('halaman-user.gallery', [
+            'galeri' => $galeri,
+            'totalGaleri' => $totalGaleri,
+        ]);
+    }
+
+    public function loadMoreGaleri(Request $request)
+    {
+        if ($request->ajax()) {
+            $skip = $request->input('skip', 0);
+            $take = 3; // Ambil 3 agenda tambahan
+            $galeris = Galeri::orderBy('created_at', 'desc')
+                ->skip($skip)
+                ->take($take)
+                ->get();
+
+            return response()->json($galeris);
+        }
+    }
 }

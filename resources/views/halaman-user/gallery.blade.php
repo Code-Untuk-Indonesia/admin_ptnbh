@@ -20,56 +20,15 @@
             Galeri
         </h1>
         <div class="row mb-3" data-aos="fade-up" data-aos-duration="3000">
-            <div class="col-md-4">
-                <div class="card-galery">
-                    <div class="img-hover-zoom">
-                        <img class="img-news" src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}"
-                            alt="img-news">
+            @foreach ($galeri as $item)
+                <div class="col-md-4">
+                    <div class="card-galery">
+                        <div class="img-hover-zoom">
+                            <img class="img-news" src="{{ asset('images/album') }}/{{ $item->gambar_foto }}" alt="img-news">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-galery">
-                    <div class="img-hover-zoom">
-                        <img class="img-news" src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}"
-                            alt="img-news">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-galery">
-                    <div class="img-hover-zoom">
-                        <img class="img-news" src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}"
-                            alt="img-news">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-up" data-aos-duration="3000">
-            <div class="col-md-4">
-                <div class="card-galery">
-                    <div class="img-hover-zoom">
-                        <img class="img-news" src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}"
-                            alt="img-news">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-galery">
-                    <div class="img-hover-zoom">
-                        <img class="img-news" src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}"
-                            alt="img-news">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-galery">
-                    <div class="img-hover-zoom">
-                        <img class="img-news" src="{{ asset('ptnbh/asset/rektorat-untan-scaled-2048x1152.jpg') }}"
-                            alt="img-news">
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <button class="btn-news">

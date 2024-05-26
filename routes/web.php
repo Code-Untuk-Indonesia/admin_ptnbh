@@ -119,9 +119,7 @@ Route::get('/mahasiswa', function () {
     return view('halaman-user.mahasiswa');
 });
 
-Route::get('/gallery', function () {
-    return view('halaman-user.gallery');
-});
+Route::get('/gallery', [GaleriController::class, 'galeripage'])->name('galeri');
 
 Route::get(
     '/agenda-ptnbh',
