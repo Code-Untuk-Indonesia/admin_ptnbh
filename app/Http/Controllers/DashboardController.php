@@ -7,6 +7,7 @@ use App\Models\Berita;
 use App\Models\Pengumuman;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Shetabit\Visitor\Models\Visit;
 
 class DashboardController extends Controller
 {
@@ -20,8 +21,19 @@ class DashboardController extends Controller
         $totalPengumuman = Pengumuman::count();
         $totalVideo = Video::count();
         $totalAlbum = Album::count();
+        // $totalVisits = visitor()->count();
         return view('admin.dashboard-admin.dashboard', compact('berita', 'totalBerita','totalPengumuman','totalVideo','totalAlbum'));
     }
+    // public function visit()
+    // {
+    //     $totalVisits = Visit::count();
+    //     $berita = Berita::all();
+    //     $totalBerita = Berita::count();
+    //     $totalPengumuman = Pengumuman::count();
+    //     $totalVideo = Video::count();
+    //     $totalAlbum = Album::count();
+    //     return view('admin.dashboard-admin.dashboard', compact('totalVisits', 'totalBerita', 'totalPengumuman', 'totalVideo', 'totalAlbum', 'berita'));
+    // }
 
     /**
      * Show the form for creating a new resource.

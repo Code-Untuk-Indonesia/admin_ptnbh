@@ -17,6 +17,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PengumumanController;
+use Shetabit\Visitor\Middlewares\LogVisits;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +91,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard admin
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/visi', [DashboardController::class, 'visit'])->middleware(LogVisits::class);
+
 
     // footer
     Route::resource('footers', FooterController::class);
