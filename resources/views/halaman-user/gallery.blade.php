@@ -24,7 +24,7 @@
                 <div class="col-md-4">
                     <div class="card-galery">
                         <div class="img-hover-zoom">
-                            <img class="img-news" src="{{ asset('images/album') }}/{{ $item->gambar_foto }}" alt="img-news">
+                            <img class="img-news" src="{{ asset('/images/album/' . $item->gambar) }}" alt="img-news">
                         </div>
                     </div>
                 </div>

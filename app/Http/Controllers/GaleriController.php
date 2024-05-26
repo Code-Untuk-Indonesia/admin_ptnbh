@@ -95,12 +95,13 @@ class GaleriController extends Controller
     public function galeripage()
     {
         $totalGaleri = Galeri::count();
-        $galeri = Galeri::orderBy('created_at', 'desc')->take(3)->get();
+        $galeri = Album::orderBy('created_at', 'desc')->take(3)->get();
 
         return view('halaman-user.gallery', [
             'galeri' => $galeri,
             'totalGaleri' => $totalGaleri,
         ]);
+
     }
 
     public function loadMoreGaleri(Request $request)
