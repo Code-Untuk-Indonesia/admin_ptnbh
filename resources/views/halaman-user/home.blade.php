@@ -53,7 +53,8 @@
     <!-- berita  -->
     <section class="berita" data-aos="fade-up" data-aos-duration="3000">
         <h1 class="berita-1">
-            Berita Terbaru
+
+            {{ app()->getLocale() == 'id' ? 'Berita Terbaru' : 'Latest News' }}
         </h1>
 
         <div class="row">
@@ -72,10 +73,14 @@
                                 </span>
                                 {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}
                             </p>
-                            <h5 class="card-title title-news " style="padding-left: 5px">{{ $item->judul_id }}</h5>
+                            <h5 class="card-title title-news " style="padding-left: 5px">
+                                {{app()->getLocale() == 'id'
+                                ? $item->judul_id
+                                : $item->judul_en }}
+                            </h5>
                             <a href="{{ route('berita.showfe', ['slug' => $item->slug]) }}"
-                                class="btn btn-news btn-warning mb-3">Baca
-                                Selengkapnya</a>
+                                class="btn btn-news btn-warning mb-3">   {{ app()->getLocale() == 'id' ? 'Baca Selengkapnya...' : 'Read More...' }}
+                                </a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +96,8 @@
     <!-- galery  -->
     <section class="galery">
         <h1 class="galery-1" data-aos="fade-up" data-aos-duration="2000">
-            Galeri
+
+            {{ app()->getLocale() == 'id' ? 'Galeri' : 'Gallery' }}
         </h1>
         <div class="row" data-aos="fade-up" data-aos-duration="3000">
             @foreach ($galeri as $album)
