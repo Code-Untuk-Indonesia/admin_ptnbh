@@ -62,6 +62,7 @@ class HomepageController extends Controller
             'judul_ptnbh_en' => 'required|string|max:255',
             'tentang_ptnbh_id' => 'required|string',
             'tentang_ptnbh_en' => 'required|string',
+            'nama_Rektor' => 'required|string',
             'sambutan_rektor_id' => 'required|string',
             'sambutan_rektor_en' => 'required|string',
             'judul_rektor_id' => 'required|string',
@@ -76,6 +77,7 @@ class HomepageController extends Controller
         $data->judul_ptnbh_en = $request->judul_ptnbh_en;
         $data->tentang_ptnbh_id = $request->tentang_ptnbh_id;
         $data->tentang_ptnbh_en = $request->tentang_ptnbh_en;
+        $data->nama_rektor = $request->nama_rektor;
         $data->sambutan_rektor_id = $request->sambutan_rektor_id;
         $data->sambutan_rektor_en = $request->sambutan_rektor_en;
         $data->judul_rektor_id = $request->judul_rektor_id;

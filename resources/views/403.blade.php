@@ -34,7 +34,7 @@
 				    <div class="mb-4">
 					    Sorry, you don't have permission to access this page.
 				    </div>
-				    <a class="btn app-btn-primary" href="{{ url('/dashboard') }}">Kembali ke Dashboard</a>
+				    <a class="btn app-btn-primary" href="{{ url('/admin/dashboard') }}">Kembali ke Dashboard</a>
 			    </div>
 		    </div><!--//col-->
 	    </div><!--//row-->

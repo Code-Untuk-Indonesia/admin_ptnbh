@@ -15,6 +15,7 @@ class home extends Model
         'tentang_ptnbh_en',
         'judul_rektor_id',
         'judul_rektor_en',
+        'nama_rektor',
         'sambutan_rektor_id',
         'sambutan_rektor_en',
         'gambar_rektor',

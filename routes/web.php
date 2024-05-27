@@ -59,8 +59,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/berita', BeritaController::class)->middleware('permission:manage berita');
     Route::resource('/admin/galeri', GaleriController::class)->middleware('permission:manage galeri');
     Route::resource('/admin/pengumuman', PengumumanController::class)->middleware('permission:manage pengumuman');
-    // Route::resource('/admin/video', VideoController::class)->middleware('permission:manage video');
-    Route::resource('/admin/unduh', UnduhController::class);
+    Route::resource('/admin/video', VideoController::class)->middleware('permission:manage video');
+    Route::resource('/admin/unduh', UnduhController::class)->middleware('permission:manage unduh');
 
 
     // Resource controller untuk pengguna hanya dapat diakses oleh pengguna dengan izin 'manage_users'
@@ -71,21 +71,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/api-berita', [BeritaController::class, 'apiberita']);
 
     // Rute CRUD untuk halaman beranda
-    Route::get('/admin/home-page', [HomePageController::class, 'index'])->name('home.index');
-    Route::get('/admin/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit');
-    Route::put('/admin/home/{id}', [HomePageController::class, 'update'])->name('home.update');
-    Route::get('/admin/api-home', [HomePageController::class, 'apihome'])->name('home.apihome');
+    Route::get('/admin/home-page', [HomePageController::class, 'index'])->name('home.index')->middleware('permission:manage home');
+    Route::get('/admin/home/{id}/edit', [HomePageController::class, 'edit'])->name('home.edit')->middleware('permission:manage home');
+    Route::put('/admin/home/{id}', [HomePageController::class, 'update'])->name('home.update')->middleware('permission:manage home');
+    Route::get('/admin/api-home', [HomePageController::class, 'apihome'])->name('home.apihome')->middleware('permission:manage home');
 
     // Rute CRUD untuk halaman tentang
-    Route::get('/admin/tentang-page', [TentangController::class, 'index'])->name('tentang.index');
-    Route::get('/admin/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit');
-    Route::put('/admin/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update');
+    Route::get('/admin/tentang-page', [TentangController::class, 'index'])->name('tentang.index')->middleware('permission:manage tentang');
+    Route::get('/admin/tentang/{id}/edit', [TentangController::class, 'edit'])->name('tentang.edit')->middleware('permission:manage tentang');
+    Route::put('/admin/tentang/{id}', [TentangController::class, 'update'])->name('tentang.update')->middleware('permission:manage tentang');
     Route::get('/admin/api-tentang', [TentangController::class, 'apitentang'])->name('tentang.apitentang');
 
     // Rute CRUD untuk halaman organisasi
-    Route::get('/admin/organisasi-page', [OrganisasiController::class, 'index'])->name('organisasi.index');
-    Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
-    Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update');
+    Route::get('/admin/organisasi-page', [OrganisasiController::class, 'index'])->name('organisasi.index')->middleware('permission:manage organisasi');
+    Route::get('/admin/organisasi/{id}/edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit')->middleware('permission:manage organisasi');
+    Route::put('/admin/organisasi/{id}', [OrganisasiController::class, 'update'])->name('organisasi.update')->middleware('permission:manage organisasi');
     Route::get('/admin/api-organisasi', [OrganisasiController::class, 'apitentang'])->name('organisasi.apitentang');
 
 
@@ -96,8 +96,8 @@ Route::middleware(['auth'])->group(function () {
 
     // footer
     Route::resource('footers', FooterController::class);
-    Route::get('/admin/footer-page', [FooterController::class, 'index'])->name('footer.index');
-    Route::get('/admin/footer/{id}/edit', [FooterController::class, 'edit'])->name('footer.edit');
+    Route::get('/admin/footer-page', [FooterController::class, 'index'])->name('footer.index')->middleware('permission:manage footer');
+    Route::get('/admin/footer/{id}/edit', [FooterController::class, 'edit'])->name('footer.edit')->middleware('permission:manage footer');
 });
 
 Route::get('/organisasi', [OrganisasiController::class, 'fe'])->name('organisasi');
@@ -126,7 +126,7 @@ Route::get(
     [AgendaController::class, 'agendapage']
 )->name('agenda');
 Route::get('/load-more-agenda', [AgendaController::class, 'loadMoreAgenda'])->name('agenda.loadMoreAgenda');
-Route::get('/agenda-ptnbh/{id}', [AgendaController::class, 'show'])->name('agenda.show');
+//Route::get('/agenda-ptnbh/{id}', [AgendaController::class, 'show'])->name('agenda.show');
 
 Route::get('/pengumuman-ptnbh', [PengumumanController::class, 'pengumumanpage'])->name('pengumuman');
 Route::get('/load-more-pengumuman', [PengumumanController::class, 'loadMore'])->name('pengumuman.loadMore');

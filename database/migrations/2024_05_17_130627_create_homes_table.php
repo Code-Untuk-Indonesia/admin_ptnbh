@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('judul_ptnbh_id');
             $table->text('tentang_ptnbh_id');
-            $table->text('sambutan_rektor_id'); // Pastikan ini benar sesuai dengan kebutuhan Anda
+            $table->string('nama_rektor');
+            $table->text('sambutan_rektor_id');
             $table->string('judul_ptnbh_en');
             $table->text('tentang_ptnbh_en');
             $table->text('sambutan_rektor_en');

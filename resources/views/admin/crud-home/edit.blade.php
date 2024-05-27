@@ -31,6 +31,12 @@
                                 <label for="sambutan_rektor_id">Sambutan Rektor</label>
                                 <textarea name="sambutan_rektor_id" id="summernote2" class="form-control" required>{{ old('sambutan_rektor_id', $data->sambutan_rektor_id) }}</textarea>
                             </div>
+                            
+                            <div class="form-group">
+                                <label for="nama_rektor">Nama Rektor</label>
+                                <input type="text" name="nama_rektor" class="form-control"
+                                    value="{{ old('nama_rektor', $data->nama_rektor) }}" required>
+                            </div>
 
                             <div class="form-group">
                                 <label for="gambar_rektor">Gambar Rektor</label>
