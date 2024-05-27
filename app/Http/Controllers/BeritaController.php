@@ -125,7 +125,7 @@ class BeritaController extends Controller
 
                 $gambar = $request->file('gambar-berita');
                 $gambar_berita = time() . '_berita.' . $gambar->getClientOriginalExtension();
-                $gambar->storeAs('images/berita', $gambar_berita);
+                $gambar->move('images/berita', $gambar_berita);
                 $berita->gambar = $gambar_berita;
             }
 
