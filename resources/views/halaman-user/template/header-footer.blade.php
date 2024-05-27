@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <link rel="stylesheet" href="{{ asset('/ptnbh/style/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('/ptnbh/style/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('/ptnbh3/style/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/ptnbh3/style/responsive.css') }}">
     <title>PTNBH Universitas Tanjungpura</title>
-    <link rel="icon" href="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}" type="image/gif"
+    <link rel="icon" href="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" type="image/gif"
         sizes="16x16">
     <style>
         footer ul {
@@ -288,7 +288,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="logo"
+                <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="logo"
                     width="30" height="30" class="d-inline-block align-text-top me-2">Universitas Tanjungpura
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -334,20 +334,20 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ app()->getLocale() == 'id' ? asset('ptnbh/asset/Indonesia.png') : asset('ptnbh/asset/Uk.png') }}"
+                            <img src="{{ app()->getLocale() == 'id' ? asset('ptnbh3/asset/Indonesia.png') : asset('ptnbh3/asset/Uk.png') }}"
                                 alt="" class="flag-img">
                             {{ app()->getLocale() == 'id' ? 'Indonesia' : 'English' }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <li>
                                 <a class="dropdown-item" href="{{ url('language/id') }}">
-                                    <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt=""
+                                    <img src="{{ asset('ptnbh3/asset/Indonesia.png') }}" alt=""
                                         class="flag-img"> Indonesia
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ url('language/en') }}">
-                                    <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="" class="flag-img">
+                                    <img src="{{ asset('ptnbh3/asset/Uk.png') }}" alt="" class="flag-img">
                                     English
                                 </a>
                             </li>
@@ -421,7 +421,7 @@
                     <div class="col-md-3 col-sm-12">
                         <div class="footer-widget">
                             <div class="widget-about">
-                                <img src="{{ asset('ptnbh/asset/Universitas_Tanjungpura_Pontianak.webp') }}"
+                                <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}"
                                     alt="" class="img-foot">
                                 <p>UNIVERSITAS TANJUNGPURA
                                     “Membangun Ekosistem Digital Menuju Universitas Siber”</p>
@@ -467,7 +467,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="{{ asset('ptnbh/script/index.js') }}"></script>
+    <script src="{{ asset('ptnbh3/script/index.js') }}"></script>
 </body>
 
 </html>

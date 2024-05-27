@@ -126,7 +126,7 @@ Route::get(
     [AgendaController::class, 'agendapage']
 )->name('agenda');
 Route::get('/load-more-agenda', [AgendaController::class, 'loadMoreAgenda'])->name('agenda.loadMoreAgenda');
-//Route::get('/agenda-ptnbh/{id}', [AgendaController::class, 'show'])->name('agenda.show');
+Route::get('/agenda-ptnbh/{id}', [AgendaController::class, 'show'])->name('agenda.show');
 
 Route::get('/pengumuman-ptnbh', [PengumumanController::class, 'pengumumanpage'])->name('pengumuman');
 Route::get('/load-more-pengumuman', [PengumumanController::class, 'loadMore'])->name('pengumuman.loadMore');
