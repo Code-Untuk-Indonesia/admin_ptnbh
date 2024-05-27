@@ -23,7 +23,7 @@
                             <label for="album">Pilih Album:</label>
                             <select name="id_album" class="form-control">
                                 @foreach($albums as $album)
-                                    <option value="{{ $album->id }}">{{ $album->judul }}</option>
+                                    <option value="{{ $album->id }}">{{ $album->judul_id }}</option>
                                 @endforeach
                             </select>
                         </div>
