@@ -147,8 +147,7 @@ class AlbumController extends Controller
 
     public function show($id)
     {
-        $album = Album::findOrFail($id);
-        $galeris = $album->galeris;
-        return view('halaman-user.show-album', compact('album', 'galeris'));
+        $album = Album::with('photos')->findOrFail($id);
+        return view('halaman-user.show-album', compact('album'));
     }
 }
