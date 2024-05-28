@@ -62,13 +62,6 @@
     margin-bottom: 40px;
 }
 
-.card-pengantar {
-    background-color: #fff; /* Warna latar belakang card */
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Shadow card */
-}
-
 .pengantar-2 {
     font-family: "Inter", sans-serif;
     font-size: 18px;
@@ -82,7 +75,7 @@
     padding: 40px;
     background-color: #e8d933;
     border-radius: 12px;
-    /* box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75); */
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 .card-pengantar:hover {
@@ -167,11 +160,6 @@
     color: #000;
 }
 
-a:hover {
-    text-decoration: none;
-    color: #000;
-}
-
 /* end berita */
 
 /* galeri */
@@ -181,6 +169,8 @@ a:hover {
     justify-content: center;
     align-items: center;
     padding: 100px 120px;
+    width: 100%;
+    flex-direction: column;
 }
 
 .galery-1 {
@@ -215,6 +205,7 @@ a:hover {
     height: 200px; /* Set a maximum height */
     object-fit: cover; /* Ensure the image covers the container while maintaining aspect ratio */
     transition: transform 0.5s ease;
+    background-position: center;
 }
 
 .img-hover-zoom:hover img {
@@ -236,6 +227,7 @@ footer li {
 }
 footer a {
     text-decoration: none;
+    color: #5867dd;
 }
 a:focus,
 a:hover {
@@ -243,10 +235,10 @@ a:hover {
     -webkit-transition: 0.3s ease;
     -o-transition: 0.3s ease;
     transition: 0.3s ease;
-}
-a:focus {
+    color: #000;
     outline: 0;
 }
+
 img {
     max-width: 100%;
 }
@@ -263,9 +255,7 @@ footer h4 {
     padding: 0;
     color: #363940;
 }
-footer a {
-    color: #5867dd;
-}
+
 .no-padding {
     padding: 0 !important;
 }
@@ -298,7 +288,7 @@ footer a {
 .footer--light {
     background: #e7e8ed;
 }
-.footer-big .footer-menu ul li a,
+.footer-big,
 .footer-big p,
 .footer-big ul li {
     color: #898b96;
@@ -312,6 +302,7 @@ footer a {
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
+    color: #898b96;
 }
 .footer-menu ul li a:hover {
     color: #5867dd;
@@ -445,17 +436,6 @@ footer a {
 }
 
 /* end hostory */
-
-/* galery */
-.galery {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 100px 120px;
-}
-
-/* end galery */
 
 /* news */
 .news {
@@ -1188,10 +1168,6 @@ footer li {
     list-style: none;
 }
 
-footer a {
-    text-decoration: none;
-}
-
 a:focus,
 a:hover {
     text-decoration: none;
@@ -1221,10 +1197,6 @@ footer h4 {
     font-weight: 400;
     padding: 0;
     color: #363940;
-}
-
-footer a {
-    color: #5867dd;
 }
 
 .no-padding {
@@ -1477,6 +1449,9 @@ footer a {
 }
 
 .card-unduhan {
+    margin: 10px;
+    height: 100%;
+    min-width: 200px;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
@@ -1493,8 +1468,8 @@ footer a {
 }
 
 .file-preview img {
-    max-height: 150px;
-    object-fit: contain;
+    max-height: 100px;
+    object-fit: cover;
 }
 
 .file-preview i {
