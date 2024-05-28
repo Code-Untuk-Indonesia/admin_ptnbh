@@ -1,6 +1,12 @@
 @extends('halaman-user.template.header-footer')
 
 @section('content')
+<style>
+        .card-galery {
+    min-width: 200px;
+    border: none;
+}
+</style>
     <!-- hero profile -->
     <section class="hero-profile"
         style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
