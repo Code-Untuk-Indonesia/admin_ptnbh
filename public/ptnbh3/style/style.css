@@ -226,6 +226,58 @@ a:hover {
     margin-top: 10px;
 }
 
+.album {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.album h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 40px;
+}
+
+.card-photo {
+    border: none;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.img-photo:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .album h1 {
+        font-size: 28px;
+    }
+
+    .img-photo {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .album h1 {
+        font-size: 24px;
+    }
+
+    .img-photo {
+        height: 160px;
+    }
+}
+
 /* end galeri */
 footer ul {
     padding: 0;
@@ -1364,29 +1416,26 @@ footer a {
     color: #999;
     font-weight: 400;
 }
-
 .rektor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 50px 20px;
     text-align: center;
-    padding: 20px;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
+.text-section {
+    max-width: 1200px;
     margin: auto;
 }
 
-.image-card {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-md-4,
+.col-md-8 {
+    padding: 15px;
 }
 
 .image-section {
@@ -1396,11 +1445,19 @@ footer a {
 }
 
 .img-rektor {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+}
+
+.text-rektor3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 10px;
 }
 
 .text-rektor {
@@ -1408,15 +1465,52 @@ footer a {
     font-weight: bold;
     color: #2c3e50;
     text-transform: uppercase;
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 
-.text-rektor3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-top: 10px;
+.text-rektor2 {
+    font-size: 1rem;
+    color: #34495e;
+    text-align: justify;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .text-rektor {
+        font-size: 1.25rem;
+    }
+
+    .text-rektor3 {
+        font-size: 1rem;
+    }
+
+    .text-rektor2 {
+        font-size: 0.875rem;
+    }
+
+    .rektor {
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .text-rektor {
+        font-size: 1rem;
+    }
+
+    .text-rektor3 {
+        font-size: 0.875rem;
+    }
+
+    .text-rektor2 {
+        font-size: 0.75rem;
+    }
+
+    .rektor {
+        padding: 20px 5px;
+    }
 }
 
 .text-section {

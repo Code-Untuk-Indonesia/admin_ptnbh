@@ -120,6 +120,7 @@ Route::get('/mahasiswa', function () {
 });
 
 Route::get('/gallery', [GaleriController::class, 'galeripage'])->name('galeri');
+Route::get('/album/{id}', [AlbumController::class, 'show'])->name('album.show');
 
 Route::get(
     '/agenda-ptnbh',

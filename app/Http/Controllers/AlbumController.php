@@ -144,4 +144,11 @@ class AlbumController extends Controller
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
         }
     }
+
+    public function show($id)
+    {
+        $album = Album::findOrFail($id);
+        $galeris = $album->galeris;
+        return view('halaman-user.show-album', compact('album', 'galeris'));
+    }
 }

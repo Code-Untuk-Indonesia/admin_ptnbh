@@ -21,25 +21,28 @@
         </h1>
         <div class="row mb-3" data-aos="fade-up" data-aos-duration="3000">
             @foreach ($galeri as $item)
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="card-galery">
-                        <div class="img-hover-zoom">
-                            <img class="img-news" src="{{ asset('/images/album/' . $item->gambar) }}" alt="img-news">
-                        </div>
+                        <a href="{{ route('album.show', ['id' => $item->id]) }}" style="text-decoration: none">
+                            <div class="img-hover-zoom">
+                                <img class="img-news" src="{{ asset('/images/album/' . $item->gambar) }}" alt="img-news">
+                            </div>
+                            <h5 class="card-title title-news">
+                                {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}
+                            </h5>
+                        </a>
                     </div>
                 </div>
             @endforeach
         </div>
-
         <button class="btn-news">
-            <a class="a-btn-news">
-                Galeri Lainnya <span><img src="asset/arrow.svg" alt=""></span>
+            <a class="a-btn-news" href="{{ route('galeri.index') }}">
+                Galeri Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
-
-
     </section>
     <!-- end galery -->
+
 
     <!-- Section Dukung PTN BH -->
     <section class="dukung">

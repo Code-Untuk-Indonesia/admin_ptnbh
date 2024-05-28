@@ -26,26 +26,25 @@
 
     <!--end pengantar  -->
     <!-- rektor -->
-    <section class="rektor" data-aos="fade-up" data-aos-duration="2000" style="padding: 100px 120px">
-
+    <section class="rektor" data-aos="fade-up" data-aos-duration="2000">
         <div class="text-section">
             <div class="row">
-                <div class="col-4" style="display: flex;align-items: center; padding: 20px">
+                <div class="col-md-4 col-sm-12">
                     <div class="image-section">
                         <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" alt="rektor" class="img-rektor">
                         <h1 class="text-rektor3">{{ $data->nama_Rektor }}</h1>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-8 col-sm-12">
                     <h1 class="text-rektor">{{ $data->judul_rektor_id }}</h1>
                     <div>
                         {!! str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_id) !!}
                     </div>
                 </div>
             </div>
-
-
+        </div>
     </section>
+
     <!--  -->
     <!-- berita  -->
     <section class="berita" data-aos="fade-up" data-aos-duration="3000">
@@ -110,8 +109,8 @@
         </div>
 
         <button class="btn-news">
-            <a class="a-btn-news" href="">
-                Galeri Lainnya <span><img src="asset/arrow.svg" alt=""></span>
+            <a class="a-btn-news" href="/gallery">
+                Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
 
