@@ -57,10 +57,14 @@
                                         <div class="user-name">{{ auth()->user()->name }}</div>
                                         <div class="user-roles">({{ auth()->user()->roles()->pluck('name')->implode(', ') }})</div>
                                     </div>
-                                    <img src="{{ asset('template-admin/assets/images/user.png') }}" alt="user profile" class="user-image">
+                                    @if(auth()->user()->foto && file_exists(public_path('images/profile/' . auth()->user()->foto)))
+                                        <img src="{{ asset('images/profile/' . auth()->user()->foto) }}" alt="user profile" class="user-image">
+                                    @else
+                                        <img src="{{ asset('images/profile/blank.jpg') }}" alt="user profile" class="user-image">
+                                    @endif
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-                                    <li><a class="dropdown-item" href="account.html">Account</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('account.index') }}">Account</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

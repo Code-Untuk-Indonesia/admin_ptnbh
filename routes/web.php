@@ -97,7 +97,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile/name', [AccountController::class, 'updateName'])->name('profile.update.name');
     Route::put('/profile/email', [AccountController::class, 'updateEmail'])->name('profile.update.email');
     Route::put('/profile/password', [AccountController::class, 'updatePassword'])->name('profile.update.password');
-
+    Route::delete('/profile/delete-photo', [AccountController::class, 'deletePhoto'])->name('profile.delete.photo');
 
     // footer
     Route::resource('footers', FooterController::class);
