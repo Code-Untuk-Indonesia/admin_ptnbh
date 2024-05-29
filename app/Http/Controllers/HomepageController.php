@@ -62,7 +62,7 @@ class HomepageController extends Controller
             'judul_ptnbh_en' => 'required|string|max:255',
             'tentang_ptnbh_id' => 'required|string',
             'tentang_ptnbh_en' => 'required|string',
-            'nama_Rektor' => 'required|string',
+            'nama_rektor' => 'required|string',
             'sambutan_rektor_id' => 'required|string',
             'sambutan_rektor_en' => 'required|string',
             'judul_rektor_id' => 'required|string',
@@ -72,7 +72,7 @@ class HomepageController extends Controller
 
         $data = Home::findOrFail($id);
 
-        // Update data kecuali gambar_rektor
+        // Update data except gambar_rektor
         $data->judul_ptnbh_id = $request->judul_ptnbh_id;
         $data->judul_ptnbh_en = $request->judul_ptnbh_en;
         $data->tentang_ptnbh_id = $request->tentang_ptnbh_id;
@@ -85,8 +85,8 @@ class HomepageController extends Controller
 
         if ($request->hasFile('gambar_rektor')) {
             // Menghapus gambar lama jika ada
-            if ($data->gambar_rektor && file_exists(public_path('images/' . $data->gambar_rektor))) {
-                unlink(public_path('images/berita' . $data->gambar_rektor));
+            if ($data->gambar_rektor && file_exists(public_path('images/berita/' . $data->gambar_rektor))) {
+                unlink(public_path('images/berita/' . $data->gambar_rektor));
             }
 
             // Upload gambar baru
@@ -102,6 +102,7 @@ class HomepageController extends Controller
 
         return redirect()->route('home.index')->with('success', 'Data updated successfully');
     }
+
 
 
 
