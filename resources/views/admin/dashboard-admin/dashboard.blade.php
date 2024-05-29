@@ -5,26 +5,17 @@
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
 
-                <h1 class="app-page-title">Overview</h1>
+                <h1 class="app-page-title">Dashboard</h1>
 
                 <div class="row g-4 mb-4">
                     <div class="col-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Berita</h4>
-                                <div class="stats-figure">{{$totalBerita}}</div>
-
-                            </div><!--//app-card-body-->
-                            <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
-
-                    <div class="col-6 col-lg-3">
-                        <div class="app-card app-card-stat shadow-sm h-100">
-                            <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Pengumuman</h4>
-                                <div class="stats-figure">{{$totalPengumuman}}</div>
-
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-newspaper mr-2"></i>
+                                    <h4 class="stats-type mb-0">Total Berita</h4>
+                                </div>
+                                <div class="stats-figure">{{ $totalBerita }}</div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
@@ -32,9 +23,11 @@
                     <div class="col-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Video</h4>
-                                <div class="stats-figure">{{$totalVideo}}</div>
-
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-bullhorn mr-2"></i>
+                                    <h4 class="stats-type mb-0">Total Pengumuman</h4>
+                                </div>
+                                <div class="stats-figure">{{ $totalPengumuman }}</div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
@@ -42,9 +35,23 @@
                     <div class="col-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Album</h4>
-                                <div class="stats-figure">{{$totalAlbum}}</div>
-
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-video mr-2"></i>
+                                    <h4 class="stats-type mb-0">Total Video</h4>
+                                </div>
+                                <div class="stats-figure">{{ $totalVideo }}</div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div><!--//col-->
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-images mr-2"></i>
+                                    <h4 class="stats-type mb-0">Total Album</h4>
+                                </div>
+                                <div class="stats-figure">{{ $totalAlbum }}</div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
@@ -142,9 +149,8 @@
                                         <div class="col">
                                             <div class="title mb-1 ">Project lorem ipsum dolor sit amet</div>
                                             <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%;"
+                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div><!--//col-->
                                         <div class="col-auto">

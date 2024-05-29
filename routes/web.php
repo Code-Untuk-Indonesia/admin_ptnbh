@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
@@ -17,6 +16,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\AccountController;
 use Shetabit\Visitor\Middlewares\LogVisits;
 
 /*
@@ -92,6 +92,11 @@ Route::middleware(['auth'])->group(function () {
     // Dashboard admin
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/visi', [DashboardController::class, 'visit'])->middleware(LogVisits::class);
+    Route::get('/admin/account', [AccountController::class, 'account'])->name('account.index');
+    Route::put('/profile/photo', [AccountController::class, 'updatePhoto'])->name('profile.update.photo');
+    Route::put('/profile/name', [AccountController::class, 'updateName'])->name('profile.update.name');
+    Route::put('/profile/email', [AccountController::class, 'updateEmail'])->name('profile.update.email');
+    Route::put('/profile/password', [AccountController::class, 'updatePassword'])->name('profile.update.password');
 
 
     // footer
