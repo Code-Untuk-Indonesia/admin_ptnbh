@@ -10,22 +10,22 @@
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="organisasi_id">Judul Organisasi</label>
+                    <label for="organisasi_id">Judul Organisasi (ID)</label>
                     <input type="text" name="organisasi_id" class="form-control" value="{{ old('organisasi_id', $data->organisasi_id) }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="organisasi_en">Judul Organisasi (Eng)</label>
+                    <label for="organisasi_en">Judul Organisasi (EN)</label>
                     <input type="text" name="organisasi_en" class="form-control" value="{{ old('organisasi_en', $data->organisasi_en) }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="isi_organisasi_id">Isi Organisasi</label>
+                    <label for="isi_organisasi_id">Isi Organisasi (ID)</label>
                     <textarea name="isi_organisasi_id" id="summernote" class="form-control" required>{{ old('isi_organisasi_id', $data->isi_organisasi_id) }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="isi_organisasi_en">Isi Organisasi (Eng)</label>
+                    <label for="isi_organisasi_en">Isi Organisasi (EN)</label>
                     <textarea name="isi_organisasi_en" id="summernote2" class="form-control" required>{{ old('isi_organisasi_en', $data->isi_organisasi_en) }}</textarea>
                 </div>
 

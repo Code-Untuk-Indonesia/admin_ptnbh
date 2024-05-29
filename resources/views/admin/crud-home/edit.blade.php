@@ -13,22 +13,22 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="judul_ptnbh_id">Judul PTNBH</label>
+                                <label for="judul_ptnbh_id">Judul PTNBH (ID)</label>
                                 <input type="text" name="judul_ptnbh_id" class="form-control"
                                     value="{{ old('judul_ptnbh_id', $data->judul_ptnbh_id) }}" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="tentang_ptnbh_id">Tentang PTNBH</label>
+                                <label for="tentang_ptnbh_id">Tentang PTNBH (ID)</label>
                                 <textarea name="tentang_ptnbh_id" id="summernote" class="form-control" required>{{ old('tentang_ptnbh_id', $data->tentang_ptnbh_id) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="judul_rektor_id">Judul Rektor</label>
+                                <label for="judul_rektor_id">Judul Rektor (ID)</label>
                                 <input type="text" name="judul_rektor_id" class="form-control"
                                     value="{{ old('judul_rektor_id', $data->judul_rektor_id) }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="sambutan_rektor_id">Sambutan Rektor</label>
+                                <label for="sambutan_rektor_id">Sambutan Rektor (ID)</label>
                                 <textarea name="sambutan_rektor_id" id="summernote2" class="form-control" required>{{ old('sambutan_rektor_id', $data->sambutan_rektor_id) }}</textarea>
                             </div>
                             
@@ -45,22 +45,22 @@
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="judul_ptnbh_en">Judul PTNBH (En)</label>
+                                <label for="judul_ptnbh_en">Judul PTNBH (EN)</label>
                                 <input type="text" name="judul_ptnbh_en" class="form-control"
                                     value="{{ old('judul_ptnbh_en', $data->judul_ptnbh_en) }}" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="tentang_ptnbh_en">Tentang PTNBH (En)</label>
+                                <label for="tentang_ptnbh_en">Tentang PTNBH (EN)</label>
                                 <textarea name="tentang_ptnbh_en" id="summernote13" class="form-control" required>{{ old('tentang_ptnbh_en', $data->tentang_ptnbh_en) }}</textarea>
                             </div>
 
                             <div class="form-group">
-                                <label for="judul_rektor_en">Judul Rektor (En)</label>
+                                <label for="judul_rektor_en">Judul Rektor (EN)</label>
                                 <textarea name="judul_rektor_en" class="form-control" required>{{ old('judul_rektor_en', $data->judul_rektor_en) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="sambutan_rektor_en">Sambutan Rektor (En)</label>
+                                <label for="sambutan_rektor_en">Sambutan Rektor (EN)</label>
                                 <textarea name="sambutan_rektor_en" id="summernote12" class="form-control" required>{{ old('sambutan_rektor_en', $data->sambutan_rektor_en) }}</textarea>
                             </div>
 
