@@ -2,7 +2,7 @@
 @section('content')
     <!-- hero profile -->
     <section class="hero-profile"
-        style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
+        style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }}); background-position: 30% 70%;">
         <div class="row">
             <h1 class="profile-1"><span style="color: #ffea00;">|</span> Agenda </h1>
             <p class="profile-2">Universitas Tanjungpura</p>
@@ -73,60 +73,26 @@
                             <h3>Latest Post</h3>
                         </div>
                         <div class="widget-body">
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
+                            @foreach ($agenda as $item)
+                                <div class="latest-post-aside media">
+                                    <div class="lpa-left media-body">
+                                        <div class="lpa-title">
+                                            <h5><a href="#">{{ $item->judul }}</a></h5>
+                                        </div>
+                                        <div class="lpa-meta">
+                                            <a class="date" href="#">
+                                                {{ \Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM YYYY') }}
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="lpa-meta">
-                                        <a class="date" href="#">
-                                            26 FEB 2020
+                                    <div class="lpa-right">
+                                        <a href="#">
+                                            <img src="{{ asset('/images/agenda/' . $item->gambar) }}" title=""
+                                                alt="">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title=""
-                                            alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title=""
-                                            alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title=""
-                                            alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- End Latest Post -->

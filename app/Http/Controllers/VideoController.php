@@ -76,8 +76,26 @@ class VideoController extends Controller
      */
     public function showVideos()
     {
-        $videos = Video::orderBy('created_at', 'desc')->get();
-        return view('halaman-user.videos', compact('videos'));
+        $totalVideos = Video::count();
+        $videos = Video::orderBy('created_at', 'desc')->take(3)->get();
+        return view('halaman-user.videos', [
+            'videos' => $videos,
+            'totalVideos' => $totalVideos,
+        ]);
+    }
+
+    public function loadMoreVideos(Request $request)
+    {
+        if ($request->ajax()) {
+            $skip = $request->input('skip', 0);
+            $take = 3; // Ambil 3 agenda tambahan
+            $videos = Video::orderBy('created_at', 'desc')
+                ->skip($skip)
+                ->take($take)
+                ->get();
+
+            return response()->json($videos);
+        }
     }
 
     /**

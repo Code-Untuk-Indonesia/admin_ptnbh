@@ -2,7 +2,7 @@
 @section('content')
     <!-- hero profile -->
     <section class="hero-profile"
-        style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
+        style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }}); background-position: 30% 70%;">
         <div class="row">
             <h1 class="profile-1"><span style="color: #ffea00;">|</span> Berita </h1>
             <p class="profile-2">Universitas Tanjungpura</p>

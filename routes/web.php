@@ -127,6 +127,9 @@ Route::get('/mahasiswa', function () {
 Route::get('/gallery', [GaleriController::class, 'galeripage'])->name('galeri');
 Route::get('/album/{id}', [AlbumController::class, 'show'])->name('album.show');
 
+Route::get('/videos', [VideoController::class, 'showVideos'])->name('videos');
+Route::get('/load-more-video', [VideoController::class, 'loadMoreVideos'])->name('videos.loadMoreVideos');
+
 Route::get(
     '/agenda-ptnbh',
     [AgendaController::class, 'agendapage']
