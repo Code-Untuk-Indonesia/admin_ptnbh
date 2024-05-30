@@ -3,7 +3,7 @@
 @section('content')
     <!-- hero -->
     <section class="hero-profile"
-        style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
+        style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }}); background-position: 30% 70%;">
         <div class="row">
             <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
                 PENGUMUMAN </h1>
@@ -27,8 +27,11 @@
                             <div class="card-body">
                                 <p class="card-text date-news">
                                     {{ \Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM YYYY') }}</p>
-                                <h5 class="card-title title-news">{{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</h5>
-                                <p class="card-text">{{  app()->getLocale() == 'id'? \Illuminate\Support\Str::limit($item->konten_id, 100) : \Illuminate\Support\Str::limit($item->konten_en, 100) }}</p>
+                                <h5 class="card-title title-news">
+                                    {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</h5>
+                                <p class="card-text">
+                                    {{ app()->getLocale() == 'id' ? \Illuminate\Support\Str::limit($item->konten_id, 100) : \Illuminate\Support\Str::limit($item->konten_en, 100) }}
+                                </p>
                                 <a href="{{ route('pengumuman.showpengumuman.id', ['slug' => $item->slug]) }}"
                                     class="btn btn-primary">Selengkapnya</a>
                             </div>
@@ -37,7 +40,7 @@
                 @endforeach
             </div>
             <button id="load-more-btn" class="btn-news">
-                <a class="a-btn-news">Pengumuman Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}"
+                <a class="a-btn-news">Pengumuman Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}"
                             alt=""></span></a>
             </button>
         </div>

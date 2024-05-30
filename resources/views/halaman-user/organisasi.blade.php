@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- hero profile -->
-    <section class="hero-profile" style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }});">
+    <section class="hero-profile" style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }});">
         <div class="row">
             <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
                 STRUKTUR ORGANISASI </h1>
@@ -20,8 +20,8 @@
         </h1>
         <p class="history-3">
             {!! app()->getLocale() == 'id'
-            ? str_replace('isi', 'sejarah', $data->isi_organisasi_id)
-            : str_replace('historyc', 'content', $data->isi_organisasi_en) !!}
+                ? str_replace('isi', 'sejarah', $data->isi_organisasi_id)
+                : str_replace('historyc', 'content', $data->isi_organisasi_en) !!}
 
         </p>
 

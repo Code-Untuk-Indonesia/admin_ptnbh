@@ -76,7 +76,7 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="image-section">
                         <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" alt="rektor" class="img-rektor">
-                        <h1 class="text-rektor3">{{ $data->nama_Rektor }}</h1>
+                        <h1 class="text-rektor3">{{ $data->nama_rektor }}</h1>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-12">
@@ -127,7 +127,7 @@
         </div>
         <a class="a-btn-news" href="/berita-ptnbh">
             <button class="btn-warning btn-news ">
-                Berita Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+                Berita Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </button> </a>
     </section>
     <!-- end berita -->
@@ -183,8 +183,8 @@
         </div>
 
         <button class="btn-news">
-            <a class="a-btn-news" href="">
-                Dokumentasi Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+            <a class="a-btn-news" href="/videos">
+                Dokumentasi Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
     </section>
@@ -215,9 +215,9 @@
         </div>
 
         <button class="btn-news">
-            <a class="a-btn-news" href="">
+            <a class="a-btn-news" href="/unduhan">
                 {{ app()->getLocale() == 'id' ? 'Unduhan Lainnya' : 'Download more' }}<span><img
-                        src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+                        src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
 

@@ -1,20 +1,22 @@
 @extends('halaman-user.template.header-footer')
 @section('content')
-<style>
-    .limited-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6; /* Batas baris yang ditampilkan */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: calc(1.2em * 6); /* Tinggi maksimum 6 baris, sesuaikan 1.2em jika baris lebih tinggi/rendah */
-    line-height: 1.2em; /* Tinggi baris */
-}
-
-</style>
+    <style>
+        .limited-text {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
+            /* Batas baris yang ditampilkan */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: calc(1.2em * 6);
+            /* Tinggi maksimum 6 baris, sesuaikan 1.2em jika baris lebih tinggi/rendah */
+            line-height: 1.2em;
+            /* Tinggi baris */
+        }
+    </style>
     <!-- hero profile -->
     <section class="hero-profile"
-        style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
+        style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }}); background-position: 30% 70%;">
         <div class="row">
             <h1 class="profile-1"><span style="color: #ffea00;">|</span> Berita </h1>
             <p class="profile-2">Universitas Tanjungpura</p>
@@ -45,7 +47,8 @@
                 </div>
 
                 <button class="btn-last-news" style="width: 150px">
-                    <a href="{{ route('berita.showfe', ['slug' => $berita1->slug]) }}" style="text-decoration: none; color: #ffea00;">
+                    <a href="{{ route('berita.showfe', ['slug' => $berita1->slug]) }}"
+                        style="text-decoration: none; color: #ffea00;">
                         Selengkapnya..
                     </a>
 
@@ -95,7 +98,7 @@
                     <div class="card card-news">
                         <img src="{{ asset('/images/berita/' . $item->gambar) }}" class="img-berita-home" alt="...">
                         <div class="card-body" style="padding: 0">
-                            <p class="card-text date-news-last" >
+                            <p class="card-text date-news-last">
                                 {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('H:i ') }}
                                 <span style="margin-left: 5px; margin-right: 5px">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"
@@ -105,7 +108,8 @@
                                 </span>
                                 {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}
                             </p>
-                            <h5 class="card-title title-news" style="text-align: start; padding: 0">{{ $item->judul_id }}</h5>
+                            <h5 class="card-title title-news" style="text-align: start; padding: 0">{{ $item->judul_id }}
+                            </h5>
                             <a href="{{ route('berita.showfe', ['slug' => $item->slug]) }}" class="btn btn-warning">Baca
                                 Selengkapnya</a>
                         </div>
@@ -117,7 +121,7 @@
         @if ($berita->hasMorePages())
             <button class="btn-news" id="load-more-news" data-page="2" data-search="{{ request()->get('search') }}">
                 <a class="a-btn-news" href="javascript:void(0)">
-                    Berita Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+                    Berita Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
                 </a>
             </button>
         @endif
