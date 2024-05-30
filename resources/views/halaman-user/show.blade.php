@@ -80,11 +80,13 @@
                                 <div class="latest-post-aside media">
                                     <div class="lpa-left media-body">
                                         <div class="lpa-title">
-                                            <h5><a href="{{ route('berita.showfe', ['slug' => $new->slug]) }}">{{ $new->judul_id }}</a></h5>
+                                            <h5><a
+                                                    href="{{ route('berita.showfe', ['slug' => $new->slug]) }}">{{ $new->judul_id }}</a>
+                                            </h5>
                                         </div>
                                         <div class="date lpa-meta">
 
-                                                {{ $new->created_at }}
+                                            {{ $new->created_at }}
 
                                         </div>
                                     </div>

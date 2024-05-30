@@ -1,5 +1,17 @@
 @extends('halaman-user.template.header-footer')
 @section('content')
+<style>
+    .limited-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6; /* Batas baris yang ditampilkan */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: calc(1.2em * 6); /* Tinggi maksimum 6 baris, sesuaikan 1.2em jika baris lebih tinggi/rendah */
+    line-height: 1.2em; /* Tinggi baris */
+}
+
+</style>
     <!-- hero profile -->
     <section class="hero-profile"
         style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
@@ -28,11 +40,12 @@
                 <h1 class="title-news-last">
                     {{ $berita1->judul_id }}
                 </h1>
-                <div class="content-news-last">
+                <div class="content-news-last limited-text">
                     {!! str_replace('news', 'search', $berita1->konten_id) !!}
                 </div>
+
                 <button class="btn-last-news" style="width: 150px">
-                    <a href="{{ route('berita.show.id', $berita1->slug) }}" style="text-decoration: none; color: #ffea00;">
+                    <a href="{{ route('berita.showfe', ['slug' => $berita1->slug]) }}" style="text-decoration: none; color: #ffea00;">
                         Selengkapnya..
                     </a>
 
@@ -82,7 +95,7 @@
                     <div class="card card-news">
                         <img src="{{ asset('/images/berita/' . $item->gambar) }}" class="img-berita-home" alt="...">
                         <div class="card-body" style="padding: 0">
-                            <p class="card-text date-news">
+                            <p class="card-text date-news-last" >
                                 {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('H:i ') }}
                                 <span style="margin-left: 5px; margin-right: 5px">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"
@@ -92,7 +105,7 @@
                                 </span>
                                 {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}
                             </p>
-                            <h5 class="card-title title-news">{{ $item->judul_id }}</h5>
+                            <h5 class="card-title title-news" style="text-align: start; padding: 0">{{ $item->judul_id }}</h5>
                             <a href="{{ route('berita.showfe', ['slug' => $item->slug]) }}" class="btn btn-warning">Baca
                                 Selengkapnya</a>
                         </div>
