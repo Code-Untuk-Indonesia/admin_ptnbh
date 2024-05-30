@@ -197,7 +197,11 @@ class AgendaController extends Controller
     public function show($id)
     {
         $agenda = Agenda::findOrFail($id);
-        return view('halaman-user.show-agenda', compact('agenda'));
+        $moreagenda = Agenda::where('id', '!=', $id)
+        ->orderBy('created_at', 'desc')
+        ->take(3)
+        ->get();
+        return view('halaman-user.show-agenda', compact('agenda','moreagenda'));
     }
 
 

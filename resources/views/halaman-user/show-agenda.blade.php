@@ -23,7 +23,7 @@
                         </div>
                         <div class="article-title">
                             <!-- <h6><a href="#">Lifestyle</a></h6> -->
-                            <h2>{{ strip_tags($agenda->judul) }}</h2>
+                            <h2>{{ strip_tags($agenda->judul_id) }}</h2>
                             <div class="media">
                                 <div class="media-body">
                                     <span>{{ strip_tags($agenda->created_at) }}</span>
@@ -73,11 +73,11 @@
                             <h3>Latest Post</h3>
                         </div>
                         <div class="widget-body">
-                            @foreach ($agenda as $item)
+                            @foreach ($moreagenda as $item)
                                 <div class="latest-post-aside media">
                                     <div class="lpa-left media-body">
                                         <div class="lpa-title">
-                                            <h5><a href="#">{{ $item->judul }}</a></h5>
+                                            <h5><a href="#">{{ $item->judul_id }}</a></h5>
                                         </div>
                                         <div class="lpa-meta">
                                             <a class="date" href="#">
