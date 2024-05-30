@@ -76,7 +76,7 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="image-section">
                         <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" alt="rektor" class="img-rektor">
-                        <h1 class="text-rektor3">{{ $data->nama_rektor }}</h1>
+                        <h1 class="text-rektor3" style="text-align: center">{{ $data->nama_rektor }}</h1>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-12">
