@@ -23,7 +23,7 @@
                         </div>
                         <div class="article-title">
                             <!-- <h6><a href="#">Lifestyle</a></h6> -->
-                            <h2>{{ strip_tags($agenda->judul) }}</h2>
+                            <h2>{{ strip_tags($agenda->judul_id) }}</h2>
                             <div class="media">
                                 <div class="media-body">
                                     <span>{{ strip_tags($agenda->created_at) }}</span>
