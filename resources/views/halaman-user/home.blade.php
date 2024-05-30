@@ -47,7 +47,7 @@
     </style>
     <!-- hero -->
     <section class="hero" style=" background-image: url({{ asset('ptnbh3/asset/rektorat-untan-scaled-2048x1152.jpg') }});">
-        <h2 class="hero-1" data-aos="fade-up" data-aos-duration="2500">Universitas Tanjungpura</h2>
+        <h2 class="hero-1" data-aos="fade-up" data-aos-duration="2500">{{ app()->getLocale() == 'id' ? 'Universitas Tanjungpura  ' : ' Tanjungpura University ' }}</h2>
         <h1 class="hero-2" data-aos="fade-up" data-aos-duration="2500">Perguruan Tinggi Negeri
             Badan Hukum</h1>
     </section>
@@ -56,7 +56,7 @@
     <!-- pengantar -->
     <section class="pengantar" data-aos="fade-up" data-aos-duration="3000">
         <div class="container">
-            <h1 class="pengantar-1">{{ $data->judul_ptnbh_id }}</h1>
+            <h1 class="pengantar-1">    {{ app()->getLocale() == 'id' ? $data->judul_ptnbh_id : $data->judul_ptnbh_en }}</h1>
             <div class="card-pengantar">
                 <p class="pengantar-2">
                     {!! app()->getLocale() == 'id'
@@ -80,9 +80,14 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-12">
-                    <h1 class="text-rektor">{{ $data->judul_rektor_id }}</h1>
+                    <h1 class="text-rektor">
+                        {{ app()->getLocale() == 'id' ? $data->judul_rektor_id : $data->judul_rektor_en }}
+                    </h1>
                     <div>
-                        {!! str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_id) !!}
+                        {!! app()->getLocale() == 'id'
+                        ? str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_id)
+                        : str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_en) !!}
+
                     </div>
                 </div>
             </div>
