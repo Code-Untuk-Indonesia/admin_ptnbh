@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- hero -->
-    <section class="hero-profile" style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }});">
+    <section class="hero-profile" style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }});">
         <div class="row">
             <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
                 FAKULTAS </h1>
@@ -29,7 +29,7 @@
             <div class="card mb-3" data-aos="fade-left" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 1"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 1"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6">
@@ -50,7 +50,7 @@
             <div class="card mb-3" data-aos="fade-right" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6 order-md-2">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6 order-md-1">
@@ -71,7 +71,7 @@
             <div class="card mb-3" data-aos="fade-left" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6">
@@ -92,7 +92,7 @@
             <div class="card mb-3" data-aos="fade-right" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6 order-md-2">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6 order-md-1">
@@ -112,7 +112,7 @@
             <div class="card mb-3" data-aos="fade-left" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6">
@@ -133,7 +133,7 @@
             <div class="card mb-3" data-aos="fade-right" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6 order-md-2">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6 order-md-1">
@@ -154,7 +154,7 @@
             <div class="card mb-3" data-aos="fade-left" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6">
@@ -173,7 +173,7 @@
             <div class="card mb-3" data-aos="fade-right" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6 order-md-2">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6 order-md-1">
@@ -193,7 +193,7 @@
             <div class="card mb-3" data-aos="fade-left" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 3"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6">
@@ -215,7 +215,7 @@
             <div class="card mb-3" data-aos="fade-right" data-aos-duration="2000">
                 <div class="row g-0">
                     <div class="col-md-6 order-md-2">
-                        <img src="{{ asset('ptnbh/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
+                        <img src="{{ asset('ptnbh3/asset/gedung-rektorat.jpg') }}" class="card-img-top" alt="Fakultas 2"
                             style="max-width: 300px; height: auto;">
                     </div>
                     <div class="col-md-6 order-md-1">

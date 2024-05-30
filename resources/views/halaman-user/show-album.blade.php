@@ -1,15 +1,15 @@
 @extends('halaman-user.template.header-footer')
 
 @section('content')
-<style>
+    <style>
         .card-galery {
-    min-width: 200px;
-    border: none;
-}
-</style>
+            min-width: 200px;
+            border: none;
+        }
+    </style>
     <!-- hero profile -->
     <section class="hero-profile"
-        style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }}); background-position: 30% 70%;">
+        style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }}); background-position: 30% 70%;">
         <div class="row">
             <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
                 GALERI </h1>
@@ -38,8 +38,8 @@
             @endforeach
         </div>
         <button class="btn-news">
-            <a class="a-btn-news" href="{{ route('galeri.index') }}">
-                Galeri Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+            <a class="a-btn-news" href="">
+                Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
     </section>

@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Hero section -->
-    <section class="hero-profile" style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }});">
+    <section class="hero-profile" style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }});">
         <div class="row">
             <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
                 UNDUHAN</h1>
@@ -16,7 +16,7 @@
         <h1 class="galery-1">Unduhan Terbaru</h1>
         <div class="row" id="unduhan-container">
             @foreach ($unduhan as $item)
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="2000">
                     <div class="card card-unduhan">
                         <div class="card-body">
                             <div class="file-preview">
@@ -32,7 +32,7 @@
 
         <button id="load-more-unduhan" class="btn-news">
             <a class="a-btn-news">
-                Unduhan Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+                Unduhan Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
     </section>
@@ -60,7 +60,8 @@
                         if (response.length > 0) {
                             var html = '';
                             response.forEach(function(unduh) {
-                                html += '<div class="col-md-4 mb-4">';
+                                html +=
+                                    '<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="2000">';
                                 html += '    <div class="card card-unduhan">';
                                 html += '        <div class="card-body">';
                                 html += '            <div class="file-preview">';

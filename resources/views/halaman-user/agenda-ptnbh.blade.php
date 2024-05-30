@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- hero -->
-    <section class="hero-profile" style="background-image: url({{ asset('ptnbh/asset/rektorat.jpg') }});">
+    <section class="hero-profile" style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }});">
         <div class="row">
             <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
                 AGENDA </h1>
@@ -28,7 +28,9 @@
                             <h5 class="card-title title-news">
                                 {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}
                             </h5>
-                            <p class="card-text">{{ app()->getLocale() == 'id'? substr($item->deskripsi_id, 0, 100): substr($item->deskripsi_en, 0, 100)  }}...</p>
+                            <p class="card-text">
+                                {{ app()->getLocale() == 'id' ? substr($item->deskripsi_id, 0, 100) : substr($item->deskripsi_en, 0, 100) }}...
+                            </p>
                             <a href="{{ route('agenda.show', ['id' => $item->id]) }}"
                                 class="btn btn-primary">Selengkapnya</a>
 
@@ -40,7 +42,7 @@
 
         <button id="load-more-agenda" class="btn-news">
             <a class="a-btn-news">
-                Agenda Lainnya <span><img src="asset/arrow.svg" alt=""></span>
+                Agenda Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
     </section>
