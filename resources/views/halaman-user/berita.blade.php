@@ -18,7 +18,8 @@
     <section class="hero-profile"
         style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }}); background-position: 30% 70%;">
         <div class="row">
-            <h1 class="profile-1"><span style="color: #ffea00;">|</span> Berita </h1>
+            <h1 class="profile-1"><span style="color: #ffea00;">|</span>
+                {{ app()->getLocale() == 'id' ? 'Berita ' : ' News' }} </h1>
             <p class="profile-2">Universitas Tanjungpura</p>
         </div>
         </div>
@@ -29,7 +30,7 @@
     <!-- news  -->
     <section class="news">
         <h1 class="news-1" data-aos="fade-up" data-aos-duration="2000">
-            Berita Terbaru
+            {{ app()->getLocale() == 'id' ? 'Berita Terbaru' : 'Latest News' }}
         </h1>
 
         <div class="row">
@@ -40,7 +41,8 @@
                 <p class="date-news-last">
                     {{ \Carbon\Carbon::parse($berita1->created_at)->translatedFormat('l, j F Y H:i') }}</p>
                 <h1 class="title-news-last">
-                    {{ $berita1->judul_id }}
+
+                    {{ app()->getLocale() == 'id' ? $berita1->judul_id : $berita1->judul_en }}
                 </h1>
                 <div class="content-news-last limited-text">
                     {!! str_replace('news', 'search', $berita1->konten_id) !!}
@@ -69,7 +71,8 @@
         <div class="row" style="width: 100%">
             <div class="col">
                 <h1 class="berita-1">
-                    Berita Terbaru
+
+                    {{ app()->getLocale() == 'id' ? 'Berita Lainnya' : 'Other News' }}
                 </h1>
             </div>
             <div class="col" style="display: flex; justify-content: end; align-items: flex-end">
@@ -88,9 +91,6 @@
                 </form>
             </div>
         </div>
-
-
-
 
         <div class="row mb-3" id="berita-container">
             @foreach ($berita as $item)
@@ -121,7 +121,7 @@
         @if ($berita->hasMorePages())
             <button class="btn-news" id="load-more-news" data-page="2" data-search="{{ request()->get('search') }}">
                 <a class="a-btn-news" href="javascript:void(0)">
-                    Berita Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
+                    Berita Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
                 </a>
             </button>
         @endif

@@ -9,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+    <meta name="description" content="">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('images/logo-untan.jpg') }}">
 
     <!-- FontAwesome JS-->
     <script defer src="{{ asset('/template-admin/assets/plugins/fontawesome/js/all.min.js') }}"></script>
@@ -123,8 +123,8 @@
                 <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
                 <div class="app-branding">
                     <a class="app-logo" href="index.html"><img class="logo-icon me-2"
-                            src="{{ asset('template-admin/assets/images/app-logo.svg') }}" alt="logo"><span
-                            class="logo-text">PORTAL</span></a>
+                            src="{{ asset('images/logo-untan.jpg') }}" alt="logo"><span
+                            class="logo-text">PTNBH UNTAN</span></a>
 
                 </div><!--//app-branding-->
                 <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
