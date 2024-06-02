@@ -127,6 +127,13 @@
     margin-top: 5px;
 }
 
+.btn-selengkapnya {
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ffb606;
+}
+
 .title-news {
     text-align: start;
     padding: 5px 20px 20px;
@@ -139,24 +146,40 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 0;
+}
+
+.date-news {
+    text-align: start;
+    padding-left: 10px;
+    /* padding: 5px 20px 5px 20px; */
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 5px;
 }
 
 .btn-news {
     margin-top: 40px;
     border: none;
     padding: 12px;
-    background-color: #e0d666;
+    background-color: #004c79;
     border-radius: 8px;
 }
 
-.a-btn-news {
+.btn-news .a-btn-news {
     font-size: 20px;
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 .btn-news:hover {
-    opacity: 80%;
+    background-color: #ffb606;
+    transition: background-color 0.3s ease;
+}
+
+.btn-news:hover .a-btn-news {
     color: #000;
 }
 
@@ -218,13 +241,7 @@
 }
 
 /* end galeri */
-footer ul {
-    padding: 0;
-    margin: 0;
-}
-footer li {
-    list-style: none;
-}
+
 footer a {
     text-decoration: none;
     color: #5867dd;
@@ -302,10 +319,10 @@ footer h4 {
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
-    color: #898b96;
+    color: #fff;
 }
 .footer-menu ul li a:hover {
-    color: #5867dd;
+    color: #ffb606;
 }
 .footer-menu--1 {
     width: 100%;
@@ -314,6 +331,7 @@ footer h4 {
     line-height: 42px;
     margin-bottom: 10px;
     font-size: 18px;
+    color: #fff;
 }
 .mini-footer {
     background: #192027;
@@ -732,31 +750,18 @@ a.btn-all-news {
 }
 
 .dukung .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #004c79;
+    border-color: #004c79;
+    width: 400px;
     font-size: 1.2rem;
     padding: 10px 30px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .dukung .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
-
-.btn-read-more {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-}
-
-.btn-read-more:hover {
-    background-color: #0056b3;
+    background-color: #ffb606;
+    border-color: #ffb606;
+    color: #000;
 }
 
 .full-content {
@@ -1227,46 +1232,25 @@ footer h4 {
 
 .footer-big {
     padding: 105px 0 65px 0;
+    background-color: #004359;
 }
 
 .footer-big .footer-widget {
     margin-bottom: 40px;
 }
 
-.footer--light {
-    background: #e7e8ed;
-}
-
-.footer-big .footer-menu ul li a,
+.footer-big,
 .footer-big p,
 .footer-big ul li {
-    color: #898b96;
+    color: #fff;
 }
 
 .footer-menu {
     padding-left: 48px;
 }
 
-.footer-menu ul li a {
-    font-size: 15px;
-    line-height: 32px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-}
-
-.footer-menu ul li a:hover {
-    color: #5867dd;
-}
-
 .footer-menu--1 {
     width: 100%;
-}
-
-.footer-widget-title {
-    line-height: 42px;
-    margin-bottom: 10px;
-    font-size: 18px;
 }
 
 .mini-footer {
@@ -1333,7 +1317,7 @@ footer h4 {
     margin: 0;
     line-height: 26px;
     font-size: 15px;
-    color: #999;
+    color: #fff;
     font-weight: 400;
 }
 .rektor {
@@ -1368,6 +1352,7 @@ footer h4 {
     width: 100%;
     max-width: 200px;
     height: auto;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
@@ -1474,11 +1459,6 @@ footer h4 {
 
 .file-preview i {
     color: #333;
-}
-
-.card-title {
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .btn-primary {
