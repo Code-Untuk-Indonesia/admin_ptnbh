@@ -51,9 +51,7 @@
                         <a class="nav-link" href="/"> {{ app()->getLocale() == 'id' ? 'Beranda' : 'Home' }}</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button">
                             {{ app()->getLocale() == 'id' ? 'Tentang' : 'About' }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -65,8 +63,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button">
                             Lembaga
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -82,8 +79,7 @@
                         <a class="nav-link" href="/kontak">Kontak</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button">
                             <img src="{{ app()->getLocale() == 'id' ? asset('ptnbh3/asset/Indonesia.png') : asset('ptnbh3/asset/Uk.png') }}"
                                 alt="" class="flag-img">
                             {{ app()->getLocale() == 'id' ? 'Indonesia' : 'English' }}
@@ -102,15 +98,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-search"></i>
-                        </a>
                     </li>
                 </ul>
             </div>
