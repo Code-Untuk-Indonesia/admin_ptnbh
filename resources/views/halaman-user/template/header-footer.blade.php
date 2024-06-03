@@ -30,257 +30,7 @@
     <title>PTNBH Universitas Tanjungpura</title>
     <link rel="icon" href="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" type="image/gif"
         sizes="16x16">
-    <style>
-        footer ul {
-            padding: 0;
-            margin: 0;
-        }
 
-        footer li {
-            list-style: none;
-        }
-
-        footer a {
-            text-decoration: none;
-        }
-
-        a:focus,
-        a:hover {
-            text-decoration: none;
-            -webkit-transition: 0.3s ease;
-            -o-transition: 0.3s ease;
-            transition: 0.3s ease;
-        }
-
-        a:focus {
-            outline: 0;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        footer p {
-            font-size: 16px;
-            line-height: 30px;
-            color: #898b96;
-            font-weight: 300;
-        }
-
-        footer h4 {
-            font-family: Rubik, sans-serif;
-            margin: 0;
-            font-weight: 400;
-            padding: 0;
-            color: #363940;
-        }
-
-        footer a {
-            color: #5867dd;
-        }
-
-        .no-padding {
-            padding: 0 !important;
-        }
-
-        .go_top {
-            line-height: 40px;
-            cursor: pointer;
-            width: 40px;
-            background: #5867dd;
-            color: #fff;
-            position: fixed;
-            -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-            -webkit-border-radius: 50%;
-            border-radius: 50%;
-            right: -webkit-calc((100% - 1140px)/ 2);
-            right: calc((100% - 1140px) / 2);
-            z-index: 111;
-            bottom: 80px;
-            text-align: center;
-        }
-
-        .go_top span {
-            display: inline-block;
-        }
-
-        .footer-big {
-            padding: 105px 0 65px 0;
-        }
-
-        .footer-big .footer-widget {
-            margin-bottom: 40px;
-        }
-
-        .footer--light {
-            background: #e7e8ed;
-        }
-
-        .footer-big .footer-menu ul li a,
-        .footer-big p,
-        .footer-big ul li {
-            color: #898b96;
-        }
-
-        .footer-menu {
-            padding-left: 48px;
-        }
-
-        .footer-menu ul li a {
-            font-size: 15px;
-            line-height: 32px;
-            -webkit-transition: 0.3s;
-            -o-transition: 0.3s;
-            transition: 0.3s;
-        }
-
-        .footer-menu ul li a:hover {
-            color: #5867dd;
-        }
-
-        .footer-menu--1 {
-            width: 100%;
-        }
-
-        .footer-widget-title {
-            line-height: 42px;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .mini-footer {
-            background: #192027;
-            text-align: center;
-            padding: 32px 0;
-        }
-
-        .mini-footer p {
-            margin: 0;
-            line-height: 26px;
-            font-size: 15px;
-            color: #999;
-        }
-
-        .mini-footer p a {
-            color: #5867dd;
-        }
-
-        .mini-footer p a:hover {
-            color: #34bfa3;
-        }
-
-        .widget-about img {
-            display: block;
-            margin-bottom: 30px;
-        }
-
-        .widget-about p {
-            font-weight: 400;
-        }
-
-        .widget-about .contact-details {
-            margin: 30px 0 0 0;
-        }
-
-        .widget-about .contact-details li {
-            margin-bottom: 10px;
-        }
-
-        .widget-about .contact-details li:last-child {
-            margin-bottom: 0;
-        }
-
-        .widget-about .contact-details li span {
-            padding-right: 12px;
-        }
-
-        .widget-about .contact-details li a {
-            color: #5867dd;
-        }
-
-        .img-foot {
-            max-width: 150px;
-        }
-
-        @media (max-width: 991px) {
-            .footer-menu {
-                padding-left: 0;
-            }
-        }
-
-        .copyright-text p {
-            margin: 0;
-            line-height: 26px;
-            font-size: 15px;
-            color: #999;
-            font-weight: 400;
-        }
-
-        .rektor {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .image-card {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .image-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .img-rektor {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .text-rektor {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-            text-transform: uppercase;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .text-rektor3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-top: 10px;
-
-        }
-
-        .text-section {
-            text-align: justify;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -301,9 +51,7 @@
                         <a class="nav-link" href="/"> {{ app()->getLocale() == 'id' ? 'Beranda' : 'Home' }}</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button">
                             {{ app()->getLocale() == 'id' ? 'Tentang' : 'About' }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -315,8 +63,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button">
                             Lembaga
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -332,8 +79,7 @@
                         <a class="nav-link" href="/kontak">Kontak</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button">
                             <img src="{{ app()->getLocale() == 'id' ? asset('ptnbh3/asset/Indonesia.png') : asset('ptnbh3/asset/Uk.png') }}"
                                 alt="" class="flag-img">
                             {{ app()->getLocale() == 'id' ? 'Indonesia' : 'English' }}
@@ -353,15 +99,6 @@
                             </li>
                         </ul>
                     </li>
-
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -371,50 +108,7 @@
     @yield('content')
 
     <!-- footer -->
-    {{-- <footer class="footer">
-        <div class="container row">
-            <div class="footer-col">
-                <h4>Universitas Tanjungpura</h4>
-                <ul>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Informasi Pilihan</h4>
-                <ul>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Informasi Pilihan</h4>
-                <ul>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                    <li><a href="">lorem</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Find Us On</h4>
-                <div class="social-links">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-youtube"></i></a>
-                    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                    </di>
-                </div>
-            </div>
-    </footer> --}}
-    <footer class="footer-area footer--light">
+    <footer class="footer-area">
         <div class="footer-big">
             <div class="container">
                 <div class="row">

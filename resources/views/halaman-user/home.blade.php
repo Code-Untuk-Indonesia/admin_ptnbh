@@ -1,53 +1,10 @@
 @extends('halaman-user.template.header-footer')
 
 @section('content')
-    <style>
-        .dukung .btn-primary {
-            width: 400px;
-            border-radius: 8px;
-            background-color: #007bff;
-            border-color: #007bff;
-            font-size: 1.2rem;
-            padding: 10px 30px;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card-title {
-            text-align: center;
-            margin-bottom: 0;
-        }
-
-        .title-news {
-            /* padding-left: 10px; */
-            text-align: start;
-            padding: 0px 0px 0px 5px;
-            font-family: "Montserrat", sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: #000;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-top: 0;
-
-        }
-
-        .date-news {
-            text-align: start;
-            padding-left: 10px;
-            /* padding: 5px 20px 5px 20px; */
-            font-family: "Montserrat", sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 0;
-            margin-top: 5px;
-        }
-    </style>
     <!-- hero -->
     <section class="hero" style=" background-image: url({{ asset('ptnbh3/asset/rektorat-untan-scaled-2048x1152.jpg') }});">
-        <h2 class="hero-1" data-aos="fade-up" data-aos-duration="2500">{{ app()->getLocale() == 'id' ? 'Universitas Tanjungpura  ' : ' Tanjungpura University ' }}</h2>
+        <h2 class="hero-1" data-aos="fade-up" data-aos-duration="2500">
+            {{ app()->getLocale() == 'id' ? 'Universitas Tanjungpura  ' : ' Tanjungpura University ' }}</h2>
         <h1 class="hero-2" data-aos="fade-up" data-aos-duration="2500">Perguruan Tinggi Negeri
             Badan Hukum</h1>
     </section>
@@ -56,7 +13,7 @@
     <!-- pengantar -->
     <section class="pengantar" data-aos="fade-up" data-aos-duration="3000">
         <div class="container">
-            <h1 class="pengantar-1">    {{ app()->getLocale() == 'id' ? $data->judul_ptnbh_id : $data->judul_ptnbh_en }}</h1>
+            <h1 class="pengantar-1"> {{ app()->getLocale() == 'id' ? $data->judul_ptnbh_id : $data->judul_ptnbh_en }}</h1>
             <div class="card-pengantar">
                 <p class="pengantar-2">
                     {!! app()->getLocale() == 'id'
@@ -85,8 +42,8 @@
                     </h1>
                     <div>
                         {!! app()->getLocale() == 'id'
-                        ? str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_id)
-                        : str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_en) !!}
+                            ? str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_id)
+                            : str_replace(['<p '], [' <p class="text-rektor2" '], $data->sambutan_rektor_en) !!}
 
                     </div>
                 </div>
@@ -122,7 +79,7 @@
                                 {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}
                             </h5>
                             <a href="{{ route('berita.showfe', ['slug' => $item->slug]) }}"
-                                class="btn btn-news btn-warning mb-3">
+                                class="btn btn-selengkapnya mb-3">
                                 {{ app()->getLocale() == 'id' ? 'Baca Selengkapnya...' : 'Read More...' }}
                             </a>
                         </div>
@@ -130,10 +87,11 @@
                 </div>
             @endforeach
         </div>
-        <a class="a-btn-news" href="/berita-ptnbh">
-            <button class="btn-warning btn-news ">
+        <button class="btn-news">
+            <a class="a-btn-news" href="/berita-ptnbh">
                 Berita Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
-            </button> </a>
+            </a>
+        </button>
     </section>
     <!-- end berita -->
 
@@ -210,7 +168,8 @@
                             <h5 class="unduhan-title">
                                 {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}
                             </h5>
-                            <a href="{{ asset('/files/unduh/' . $item->file) }}" class="btn btn-primary">
+                            <a href="{{ asset('/files/unduh/' . $item->file) }}" class="btn btn-primary"
+                                style="background-color: #FFB606; color: #000;">
                                 {{ app()->getLocale() == 'id' ? 'Unduh' : 'Download' }}
                             </a>
                         </div>

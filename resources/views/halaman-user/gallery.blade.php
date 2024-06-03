@@ -25,7 +25,8 @@
                     <div class="card-galery">
                         <a href="{{ route('album.show', ['id' => $item->id]) }}" style="text-decoration: none">
                             <div class="img-hover-zoom">
-                                <img class="img-news" src="{{ asset('/images/album/' . $item->gambar) }}" alt="img-news">
+                                <img class="img-news" src="{{ asset('/images/album/' . $item->gambar) }}" alt="img-news"
+                                    style="border-radius: 18px;">
                             </div>
                             <h5 class="card-title title-news">
                                 {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}
@@ -37,7 +38,7 @@
         </div>
         <button class="btn-news">
             <a class="a-btn-news" href="{{ route('galeri.index') }}">
-                Galeri Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+                Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
     </section>
