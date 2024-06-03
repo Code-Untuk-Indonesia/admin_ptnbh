@@ -5,8 +5,8 @@
     <section class="hero-profile" style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }});">
         <div class="row">
             <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
-                KONTAK </h1>
-            <p class="profile-2" data-aos="fade-up" data-aos-duration="2500">Universitas Tanjungpura</p>
+                {{ app()->getLocale() == 'id' ? 'KONTAK' : ' CONTACT' }} </h1>
+            <p class="profile-2" data-aos="fade-up" data-aos-duration="2500">{{ app()->getLocale() == 'id' ? 'Universitas Tanjungpura  ' : ' Tanjungpura University ' }}</p>
         </div>
     </section>
     <!-- end hero -->
@@ -16,8 +16,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6" data-aos="fade-right" data-aos-duration="1500">
-                    <h2>Kontak Kami</h2>
-                    <p>Untuk informasi lebih lanjut, jangan ragu untuk menghubungi kami melalui kontak berikut:</p>
+                    <h2>{{ app()->getLocale() == 'id' ? 'Hubungi Kami' : 'Contact Us' }}</h2>
+                    <p>{{ app()->getLocale() == 'id' ? 'Untuk informasi lebih lanjut, jangan ragu untuk menghubungi kami melalui kontak berikut:' : 'For more information, please feel free to contact us through the following contacts:' }}</p>
                     <ul class="list-unstyled">
                         <li>
                             <i class="fa fa-map-marker"></i> Jl. Prof. Dr. H Jl. Profesor Dokter H. Hadari Nawawi,
@@ -31,14 +31,16 @@
                             <i class="fa fa-phone"></i> 123-456-7890
                         </li>
                     </ul>
-                    <h2>Lokasi Kami</h2>
+                    <h2>{{ app()->getLocale() == 'id' ? 'Lokasi Kami' : 'Our Location' }}</h2>
                     <div id="leaflet-map" style="height: 400px;"></div>
                 </div>
                 <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
-                    <h2>Formulir Kontak</h2>
+                    <h2>
+                        {{ app()->getLocale() == 'id' ? 'Formulir Kontak' : 'Form Contact' }}
+                    </h2>
                     <form>
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
+                            <label for="nama" class="form-label">  {{ app()->getLocale() == 'id' ? 'Nama' : 'Name' }}</label>
                             <input type="text" class="form-control" id="nama" required>
                         </div>
                         <div class="mb-3">
@@ -46,10 +48,10 @@
                             <input type="email" class="form-control" id="email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="pesan" class="form-label">Pesan</label>
+                            <label for="pesan" class="form-label">  {{ app()->getLocale() == 'id' ? 'Pesan' : 'Message' }}</label>
                             <textarea class="form-control" id="pesan" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                        <button type="submit" class="btn btn-primary">{{ app()->getLocale() == 'id' ? 'Kirim Pesan' : 'Send Message' }}</button>
                     </form>
                 </div>
             </div>

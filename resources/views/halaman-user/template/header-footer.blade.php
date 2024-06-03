@@ -309,7 +309,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <li><a class="dropdown-item" href="/tentang-ptnbh">Profil</a></li>
                             <li><a class="dropdown-item" href="/organisasi">Organisasi</a></li>
-                            <li><a class="dropdown-item" href="/gallery">Galeri</a></li>
+                            <li><a class="dropdown-item" href="/gallery">  {{ app()->getLocale() == 'id' ? 'Galeri' : 'Gallery' }}</a></li>
                             <li><a class="dropdown-item" href="/agenda-ptnbh">Agenda</a></li>
                             <li><a class="dropdown-item" href="/pengumuman-ptnbh">Pengumuman</a></li>
                         </ul>
