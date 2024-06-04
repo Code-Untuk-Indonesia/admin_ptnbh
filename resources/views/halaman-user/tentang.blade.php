@@ -23,44 +23,51 @@
     <!-- end history -->
     <!-- profil -->
     <section class="profile">
-
-        <div class="row">
-            <div class="col">
-                <h1 class="title-profile">
-                    <span style="color: #ffea00;">|</span> {{ $data->judul_misi_id }}
-                </h1>
-                <p class="misi-profile">
-                    {!! app()->getLocale() == 'id'
-                        ? str_replace('isi', 'sejarah', $data->visi_id)
-                        : str_replace('historyc', 'content', $data->visi_en) !!}
-                </p>
-            </div>
-            <div class="col">
-                <h1 class="title-profile">
-                    <span style="color: #ffea00;">|</span> {{ $data->judul_misi_id }}
-                </h1>
-                <p class="misi-profile">
-                    {!! app()->getLocale() == 'id'
-                        ? str_replace('isi', 'sejarah', $data->misi_id)
-                        : str_replace('historyc', 'content', $data->misi_en) !!}
-
-                </p>
-
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card custom-card">
+                    <div class="card-body row">
+                        <!-- Visi -->
+                        <div class="col-md-6">
+                            <h1 class="title-profile">
+                                <span style="color: #ffea00;">|</span> {{ $data->judul_visi_id }}
+                            </h1>
+                            <p class="misi-profile">
+                                {!! app()->getLocale() == 'id'
+                                    ? str_replace('isi', 'sejarah', $data->visi_id)
+                                    : str_replace('historyc', 'content', $data->visi_en) !!}
+                            </p>
+                        </div>
+                        <!-- Misi -->
+                        <div class="col-md-6">
+                            <h1 class="title-profile">
+                                <span style="color: #ffea00;">|</span> {{ $data->judul_misi_id }}
+                            </h1>
+                            <p class="misi-profile">
+                                {!! app()->getLocale() == 'id'
+                                    ? str_replace('isi', 'sejarah', $data->visi_id)
+                                    : str_replace('historyc', 'content', $data->misi_en) !!}
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
     <!-- end profil -->
     <section class="history" data-aos="fade-up" data-aos-duration="3000">
+        <div class="card-pengantar">
+            <h1 class="history-1"><span style="color: #ffea00;">|</span>
+                {{ app()->getLocale() == 'id' ? $data->judul_tujuan_id : $data->judul_tujuan_en }}
 
-        <h1 class="history-1"><span style="color: #ffea00;">|</span>
-            {{ app()->getLocale() == 'id' ? $data->judul_tujuan_id : $data->judul_tujuan_en }}
-
-        </h1>
-        <p class="history-3">
-            {!! app()->getLocale() == 'id'
-                ? str_replace('isi', 'sejarah', $data->tujuan_id)
-                : str_replace('historyc', 'content', $data->tujuan_en) !!}
-        </p>
+            </h1>
+            <p class="history-3">
+                {!! app()->getLocale() == 'id'
+                    ? str_replace('isi', 'sejarah', $data->tujuan_id)
+                    : str_replace('historyc', 'content', $data->tujuan_en) !!}
+            </p>
+        </div>
 
     </section>
 

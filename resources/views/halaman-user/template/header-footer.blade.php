@@ -35,7 +35,7 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="padding-top: 8px; padding-bottom: 8px">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="logo"
