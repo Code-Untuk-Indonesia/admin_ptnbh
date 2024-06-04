@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- Required meta tags -->
@@ -57,7 +57,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <li><a class="dropdown-item" href="/tentang-ptnbh">Profil</a></li>
                             <li><a class="dropdown-item" href="/organisasi">Organisasi</a></li>
-                            <li><a class="dropdown-item" href="/gallery">  {{ app()->getLocale() == 'id' ? 'Galeri' : 'Gallery' }}</a></li>
+                            <li><a class="dropdown-item" href="/gallery">
+                                    {{ app()->getLocale() == 'id' ? 'Galeri' : 'Gallery' }}</a></li>
                             <li><a class="dropdown-item" href="/agenda-ptnbh">Agenda</a></li>
                             <li><a class="dropdown-item" href="/pengumuman-ptnbh">Pengumuman</a></li>
                         </ul>
@@ -104,6 +105,16 @@
         </div>
     </nav>
     <!-- end navbar -->
+
+    <!-- Hero Section -->
+    @if (!Request::is('/'))
+        <section class="hero-profile" style="background-image: url(@yield('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))); background-position: 30% 70%;">
+            <div class="row">
+                <h1 class="profile-1"><span style="color: #ffea00;">|</span> @yield('hero-title', 'Universitas Tanjungpura')</h1>
+            </div>
+        </section>
+    @endif
+    <!-- End Hero Section -->
 
     @yield('content')
 

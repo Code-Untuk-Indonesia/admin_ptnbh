@@ -141,6 +141,19 @@
     padding: 100px 120px; /* Adjusted padding */
 }
 
+.limited-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    /* Batas baris yang ditampilkan */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: calc(1.2em * 6);
+    /* Tinggi maksimum 6 baris, sesuaikan 1.2em jika baris lebih tinggi/rendah */
+    line-height: 1.2em;
+    /* Tinggi baris */
+}
+
 .card-news {
     width: 350px;
 }
@@ -265,6 +278,7 @@
 
 .card-galery {
     border: none;
+    min-width: 200px;
 }
 
 .img-hover-zoom {

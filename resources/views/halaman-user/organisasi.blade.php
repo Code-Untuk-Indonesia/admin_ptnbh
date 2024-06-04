@@ -1,16 +1,9 @@
 @extends('halaman-user.template.header-footer')
+@section('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))
+@section('hero-title', app()->getLocale() == 'id' ? 'Struktur Organisasi' : 'Organization Structure')
 
 @section('content')
-    <!-- hero profile -->
-    <section class="hero-profile" style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }});">
-        <div class="row">
-            <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
-                STRUKTUR ORGANISASI </h1>
-            <p class="profile-2" data-aos="fade-up" data-aos-duration="2500">Universitas Tanjungpura</p>
-        </div>
-        </div>
-    </section>
-    <!-- end -->
+
 
 
     <section class="history" data-aos="fade-up" data-aos-duration="3000">

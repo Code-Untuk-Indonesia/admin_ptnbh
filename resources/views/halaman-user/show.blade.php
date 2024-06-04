@@ -1,16 +1,8 @@
 @extends('halaman-user.template.header-footer')
+@section('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))
+@section('hero-title', app()->getLocale() == 'id' ? 'Berita' : 'News')
 @section('content')
-    <!-- hero profile -->
-    <section class="hero-profile"
-        style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }}); background-position: 30% 70%;">
-        <div class="row">
-            <h1 class="profile-1"><span style="color: #ffea00;">|</span> Berita </h1>
-            <p class="profile-2">Universitas Tanjungpura</p>
-        </div>
-        </div>
 
-    </section>
-    <!-- end -->
 
     <!-- main -->
     <div class="blog-single gray-bg">

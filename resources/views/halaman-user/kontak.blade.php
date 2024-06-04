@@ -1,15 +1,9 @@
 @extends('halaman-user.template.header-footer')
+@section('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))
+@section('hero-title', app()->getLocale() == 'id' ? 'Kontak' : 'Contact')
 
 @section('content')
-    <!-- hero -->
-    <section class="hero-profile" style="background-image: url({{ asset('ptnbh3/asset/rektorat.jpg') }});">
-        <div class="row">
-            <h1 class="profile-1" data-aos="fade-up" data-aos-duration="2500"><span style="color: #ffea00;">|</span>
-                {{ app()->getLocale() == 'id' ? 'KONTAK' : ' CONTACT' }} </h1>
-            <p class="profile-2" data-aos="fade-up" data-aos-duration="2500">{{ app()->getLocale() == 'id' ? 'Universitas Tanjungpura  ' : ' Tanjungpura University ' }}</p>
-        </div>
-    </section>
-    <!-- end hero -->
+
 
     <!-- kontak  -->
     <section class="kontak">
@@ -17,7 +11,8 @@
             <div class="row">
                 <div class="col-md-6" data-aos="fade-right" data-aos-duration="1500">
                     <h2>{{ app()->getLocale() == 'id' ? 'Hubungi Kami' : 'Contact Us' }}</h2>
-                    <p>{{ app()->getLocale() == 'id' ? 'Untuk informasi lebih lanjut, jangan ragu untuk menghubungi kami melalui kontak berikut:' : 'For more information, please feel free to contact us through the following contacts:' }}</p>
+                    <p>{{ app()->getLocale() == 'id' ? 'Untuk informasi lebih lanjut, jangan ragu untuk menghubungi kami melalui kontak berikut:' : 'For more information, please feel free to contact us through the following contacts:' }}
+                    </p>
                     <ul class="list-unstyled">
                         <li>
                             <i class="fa fa-map-marker"></i> Jl. Prof. Dr. H Jl. Profesor Dokter H. Hadari Nawawi,
@@ -40,7 +35,8 @@
                     </h2>
                     <form>
                         <div class="mb-3">
-                            <label for="nama" class="form-label">  {{ app()->getLocale() == 'id' ? 'Nama' : 'Name' }}</label>
+                            <label for="nama" class="form-label">
+                                {{ app()->getLocale() == 'id' ? 'Nama' : 'Name' }}</label>
                             <input type="text" class="form-control" id="nama" required>
                         </div>
                         <div class="mb-3">
@@ -48,10 +44,12 @@
                             <input type="email" class="form-control" id="email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="pesan" class="form-label">  {{ app()->getLocale() == 'id' ? 'Pesan' : 'Message' }}</label>
+                            <label for="pesan" class="form-label">
+                                {{ app()->getLocale() == 'id' ? 'Pesan' : 'Message' }}</label>
                             <textarea class="form-control" id="pesan" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">{{ app()->getLocale() == 'id' ? 'Kirim Pesan' : 'Send Message' }}</button>
+                        <button type="submit"
+                            class="btn btn-primary">{{ app()->getLocale() == 'id' ? 'Kirim Pesan' : 'Send Message' }}</button>
                     </form>
                 </div>
             </div>
