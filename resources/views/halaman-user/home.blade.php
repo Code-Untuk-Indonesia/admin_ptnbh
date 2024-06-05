@@ -13,7 +13,10 @@
     <!-- pengantar -->
     <section class="pengantar" data-aos="fade-up" data-aos-duration="3000">
         <div class="container">
-            <h1 class="pengantar-1"> {{ app()->getLocale() == 'id' ? $data->judul_ptnbh_id : $data->judul_ptnbh_en }}</h1>
+            <div class="section-header">
+                <h2> {{ app()->getLocale() == 'id' ? $data->judul_ptnbh_id : $data->judul_ptnbh_en }}</h2>
+            </div>
+
             <div class="card-pengantar">
                 <p class="pengantar-2">
                     {!! app()->getLocale() == 'id'
@@ -53,7 +56,7 @@
 
     <!--  -->
     <!-- berita  -->
-    <section class="berita" data-aos="fade-up" data-aos-duration="3000">
+    {{-- <section class="berita" data-aos="fade-up" data-aos-duration="3000">
         <h1 class="berita-1">
 
             {{ app()->getLocale() == 'id' ? 'Berita Terbaru' : 'Latest News' }}
@@ -92,11 +95,59 @@
                 Berita Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
         </button>
-    </section>
+    </section> --}}
     <!-- end berita -->
 
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-posts" class="recent-posts sections-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2> {{ app()->getLocale() == 'id' ? 'Berita Terbaru' : 'Latest News' }}</h2>
+            </div>
+
+            <div class="row gy-4">
+                @foreach ($berita as $item)
+                    <div class="col-xl-4 col-md-6">
+                        <article>
+
+                            <div class="post-img">
+                                <img src="{{ asset('/images/berita/' . $item->gambar) }}" alt="" class="img-fluid">
+                            </div>
+
+                            <p class="post-date">
+                                <time datetime="2022-01-01">
+                                    {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('H:i ') }}
+                                    <span style="margin-left: 5px; margin-right: 5px">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="4" height="5"
+                                            viewBox="0 0 4 5" fill="none">
+                                            <circle cx="2" cy="2.5" r="2" fill="#7a8a99" />
+                                        </svg>
+                                    </span>
+                                    {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat(' l, j F Y ') }}</time>
+                            </p>
+
+                            <h2 class="title">
+                                <a href="{{ route('berita.showfe', ['slug' => $item->slug]) }}">
+                                    {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</a>
+                            </h2>
+
+
+                        </article>
+                    </div><!-- End post list item -->
+                @endforeach
+            </div><!-- End recent posts list -->
+        </div>
+        <button class="btn-read mt-4">
+            <a class="a-btn-news" href="/berita-ptnbh">
+                {{ app()->getLocale() == 'id' ? 'Berita Lainnya' : 'Other News' }}<span><img
+                        src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
+                        alt=""></span>
+            </a>
+        </button>
+    </section><!-- End Recent Blog Posts Section -->
+
     <!-- galery  -->
-    <section class="galery">
+    {{-- <section class="galery">
         <h1 class="galery-1" data-aos="fade-up" data-aos-duration="2000">
 
             {{ app()->getLocale() == 'id' ? 'Galeri' : 'Gallery' }}
@@ -117,18 +168,56 @@
 
         <button class="btn-news">
             <a class="a-btn-news" href="/gallery">
-                Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
+                Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}" alt=""></span>
             </a>
         </button>
-
-
-    </section>
+    </section> --}}
     <!-- end galery -->
 
-    <section class="video-gallery">
-        <h1 class="video-gallery-title" data-aos="fade-up" data-aos-duration="2000">
-            Dokumentasi Video
-        </h1>
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio ">
+        <div class="" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2> {{ app()->getLocale() == 'id' ? 'Galeri' : 'Gallery' }}</h2>
+            </div>
+
+            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4 portfolio-container">
+                    @foreach ($galeri as $album)
+                        <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+                            <div class="portfolio-wrap">
+                                <a href="{{ route('album.show', ['id' => $album->id]) }}"
+                                    data-gallery="portfolio-gallery-app" class="glightbox"><img
+                                        src="{{ asset('/images/album/' . $album->gambar) }}" class="img-fluid"
+                                        alt=""></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="{{ route('album.show', ['id' => $album->id]) }}" title="More Details">
+                                            {{ app()->getLocale() == 'id' ? $album->judul_id : $album->judul_en }}</a></h4>
+
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+                    @endforeach
+                </div><!-- End Portfolio Container -->
+
+            </div>
+
+        </div>
+        <button class="btn-news">
+            <a class="a-btn-news" href="/gallery">
+                {{ app()->getLocale() == 'id' ? 'Galery Lainnya' : 'Other Galery' }} <span><img
+                        src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
+                        alt=""></span>
+            </a>
+        </button>
+    </section><!-- End Portfolio Section -->
+
+    <section class=" sections-bg">
+        <div class="section-header">
+            <h2> {{ app()->getLocale() == 'id' ? 'Dokumentasi Video' : 'Video Documentary' }}</h2>
+        </div>
         <div class="row" data-aos="fade-up" data-aos-duration="3000">
             @foreach ($videos as $video)
                 <div class="col-md-4 col-sm-6 col-12 mb-4">
@@ -147,16 +236,18 @@
 
         <button class="btn-news">
             <a class="a-btn-news" href="/videos">
-                Dokumentasi Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
+                Dokumentasi Lainnya <span><img
+                        src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
+                        alt=""></span>
             </a>
         </button>
     </section>
 
 
     <section class="galery">
-        <h1 class="galery-1" data-aos="fade-up" data-aos-duration="2000">
-            Unduhan
-        </h1>
+        <div class="section-header">
+            <h2> {{ app()->getLocale() == 'id' ? 'Unduhan' : 'Download' }}</h2>
+        </div>
         <div class="row" data-aos="fade-up" data-aos-duration="3000">
             @foreach ($unduhan as $item)
                 <div class="col-md-4 col-sm-6 col-12 mb-4">
@@ -181,7 +272,8 @@
         <button class="btn-news">
             <a class="a-btn-news" href="/unduhan">
                 {{ app()->getLocale() == 'id' ? 'Unduhan Lainnya' : 'Download more' }}<span><img
-                        src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
+                        src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
+                        alt=""></span>
             </a>
         </button>
 

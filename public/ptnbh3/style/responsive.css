@@ -156,6 +156,9 @@
 
 /* Footer */
 @media (max-width: 767px) {
+    .img-foot {
+        max-width: 80px;
+    }
     .footer-col {
         width: 50%;
         margin-bottom: 30px;

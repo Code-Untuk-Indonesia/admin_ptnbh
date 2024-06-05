@@ -35,11 +35,11 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="padding-top: 8px; padding-bottom: 8px">
+    <nav class="navbar navbar-expand-lg fixed-top" style="padding-top: 15px; padding-bottom: 15px; background-color: #084263; color: #ffff">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/" style="color: #ffff">
                 <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="logo"
-                    width="30" height="30" class="d-inline-block align-text-top me-2">Universitas Tanjungpura
+                    width="30" height="30" class="d-inline-block align-text-top me-2" >Universitas Tanjungpura
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +119,7 @@
     @yield('content')
 
     <!-- footer -->
-    <footer class="footer-area">
+    {{-- <footer class="footer-area">
         <div class="footer-big">
             <div class="container">
                 <div class="row">
@@ -163,9 +163,50 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
     <!-- end footer -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-info">
+            <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}"
+            alt="" class="img-foot mb-3">
+            <h4>Universitas Tanjungpura</h4>
+          <p>Memperkuat Ekosistem Inovasi dan Kolaborasi</p>
+          <p>Mewujudkan Untan yang Berdaya Saing</p>
+          <p>Menuju World Class University </p>
+
+        </div>
+        @foreach (App\Models\Footer::all()->chunk(5) as $chunk)
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Layanan Informasi</h4>
+          <ul>
+            @foreach ($chunk as $footer)
+            <li><a href="{{ $footer->url }}">{{ $footer->title }}</a></li>
+
+            @endforeach
+          </ul>
+        </div>
+        @endforeach
+
+
+
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Untan</span></strong>. 2024
+      </div>
+
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
