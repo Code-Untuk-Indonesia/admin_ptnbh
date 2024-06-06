@@ -30,7 +30,7 @@
 
     <!--end pengantar  -->
     <!-- rektor -->
-    <section class="rektor" data-aos="fade-up" data-aos-duration="2000">
+    {{-- <section class="rektor" data-aos="fade-up" data-aos-duration="2000">
         <div class="text-section">
             <div class="row">
                 <div class="col-md-4 col-sm-12">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!--  -->
     <!-- Call To Action Section -->
