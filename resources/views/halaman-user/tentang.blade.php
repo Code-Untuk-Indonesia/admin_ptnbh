@@ -30,7 +30,7 @@
                         <!-- Visi -->
                         <div class="col-md-6">
                             <h1 class="title-profile">
-                                <span style="color: #ffea00;">|</span> {{ $data->judul_visi_id }}
+                                <span style="color: #084263;">|</span> {{ $data->judul_visi_id }}
                             </h1>
                             <p class="misi-profile">
                                 {!! app()->getLocale() == 'id'
@@ -41,7 +41,7 @@
                         <!-- Misi -->
                         <div class="col-md-6">
                             <h1 class="title-profile">
-                                <span style="color: #ffea00;">|</span> {{ $data->judul_misi_id }}
+                                <span style="color: #084263;">|</span> {{ $data->judul_misi_id }}
                             </h1>
                             <p class="misi-profile">
                                 {!! app()->getLocale() == 'id'
@@ -58,7 +58,7 @@
     <!-- end profil -->
     <section class="history" data-aos="fade-up" data-aos-duration="3000">
         <div class="card-pengantar">
-            <h1 class="history-1"><span style="color: #ffea00;">|</span>
+            <h1 class="history-1"><span style="color: #084263;">|</span>
                 {{ app()->getLocale() == 'id' ? $data->judul_tujuan_id : $data->judul_tujuan_en }}
 
             </h1>

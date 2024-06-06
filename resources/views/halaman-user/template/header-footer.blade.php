@@ -30,21 +30,25 @@
     <title>PTNBH Universitas Tanjungpura</title>
     <link rel="icon" href="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" type="image/gif"
         sizes="16x16">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="padding-top: 15px; padding-bottom: 15px; background-color: #084263; color: #ffff">
+    <nav class="navbar navbar-expand-lg fixed-top" style="padding-top: 8px; padding-bottom: 8px; background-color: #084263; color: #ffff">
         <div class="container">
             <a class="navbar-brand" href="/" style="color: #ffff">
-                <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt="logo"
-                    width="30" height="30" class="d-inline-block align-text-top me-2" >Universitas Tanjungpura
+                <img src="{{ asset('ptnbh3/asset/MENUJU Panah.png') }}" alt="logo"
+             class="d-inline-block align-text-top me-2 img-nav" >
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+            <i class="fas fa-bars"></i> <!-- Menambahkan ikon di sini -->
+        </span>
+    </button>
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -108,10 +112,10 @@
 
     <!-- Hero Section -->
     @if (!Request::is('/'))
-        <section class="hero-profile" style="background-image: url(@yield('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))); background-position: 30% 70%;">
-            <div class="row">
-                <h1 class="profile-1"><span style="color: #ffea00;">|</span> @yield('hero-title', 'Universitas Tanjungpura')</h1>
-            </div>
+        <section class="hero-profile" style="background-image: url(@yield('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))); background-position: 30% 18%;">
+
+                <h1 class="profile-1"><span style="color: #084263;">|</span> @yield('hero-title', 'Universitas Tanjungpura')</h1>
+
         </section>
     @endif
     <!-- End Hero Section -->

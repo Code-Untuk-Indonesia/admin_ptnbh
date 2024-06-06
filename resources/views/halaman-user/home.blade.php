@@ -1,6 +1,18 @@
 @extends('halaman-user.template.header-footer')
 
 @section('content')
+<style>
+    section {
+    padding: 100px 120px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 100px 120px; */
+    width: 100%;
+    flex-direction: column;
+}
+</style>
     <!-- hero -->
     <section class="hero" style=" background-image: url({{ asset('ptnbh3/asset/rektorat-untan-scaled-2048x1152.jpg') }});">
         <h2 class="hero-1" data-aos="fade-up" data-aos-duration="2500">
@@ -56,7 +68,7 @@
 
     <!--  -->
     <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section">
+    <section id="call-to-action" class="call-to-action  " style="" >
         <div class="container" data-aos="zoom-out">
 
             <div class="row g-5">
@@ -231,9 +243,9 @@
             </div>
 
         </div>
-        <button class="btn-news">
+        <button class="btn-read mt-4">
             <a class="a-btn-news" href="/gallery">
-                {{ app()->getLocale() == 'id' ? 'Galery Lainnya' : 'Other Galery' }} <span><img
+                {{ app()->getLocale() == 'id' ? 'Galery Lainnya' : 'Other Galery' }} <span><img class="img-arrow-btn"
                         src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
                         alt=""></span>
             </a>
