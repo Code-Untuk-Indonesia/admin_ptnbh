@@ -3,7 +3,14 @@
 @section('hero-title', app()->getLocale() == 'id' ? 'Kontak' : 'Contact')
 
 @section('content')
-
+    <style>
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            /* align-items: center; */
+            justify-content: center;
+        }
+    </style>
 
     <!-- kontak  -->
     <section class="kontak">

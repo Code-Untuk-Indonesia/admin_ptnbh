@@ -2,7 +2,15 @@
 @section('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))
 @section('hero-title', app()->getLocale() == 'id' ? 'Agenda' : 'Agenda')
 @section('content')
-
+<style>
+    .berita {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 100px 120px;
+}
+</style>
 
     <!-- agenda  -->
     <section class="berita" data-aos="fade-up" data-aos-duration="3000">
