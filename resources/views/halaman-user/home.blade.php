@@ -1,18 +1,18 @@
 @extends('halaman-user.template.header-footer')
 
 @section('content')
-<style>
-    section {
-    padding: 100px 120px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding: 100px 120px; */
-    width: 100%;
-    flex-direction: column;
-}
-</style>
+    <style>
+        section {
+            padding: 100px 120px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* padding: 100px 120px; */
+            width: 100%;
+            flex-direction: column;
+        }
+    </style>
     <!-- hero -->
     <section class="hero" style=" background-image: url({{ asset('ptnbh3/asset/rektorat-untan-scaled-2048x1152.jpg') }});">
         <h2 class="hero-1" data-aos="fade-up" data-aos-duration="2500">
@@ -68,20 +68,22 @@
 
     <!--  -->
     <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action  " style="" >
+    <section id="call-to-action" class="call-to-action  " style="">
         <div class="container" data-aos="zoom-out">
 
             <div class="row g-5">
-                <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center" style="flex-direction: column">
+                <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center"
+                    style="flex-direction: column">
                     <div class="img">
                         <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" alt="" class="img-fluid">
 
                     </div>
                     <h5 class="mt-4">{{ $data->nama_rektor }}</h5>
                 </div>
-                <div class="col-lg-8 col-md-6 content d-flex text-align-center flex-column justify-content-center order-last order-md-first">
+                <div
+                    class="col-lg-8 col-md-6 content d-flex text-align-center flex-column justify-content-center order-last order-md-first">
                     <h3> {{ app()->getLocale() == 'id' ? $data->judul_rektor_id : $data->judul_rektor_en }}</h3>
-                    <p class="text-align-center" style="text-align: center">  {!! app()->getLocale() == 'id'
+                    <p class="text-align-center" style="text-align: center"> {!! app()->getLocale() == 'id'
                         ? str_replace('pola_pencarian', 'pengganti', $data->sambutan_rektor_id)
                         : str_replace('pola_pencarian', 'pengganti', $data->sambutan_rektor_en) !!}</p>
 
@@ -260,8 +262,7 @@
             @foreach ($videos as $video)
                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                     <div class="card card-video img-hover-zoom">
-                        <iframe src="https://www.youtube.com/embed/{{ $video->link }}" title="YouTube video player"
-                            frameborder="0"
+                        <iframe src="{{ getYoutubeEmbedUrl($video->link) }}" title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <span class="video-title">
@@ -270,6 +271,9 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+
+
         </div>
 
         <button class="btn-news">
