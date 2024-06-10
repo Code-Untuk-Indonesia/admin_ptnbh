@@ -25,7 +25,7 @@
             @endforeach
         </div>
 
-        <button class="btn-news" id="load-more-videos">
+        <button class="btn-read" id="load-more-videos">
             <a class="a-btn-news" href="/videos">
                 Dokumentasi Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>

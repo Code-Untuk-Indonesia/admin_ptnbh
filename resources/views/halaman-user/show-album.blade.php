@@ -19,7 +19,7 @@
                 </div>
             @endforeach
         </div>
-        <button class="btn-news">
+        <button class="btn-read mt-4">
             <a class="a-btn-news" href="">
                 Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>

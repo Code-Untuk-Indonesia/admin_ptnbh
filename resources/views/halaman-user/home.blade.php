@@ -247,7 +247,7 @@
         </div>
         <button class="btn-read mt-4">
             <a class="a-btn-news" href="/gallery">
-                {{ app()->getLocale() == 'id' ? 'Galery Lainnya' : 'Other Galery' }} <span><img class="img-arrow-btn"
+                {{ app()->getLocale() == 'id' ? 'Galeri Lainnya' : 'Other Galery' }} <span><img class="img-arrow-btn"
                         src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
                         alt=""></span>
             </a>
@@ -276,9 +276,9 @@
 
         </div>
 
-        <button class="btn-news">
-            <a class="a-btn-news" href="/videos">
-                Dokumentasi Lainnya <span><img
+        <button class="btn-read mt-4">
+            <a class="a-btn-news" href="/berita-ptnbh">
+                {{ app()->getLocale() == 'id' ? 'Berita Lainnya' : 'Other News' }} <span><img class="img-arrow-btn"
                         src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
                         alt=""></span>
             </a>
@@ -311,9 +311,9 @@
             @endforeach
         </div>
 
-        <button class="btn-news">
+        <button class="btn-read mt-4">
             <a class="a-btn-news" href="/unduhan">
-                {{ app()->getLocale() == 'id' ? 'Unduhan Lainnya' : 'Download more' }}<span><img
+                {{ app()->getLocale() == 'id' ? 'Unduhan Lainnya' : 'Other Downloads' }} <span><img class="img-arrow-btn"
                         src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}"
                         alt=""></span>
             </a>

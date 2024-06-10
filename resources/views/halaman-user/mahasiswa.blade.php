@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <button class="btn-news">
+            <button class="btn-read">
                 <a class="a-btn-news">Informasi Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}"
                             alt=""></span></a>
             </button>

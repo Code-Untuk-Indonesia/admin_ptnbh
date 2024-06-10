@@ -2,15 +2,15 @@
 @section('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))
 @section('hero-title', app()->getLocale() == 'id' ? 'Agenda' : 'Agenda')
 @section('content')
-<style>
-    .berita {
-    display: flex;
-    flex-direction: column;
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 100px 120px;
-}
-</style>
+    <style>
+        .berita {
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 100px 120px;
+        }
+    </style>
 
     <!-- agenda  -->
     <section class="berita" data-aos="fade-up" data-aos-duration="3000">
@@ -40,7 +40,7 @@
             @endforeach
         </div>
 
-        <button id="load-more-agenda" class="btn-news">
+        <button id="load-more-agenda" class="btn-read">
             <a class="a-btn-news">
                 Agenda Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>

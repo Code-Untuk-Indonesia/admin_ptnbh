@@ -94,7 +94,7 @@
         </div>
 
         @if ($berita->hasMorePages())
-            <button class="btn-news" id="load-more-news" data-page="2" data-search="{{ request()->get('search') }}">
+            <button class="btn-read" id="load-more-news" data-page="2" data-search="{{ request()->get('search') }}">
                 <a class="a-btn-news" href="javascript:void(0)">
                     Berita Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
                 </a>

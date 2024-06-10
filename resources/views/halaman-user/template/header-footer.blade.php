@@ -30,24 +30,25 @@
     <title>PTNBH Universitas Tanjungpura</title>
     <link rel="icon" href="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" type="image/gif"
         sizes="16x16">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="padding-top: 8px; padding-bottom: 8px; background-color: #084263; color: #ffff">
+    <nav class="navbar navbar-expand-lg fixed-top"
+        style="padding-top: 8px; padding-bottom: 8px; background-color: #084263; color: #ffff">
         <div class="container">
             <a class="navbar-brand" href="/" style="color: #ffff">
                 <img src="{{ asset('ptnbh3/asset/MENUJU Panah.png') }}" alt="logo"
-             class="d-inline-block align-text-top me-2 img-nav" >
+                    class="d-inline-block align-text-top me-2 img-nav">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-            <i class="fas fa-bars"></i> <!-- Menambahkan ikon di sini -->
-        </span>
-    </button>
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
@@ -112,9 +113,9 @@
 
     <!-- Hero Section -->
     @if (!Request::is('/'))
-        <section class="hero-profile" style="background-image: url(@yield('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))); background-position: 30% 18%;">
+        <section class="hero-profile" style="background-image: url(@yield('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))); ">
 
-                <h1 class="profile-1"><span style="color: #084263;">|</span> @yield('hero-title', 'Universitas Tanjungpura')</h1>
+            <h1 class="profile-1"><span style="color: #ffea00;">|</span> @yield('hero-title', 'Universitas Tanjungpura')</h1>
 
         </section>
     @endif
@@ -171,46 +172,45 @@
 
     <!-- end footer -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
 
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-info">
-            <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}"
-            alt="" class="img-foot mb-3">
-            <h4>Universitas Tanjungpura</h4>
-          <p>Memperkuat Ekosistem Inovasi dan Kolaborasi</p>
-          <p>Mewujudkan Untan yang Berdaya Saing</p>
-          <p>Menuju World Class University </p>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-info">
+                    <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}" alt=""
+                        class="img-foot mb-3">
+                    <h4>Universitas Tanjungpura</h4>
+                    <p>Memperkuat Ekosistem Inovasi dan Kolaborasi</p>
+                    <p>Mewujudkan Untan yang Berdaya Saing</p>
+                    <p>Menuju World Class University </p>
+
+                </div>
+                @foreach (App\Models\Footer::all()->chunk(5) as $chunk)
+                    <div class="col-lg-2 col-6 footer-links">
+                        <h4>Layanan Informasi</h4>
+                        <ul>
+                            @foreach ($chunk as $footer)
+                                <li><a href="{{ $footer->url }}">{{ $footer->title }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endforeach
+
+
+
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Untan</span></strong>. 2024
+            </div>
 
         </div>
-        @foreach (App\Models\Footer::all()->chunk(5) as $chunk)
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Layanan Informasi</h4>
-          <ul>
-            @foreach ($chunk as $footer)
-            <li><a href="{{ $footer->url }}">{{ $footer->title }}</a></li>
 
-            @endforeach
-          </ul>
-        </div>
-        @endforeach
-
-
-
-      </div>
-    </div>
-
-    <div class="container mt-4">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Untan</span></strong>. 2024
-      </div>
-
-    </div>
-
-  </footer><!-- End Footer -->
-  <!-- End Footer -->
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

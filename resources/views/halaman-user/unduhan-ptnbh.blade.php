@@ -24,7 +24,7 @@
             @endforeach
         </div>
 
-        <button id="load-more-unduhan" class="btn-news">
+        <button id="load-more-unduhan" class="btn-read">
             <a class="a-btn-news">
                 Unduhan Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
             </a>
