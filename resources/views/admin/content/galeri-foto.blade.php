@@ -88,7 +88,9 @@
                     },
                     {
                         data: 'album_title',
-                        name: 'album_title'
+                        name: 'album_title',
+                        orderable: true,
+                        searchable: true,
                     },
                     {
                         data: 'action',

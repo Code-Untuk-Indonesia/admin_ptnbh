@@ -28,5 +28,7 @@ class RolesTableSeeder extends Seeder
         Permission::create(['name' => 'manage organisasi']);
         Permission::create(['name' => 'manage home']);
         Permission::create(['name' => 'manage footer']);
+        Permission::create(['name' => 'manage faq']);
+
     }
 }

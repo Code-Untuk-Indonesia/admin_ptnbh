@@ -57,10 +57,17 @@
                                 <textarea class="form-control styled-textarea" id="deskripsi_en" name="deskripsi_en" rows="5">{{ $agenda->deskripsi_en ?? '' }}</textarea>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="tanggal" class="form-label">Tanggal Pelaksanaan</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal"
-                                    value="{{ $agenda->tanggal_agenda ?? '' }}" required>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label for="tanggal-mulai" class="form-label">Tanggal Mulai</label>
+                                    <input type="date" class="form-control" id="tanggal-mulai" name="tanggal-mulai"
+                                        value="{{ $agenda->tanggal_mulai ?? '' }}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="tanggal-akhir" class="form-label">Tanggal Berakhir</label>
+                                    <input type="date" class="form-control" id="tanggal-akhir" name="tanggal-akhir"
+                                        value="{{ $agenda->tanggal_akhir ?? '' }}" required>
+                                </div>
                             </div>
 
                             <div class="mb-3">

@@ -4,13 +4,14 @@
     <div class="app-wrapper">
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
+                <h1 class="app-page-title">Halaman Organisasi</h1> 
 
                 <div class="tab-content" id="orders-table-tab-content">
                     <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
 
                         <!-- Section for Organisasi -->
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
-                            <div class="app-card-body">
+                            <div class="app-card-body p-3 m-3">
                                 <h5 class="mb-4">Organisasi</h5>
                                 <div class="table-responsive">
                                     <table class="table app-table-hover mb-0 text-left">
