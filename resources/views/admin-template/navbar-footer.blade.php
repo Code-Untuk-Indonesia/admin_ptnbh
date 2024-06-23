@@ -199,7 +199,8 @@
                                         </svg>
                                     </span><!--//submenu-arrow-->
                                 </a><!--//nav-link-->
-                                <div id="submenu-page" class="collapse submenu submenu-page" data-bs-parent="#menu-accordion">
+                                <div id="submenu-page" class="collapse submenu submenu-page"
+                                    data-bs-parent="#menu-accordion">
                                     <ul class="submenu-list list-unstyled">
                                         @can('manage home')
                                             <li class="submenu-item"><a class="submenu-link"
@@ -234,14 +235,15 @@
                         @canany(['manage fakultas', 'manage unit bisnis'])
                             <li class="nav-item has-submenu">
                                 <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#submenu-lembaga" aria-expanded="false" aria-controls="submenu-lembaga">
+                                    data-bs-target="#submenu-lembaga" aria-expanded="false"
+                                    aria-controls="submenu-lembaga">
                                     <span class="nav-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+                                            fill="currentColor" class="bi bi-buildings" viewBox="0 0 16 16">
                                             <path
-                                                d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z" />
+                                                d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022M6 8.694 1 10.36V15h5zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5z" />
                                             <path
-                                                d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+                                                d="M2 11h1v1H2zm2 0h1v1H4zm-2 2h1v1H2zm2 0h1v1H4zm4-4h1v1H8zm2 0h1v1h-1zm-2 2h1v1H8zm2 0h1v1h-1zm2-2h1v1h-1zm0 2h1v1h-1zM8 7h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zM8 5h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zm0-2h1v1h-1z" />
                                         </svg>
                                     </span>
                                     <span class="nav-link-text">Lembaga</span>
@@ -254,7 +256,8 @@
                                         </svg>
                                     </span><!--//submenu-arrow-->
                                 </a><!--//nav-link-->
-                                <div id="submenu-lembaga" class="collapse submenu submenu-lembaga" data-bs-parent="#menu-accordion">
+                                <div id="submenu-lembaga" class="collapse submenu submenu-lembaga"
+                                    data-bs-parent="#menu-accordion">
                                     <ul class="submenu-list list-unstyled">
                                         @can('manage album')
                                             <li class="submenu-item"><a class="submenu-link"
@@ -344,7 +347,8 @@
                                         </svg>
                                     </span><!--//submenu-arrow-->
                                 </a><!--//nav-link-->
-                                <div id="submenu-album" class="collapse submenu submenu-album" data-bs-parent="#menu-accordion">
+                                <div id="submenu-album" class="collapse submenu submenu-album"
+                                    data-bs-parent="#menu-accordion">
                                     <ul class="submenu-list list-unstyled">
                                         @can('manage album')
                                             <li class="submenu-item"><a class="submenu-link"

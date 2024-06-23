@@ -15,6 +15,7 @@
                                     style="width: 30px; margin-right: 10px; margin-top: 5px;">
                                 Home - Indonesia
                             </h3>
+                            <a class="btn btn-sm app-btn-secondary" href="{{ route('home.edit', $data->id) }}">Edit</a>
                             <div class="col-12 col-lg-6">
                                 <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                                     <div class="app-card-header p-3 border-bottom-0">
@@ -43,7 +44,6 @@
                                     </div><!--//app-card-body-->
                                 </div><!--//app-card-->
                             </div><!--//col-->
-                            <a class="btn btn-sm app-btn-secondary" href="{{ route('home.edit', $data->id) }}">Edit</a>
                         </div><!--//row-->
                         <div class="row g-4 mb-4">
                             <h3 class="mt-3 text-center px-3">
@@ -51,6 +51,7 @@
                                     style="width: 30px; margin-right: 10px; margin-top: 5px;">
                                 Home - English
                             </h3>
+                            <a class="btn btn-sm app-btn-secondary" href="{{ route('home.edit', $data->id) }}">Edit</a>
                             <div class="col-12 col-lg-6">
                                 <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                                     <div class="app-card-header p-3 border-bottom-0">
@@ -79,14 +80,13 @@
                                     </div><!--//app-card-body-->
                                 </div><!--//app-card-->
                             </div><!--//col-->
-                            <a class="btn btn-sm app-btn-secondary" href="{{ route('home.edit', $data->id) }}">Edit</a>
                         </div><!--//row-->
 
                         <!-- Rektor Image Section -->
                         <div class="row g-4 mb-4">
-                            <h5 class="mt-3 text-center px-3">
+                            <h3 class="mt-3 text-center px-3">
                                 Foto Rektor
-                            </h5>
+                            </h3>
                             <div class="app-card app-card-orders-table shadow-sm mb-5">
                                 <div class="app-card-body text-center mt-3">
                                     <div class="rektor-image mb-4">

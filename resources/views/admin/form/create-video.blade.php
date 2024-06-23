@@ -4,7 +4,7 @@
     <div class="app-wrapper">
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
-                <div class="row g-3 mb-4 align-items-center justify-content-between">
+                <div class="row g-3 align-items-center justify-content-between">
                     <div class="col-auto">
                         <h1 class="app-page-title mb-0">{{ isset($video) ? 'Edit Video' : 'Tambah Video' }}</h1>
                     </div>
@@ -24,22 +24,24 @@
                                 @method('PUT')
                             @endif
 
-                            <div class="mb-3">
-                                <label for="judul_id" class="form-label">Judul (ID)</label>
-                                <input type="text" class="form-control" id="judul_id" name="judul_id"
-                                    value="{{ old('judul_id', $video->judul_id ?? '') }}" required>
-                                @error('judul_id')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label for="judul_id" class="form-label">Judul (ID)</label>
+                                    <input type="text" class="form-control" id="judul_id" name="judul_id"
+                                        value="{{ old('judul_id', $video->judul_id ?? '') }}" required>
+                                    @error('judul_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="judul_en" class="form-label">Judul (EN)</label>
-                                <input type="text" class="form-control" id="judul_en" name="judul_en"
-                                    value="{{ old('judul_en', $video->judul_en ?? '') }}" required>
-                                @error('judul_en')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="col-6 mb-3">
+                                    <label for="judul_en" class="form-label">Judul (EN)</label>
+                                    <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                        value="{{ old('judul_en', $video->judul_en ?? '') }}" required>
+                                    @error('judul_en')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -54,12 +56,17 @@
                             <input type="hidden" id="videoId" name="id"
                                 value="{{ isset($video) ? $video->id : '' }}">
 
-                            <button type="submit" class="btn app-btn-primary"
-                                id="saveBtn">{{ isset($video) ? 'Update Album' : 'Tambah Album' }}</button>
+                            <button type="submit" class="btn app-btn-primary" id="saveBtn">
+                                @if (isset($video))
+                                    <i class="fas fa-edit"></i> Update Video
+                                @else
+                                    <i class="fas fa-plus"></i> Tambah Video
+                                @endif
+                            </button>
                         </form>
 
-                        <div class="mt-4">
-                            <h5>Preview Video</h5>
+                        <div class="mt-2">
+                            <h5>Preview Video :</h5>
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe id="videoPreview" class="embed-responsive-item" src=""
                                     allowfullscreen></iframe>

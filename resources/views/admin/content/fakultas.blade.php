@@ -57,6 +57,7 @@
     </style>
 
     <script>
+        assetUrl = "{{ asset('images/fakultas') }}";
         $(document).ready(function() {
             var table = $('#fakultas-list').DataTable({
                 processing: false,

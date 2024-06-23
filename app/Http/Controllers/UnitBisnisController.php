@@ -60,7 +60,7 @@ class UnitBisnisController extends Controller
             $unitbisnis->save();
 
             // Redirect to unitbisnis.index and show success message
-            return redirect()->route('unitbisnis.index')->with('success', 'Unitbisnis berhasil disimpan');
+            return redirect()->route('unit-bisnis.index')->with('success', 'Unitbisnis berhasil disimpan');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -94,7 +94,7 @@ class UnitBisnisController extends Controller
             $unitbisnis->nama_en = $request->input('nama_en');
             $unitbisnis->deskripsi_en = $request->input('deskripsi_en');
             $unitbisnis->save();
-            return redirect()->route('unitbisnis.index')->with('success', 'Unitbisnis berhasil diperbarui');
+            return redirect()->route('unit-bisnis.index')->with('success', 'Unitbisnis berhasil diperbarui');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }

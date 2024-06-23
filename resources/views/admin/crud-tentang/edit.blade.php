@@ -9,7 +9,12 @@
                     @csrf
                     @method('PUT')
                     <div class="row">
-                        <div class="col">
+                        <div class="col" style="border-right: 1px solid #ddd; padding-right: 15px;">
+                            <h3 class="mt-3 mb-3 text-center px-3">
+                                <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt="Indonesia Flag"
+                                    style="width: 30px; margin-right: 10px; margin-top: 5px;">
+                                Tentang - Indonesia
+                            </h3>
                             <div class="form-group">
                                 <label for="judul_sejarah_id">Judul Sejarah (ID)</label>
                                 <input type="text" name="judul_sejarah_id" class="form-control"
@@ -47,7 +52,12 @@
                                 <textarea name="tujuan_id" class="form-control" id="summernote11" required>{{ old('tujuan_id', $data->tujuan_id) }}</textarea>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col" style="border-left: 1px solid #ddd; padding-left: 15px;">
+                            <h3 class="mt-3 mb-3 text-center px-3">
+                                <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="English Flag"
+                                    style="width: 30px; margin-right: 10px; margin-top: 5px;">
+                                About - English
+                            </h3>
                             <div class="form-group">
                                 <label for="judul_sejarah_en">Judul Sejarah (EN)</label>
                                 <input type="text" name="judul_sejarah_en" class="form-control"

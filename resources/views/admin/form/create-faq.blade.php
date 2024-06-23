@@ -4,7 +4,7 @@
     <div class="app-wrapper">
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
-                <div class="row g-3 mb-4 align-items-center justify-content-between">
+                <div class="row g-3 align-items-center justify-content-between">
                     <div class="col-auto">
                         <h1 class="app-page-title mb-0">{{ isset($faq) ? 'Edit Faq' : 'Tambah Faq' }}</h1>
                     </div>
@@ -25,7 +25,12 @@
                             @endif
 
                             <div class="row mb-3">
-                                <div class="col-12 col-lg-6">
+                                <div class="col-12 col-lg-6" style="border-right: 1px solid #ddd; padding-left: 15px;">
+                                    <h3 class="mt-3 mb-3 text-center px-3">
+                                        <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt="Indonesia Flag"
+                                            style="width: 30px; margin-right: 10px; margin-top: 5px;">
+                                        Faq - Indonesia
+                                    </h3>
                                     <div class="mb-3">
                                         <label for="judul_id" class="form-label">Judul (ID)</label>
                                         <input type="text" class="form-control" id="judul_id" name="judul_id"
@@ -37,7 +42,12 @@
                                         <textarea class="form-control styled-textarea" id="deskripsi_id" name="deskripsi_id" rows="5">{{ $faq->deskripsi_id ?? '' }}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6">
+                                <div class="col-12 col-lg-6" style="border-left: 1px solid #ddd; padding-left: 15px;">
+                                    <h3 class="mt-3 mb-3 text-center px-3">
+                                        <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="English Flag"
+                                            style="width: 30px; margin-right: 10px; margin-top: 5px;">
+                                        Faq - English
+                                    </h3>
                                     <div class="mb-3">
                                         <label for="judul_en" class="form-label">Title (EN)</label>
                                         <input type="text" class="form-control" id="judul_en" name="judul_en"
@@ -54,8 +64,14 @@
                             <input type="hidden" id="faqId" name="id"
                                 value="{{ isset($faq) ? $faq->id : '' }}">
 
-                            <button type="submit" class="btn app-btn-primary"
-                                id="saveBtn">{{ isset($faq) ? 'Update Faq' : 'Tambah Faq' }}</button>
+                                <button type="submit" class="btn app-btn-primary" id="saveBtn">
+                                    @if(isset($faq))
+                                        <i class="fas fa-edit"></i> Update Faq
+                                    @else
+                                        <i class="fas fa-plus"></i> Tambah Faq
+                                    @endif
+                                </button>
+                                
                         </form>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
 <div class="app-wrapper">
     <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl">
-            <div class="row g-3 mb-4 align-items-center justify-content-between">
+            <div class="row g-3 align-items-center justify-content-between">
                 <div class="col-auto">
                     <h1 class="app-page-title mb-0">{{ isset($unduh) ? 'Edit Album' : 'Tambah Album' }}</h1>
                 </div>
@@ -21,22 +21,25 @@
                         @if(isset($unduh))
                         @method('PUT')
                         @endif
-                        
-                        <div class="mb-3">
-                            <label for="judul_id" class="form-label">Judul (ID)</label>
-                            <input type="text" class="form-control" id="judul_id" name="judul_id" value="{{ $unduh->judul_id ?? '' }}" required>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="judul_id" class="form-label">Judul (ID)</label>
+                                <input type="text" class="form-control" id="judul_id" name="judul_id" value="{{ $unduh->judul_id ?? '' }}" required>
+                            </div>
+                            
+                            <div class="col-6 mb-3">
+                                <label for="judul_en" class="form-label">Judul (EN)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en" value="{{ $unduh->judul_en ?? '' }}" required>
+                            </div>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="judul_en" class="form-label">Judul (EN)</label>
-                            <input type="text" class="form-control" id="judul_en" name="judul_en" value="{{ $unduh->judul_en ?? '' }}" required>
-                        </div>
                         
                         <div class="mb-3">
                             <label for="upload-file" class="form-label">Upload File (PDF)</label>
                             <input type="file" class="form-control" id="file-unduh" name="file-unduh" accept="application/pdf" onchange="previewPDF(this)">
                             @if(isset($unduh->file))
-                                <div>
+                                <div class="mt-3">
                                     <a href="{{ asset('files/unduh/' . $unduh->file) }}" target="_blank">Lihat File PDF</a>
                                 </div>
                             @endif
@@ -49,8 +52,13 @@
                         
                         <input type="hidden" id="unduhId" name="id" value="{{ isset($unduh) ? $unduh->id : '' }}">
 
-                        <button type="submit" class="btn app-btn-primary" id="saveBtn">{{ isset($unduh) ? 'Update File' : 'Tambah File' }}</button>
-                    </form>
+                        <button type="submit" class="btn app-btn-primary" id="saveBtn">
+                            @if (isset($unduh))
+                                <i class="fas fa-edit"></i> Update File
+                            @else
+                                <i class="fas fa-plus"></i> Tambah File
+                            @endif
+                        </button>
                 </div>
             </div>
         </div>
