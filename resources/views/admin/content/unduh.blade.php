@@ -53,7 +53,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
+                        <h5 class="modal-title" id="pdfModalLabel">Tampilan Dokumen</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="myclose">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -97,11 +97,15 @@
                     },
                     {
                         data: 'judul_id',
-                        name: 'judul_id'
+                        name: 'judul_id',
+                        orderable: false,
+                        searchable: true
                     },
                     {
                         data: 'judul_en',
-                        name: 'judul_en'
+                        name: 'judul_en',
+                        orderable: false,
+                        searchable: true
                     },
                     {
                         data: 'file',

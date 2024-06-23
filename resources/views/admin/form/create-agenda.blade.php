@@ -59,7 +59,7 @@
                                 <h3 class="mt-3 mb-3 text-center px-3">
                                     <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="English Flag"
                                         style="width: 30px; margin-right: 10px; margin-top: 5px;">
-                                    Announcement - English
+                                    Event - English
                                 </h3>
 
                                 <div class="mb-3">

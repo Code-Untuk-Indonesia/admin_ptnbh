@@ -50,7 +50,7 @@
         <!-- Modal -->
         <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="videoModalLabel">Video</h5>
@@ -59,7 +59,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <iframe id="videoFrame" width="100%" height="315" src="" frameborder="0"
+                        <iframe id="videoFrame" width="100%" height="500" src="" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
