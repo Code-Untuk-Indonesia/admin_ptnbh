@@ -73,6 +73,11 @@
         #video-list_wrapper {
             margin: 20px;
         }
+        .table th,
+        .table td {
+            vertical-align: middle !important;
+            text-align: center !important;
+        }
     </style>
 
     <script>

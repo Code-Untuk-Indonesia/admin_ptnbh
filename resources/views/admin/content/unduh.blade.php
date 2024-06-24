@@ -70,6 +70,11 @@
         #unduh-list_wrapper {
             margin: 20px;
         }
+        .table th,
+        .table td {
+            vertical-align: middle !important;
+            text-align: center !important;
+        }
     </style>
 
     <script>
@@ -115,7 +120,7 @@
                         render: function(data, type, full, meta) {
                             var fileUrl = '/files/unduh/' + data;
                             return '<button class="btn btn-primary btn-sm showDokumen" data-file="' +
-                                fileUrl + '"><i class="fas fa-eye"></i><br>Show</button>';
+                                fileUrl + '"><i class="fas fa-eye"></i><br>Lihat</button>';
                         }
                     },
                     {

@@ -16,7 +16,7 @@
                                 Home - Indonesia
                             </h3>
                             <a class="btn btn-sm app-btn-secondary" href="{{ route('home.edit', $data->id) }}">Edit</a>
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-5">
                                 <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                                     <div class="app-card-header p-3 border-bottom-0">
                                         <div class="row align-items-center gx-3">
@@ -30,7 +30,7 @@
                                     </div><!--//app-card-body-->
                                 </div><!--//app-card-->
                             </div><!--//col-->
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-7">
                                 <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                                     <div class="app-card-header p-3 border-bottom-0">
                                         <div class="row align-items-center gx-3">
@@ -52,7 +52,7 @@
                                 Home - English
                             </h3>
                             <a class="btn btn-sm app-btn-secondary" href="{{ route('home.edit', $data->id) }}">Edit</a>
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-5">
                                 <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                                     <div class="app-card-header p-3 border-bottom-0">
                                         <div class="row align-items-center gx-3">
@@ -66,7 +66,7 @@
                                     </div><!--//app-card-body-->
                                 </div><!--//app-card-->
                             </div><!--//col-->
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-7">
                                 <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                                     <div class="app-card-header p-3 border-bottom-0">
                                         <div class="row align-items-center gx-3">

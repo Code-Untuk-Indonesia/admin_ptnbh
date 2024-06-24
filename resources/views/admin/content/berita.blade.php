@@ -48,6 +48,26 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="contentModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="contentModalLabel">Konten Berita</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    id="myclose">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="modalContent">
+                                <!-- Content will be injected here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -55,6 +75,12 @@
     <style>
         #berita-list_wrapper {
             margin: 20px;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle !important;
+            text-align: center !important;
         }
     </style>
 
@@ -102,8 +128,9 @@
                         orderable: false,
                         searchable: false,
                         render: function(data, type, full, meta) {
-                            return '<a href="detail-berita/' + full.id +
-                                '/id" class="btn btn-info btn-sm showBerita"><i class="fa fa-eye"></i> Show</a>';
+                            return '<a class="btn btn-info btn-sm viewContent" data-title="' + full
+                                .judul_id + '" data-content="' + data +
+                                '"><i class="fa fa-eye"></i> Lihat</a>';
                         }
                     },
                     {
@@ -116,8 +143,9 @@
                         orderable: false,
                         searchable: false,
                         render: function(data, type, full, meta) {
-                            return '<a href="detail-berita/' + full.id +
-                                '/en" class="btn btn-info btn-sm showBerita"><i class="fa fa-eye"></i> Show</a>';
+                            return '<a class="btn btn-info btn-sm viewContent" data-title="' + full
+                                .judul_en + '" data-content="' + data +
+                                '"><i class="fa fa-eye"></i> Lihat</a>';
                         }
                     },
                     {
@@ -141,6 +169,14 @@
                         searchable: false
                     }
                 ]
+            });
+
+            $('body').on('click', '.viewContent', function() {
+                var content = $(this).data('content');
+                var title = $(this).data('title');
+                $('#contentModalLabel').text(title);
+                $('#modalContent').html(content);
+                $('#contentModal').modal('show');
             });
 
             $('body').on('click', '.deleteBerita', function() {
@@ -179,6 +215,14 @@
                             }
                         });
                     }
+                });
+            });
+
+            $(function() {
+                $('#myclose').click(function(e) {
+                    e.preventDefault();
+                    $('#contentModal').modal('hide')
+
                 });
             });
 
