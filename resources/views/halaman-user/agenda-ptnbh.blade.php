@@ -8,15 +8,15 @@
         <h2>Agenda Terbaru</h2>
 
         @foreach ($agenda as $item)
-            <div class="agenda-item">
+            <div class="agenda-item" data-aos="fade-up" data-aos-duration="1500">
                 <div class="date">
-                    <div class="day">24</div>
-                    <div class="month">Mei</div>
+                    <div class="day">{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d') }}</div>
+                    <div class="month">{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('M') }}</div>
                 </div>
                 <div class="details">
-                    <h3>{{ $item->judul_id }}</h3>
-                    <p>09 Jul 2024 — 11 Jul 2024</p>
-                    <p>Universitas Tanjungpura, Pontianak, Indonesia</p>
+                    <p>{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d M Y') }} —
+                        {{ \Carbon\Carbon::parse($item->tanggal_akhir)->format('d M Y') }}</p>
+                    <p>{{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</p>
                 </div>
             </div>
         @endforeach
