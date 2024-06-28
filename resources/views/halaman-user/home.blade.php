@@ -322,6 +322,71 @@
 
     </section>
 
+    <!-- Section FAQ -->
+    <section id="faq" class="faq sections-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>{{ app()->getLocale() == 'id' ? 'Pertanyaan Umum' : 'Frequently Asked Questions' }}</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="accordion" id="accordionExample">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Apa yang dimaksud dengan Perguruan Tinggi Negeri Badan Hukum (PTN BH)?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    PTN BH adalah perguruan tinggi negeri yang memiliki status badan hukum, memberikan
+                                    otonomi yang lebih besar dalam pengelolaan dan pengembangan institusi.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Apa keuntungan dari transformasi menjadi PTN BH?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Transformasi menjadi PTN BH dapat meningkatkan efisiensi, kualitas layanan, dan
+                                    kinerja institusi, serta memberikan keleluasaan dalam pengelolaan sumber daya.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Bagaimana proses dukungan terhadap PTN BH di Universitas Tanjungpura?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Anda dapat mendukung PTN BH Universitas Tanjungpura dengan mengikuti perkembangan dan
+                                    memberikan dukungan moral serta partisipasi dalam program-program yang diselenggarakan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section FAQ -->
+
+
     <!-- Section Dukung PTN BH -->
     <section class="dukung">
         <div class="container">

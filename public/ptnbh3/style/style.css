@@ -2002,3 +2002,65 @@ section {
 .more-agenda:hover {
     text-decoration: underline;
 }
+
+/* FAQ Section */
+#faq {
+    padding: 80px 0;
+}
+
+#faq .section-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#faq .accordion-button {
+    background-color: #ffb606;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    text-align: left;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#faq .accordion-button:hover {
+    background-color: #e0a800;
+}
+
+#faq .accordion-button.collapsed {
+    background-color: #ffb606;
+}
+
+#faq .accordion-body {
+    background-color: #f3f4f6;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+#faq .accordion-item {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#faq .accordion-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    #faq .accordion-button {
+        padding: 15px 20px;
+    }
+
+    #faq .accordion-body {
+        padding: 15px 20px;
+    }
+}
