@@ -16,11 +16,13 @@
                 <div class="details">
                     <p>{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d M Y') }} —
                         {{ \Carbon\Carbon::parse($item->tanggal_akhir)->format('d M Y') }}</p>
-                    <p>{{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</p>
+                    <p><a
+                            href="{{ route('agenda.show', ['id' => $item->id]) }}">{{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</a>
+                    </p>
                 </div>
             </div>
         @endforeach
-        <a href="#" class="more-agenda">LIHAT AGENDA LAINNYA</a>
+        <a href="" class="more-agenda">LIHAT AGENDA LAINNYA</a>
     </div>
 
 
