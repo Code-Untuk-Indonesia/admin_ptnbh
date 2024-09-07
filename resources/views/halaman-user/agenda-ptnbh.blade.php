@@ -2,50 +2,29 @@
 @section('hero-bg', asset('ptnbh3/asset/rektorat.jpg'))
 @section('hero-title', app()->getLocale() == 'id' ? 'Agenda' : 'Agenda')
 @section('content')
-<style>
-    .berita {
-    display: flex;
-    flex-direction: column;
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 100px 120px;
-}
-</style>
 
-    <!-- agenda  -->
-    <section class="berita" data-aos="fade-up" data-aos-duration="3000">
-        <h1 class="berita-1">
-            Agenda Terbaru
-        </h1>
-        <div class="row" id="agenda-container">
-            @foreach ($agenda as $item)
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1500">
-                    <div class="card card-news">
-                        <img src="{{ asset('images/agenda') }}/{{ $item->gambar }}" class="card-img-top"
-                            alt="{{ $item->judul_id }}">
-                        <div class="card-body">
-                            <p class="card-text date-news">{{ $item->tanggal_agenda }}</p>
-                            <h5 class="card-title title-news">
-                                {{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}
-                            </h5>
-                            <p class="card-text">
-                                {{ app()->getLocale() == 'id' ? substr($item->deskripsi_id, 0, 100) : substr($item->deskripsi_en, 0, 100) }}...
-                            </p>
-                            <a href="{{ route('agenda.show', ['id' => $item->id]) }}"
-                                class="btn btn-primary">Selengkapnya</a>
+    <!-- agenda -->
+    <div class="agenda-container">
+        <h2>Agenda Terbaru</h2>
 
-                        </div>
-                    </div>
+        @foreach ($agenda as $item)
+            <div class="agenda-item" data-aos="fade-up" data-aos-duration="1500">
+                <div class="date">
+                    <div class="day">{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d') }}</div>
+                    <div class="month">{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('M') }}</div>
                 </div>
-            @endforeach
-        </div>
+                <div class="details">
+                    <p>{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d M Y') }} —
+                        {{ \Carbon\Carbon::parse($item->tanggal_akhir)->format('d M Y') }}</p>
+                    <p><a
+                            href="{{ route('agenda.show', ['id' => $item->id]) }}">{{ app()->getLocale() == 'id' ? $item->judul_id : $item->judul_en }}</a>
+                    </p>
+                </div>
+            </div>
+        @endforeach
+        <a href="" class="more-agenda">LIHAT AGENDA LAINNYA</a>
+    </div>
 
-        <button id="load-more-agenda" class="btn-news">
-            <a class="a-btn-news">
-                Agenda Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
-            </a>
-        </button>
-    </section>
 
     <!-- end agenda -->
 
@@ -102,7 +81,7 @@
                                     .deskripsi_id.substring(0, 100) + '...</p>';
                                 html +=
                                     '            <a href="/agenda-ptnbh/' + agenda.id +
-                                    '" class="btn btn-primary">Selengkapnya</a>';
+                                    '" class="btn btn-agenda">Selengkapnya</a>';
                                 html += '        </div>';
                                 html += '    </div>';
                                 html += '</div>';

@@ -9,34 +9,31 @@
                     <div class="col-auto">
                         <h1 class="app-page-title mb-0">{{ $title }}</h1>
                     </div>
-                </div>
+                </div><!--//row-->
 
-                <a class="btn app-btn-secondary mb-2" href="{{ route('berita.create') }}">
+
+                <a class="btn app-btn-secondary mb-2" href="{{ route('faq.create') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
                             d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
                     </svg>
-                    Tambah Berita
+                    Tambah Faq
                 </a>
-
 
                 <div class="tab-content" id="orders-table-tab-content">
                     <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive">
-                                    <table class="table app-table-hover mb-0 text-left" id="berita-list"
-                                        style="text-align: center;">
+                                    <table class="table app-table-hover mb-0 text-left" id="faq-list" style="text-align: center;">
                                         <thead>
                                             <tr>
                                                 <th class="cell" style="text-align: center;">No</th>
-                                                <th class="cell" style="text-align: center;">Gambar</th>
                                                 <th class="cell" style="text-align: center;">Judul (ID)</th>
-                                                <th class="cell" style="text-align: center;">Konten (ID)</th>
+                                                <th class="cell" style="text-align: center;">Deskripsi (ID)</th>
                                                 <th class="cell" style="text-align: center;">Title (EN)</th>
-                                                <th class="cell" style="text-align: center;">Content (EN)</th>
-                                                <th class="cell" style="text-align: center;">Tanggal</th>
+                                                <th class="cell" style="text-align: center;">Description (EN)</th>
                                                 <th class="cell" style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
@@ -48,35 +45,14 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="contentModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="contentModalLabel">Konten Berita</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                    id="myclose">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body" id="modalContent">
-                                <!-- Content will be injected here by JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
+    </div><!--//app-wrapper-->
 
     <style>
-        #berita-list_wrapper {
+        #faq-list_wrapper {
             margin: 20px;
         }
-
         .table th,
         .table td {
             vertical-align: middle !important;
@@ -85,16 +61,15 @@
     </style>
 
     <script>
-        assetUrl = "{{ asset('images/berita') }}";
         $(document).ready(function() {
-            var table = $('#berita-list').DataTable({
+            var table = $('#faq-list').DataTable({
                 processing: false,
                 serverSide: true,
                 searching: true,
                 info: true,
                 order: true,
                 paging: true,
-                ajax: "{{ route('berita.index') }}",
+                ajax: "{{ route('faq.index') }}",
                 language: {
                     search: "Cari:",
                     lengthMenu: "Tampilkan _MENU_ data",
@@ -109,28 +84,17 @@
                         searchable: false
                     },
                     {
-                        data: 'gambar',
-                        name: 'gambar',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, full, meta) {
-                            return '<img src="' + assetUrl + '/' + data +
-                                '" alt="Gambar Berita" style="max-width: 100px;">';
-                        }
-                    },
-                    {
                         data: 'judul_id',
                         name: 'judul_id'
                     },
                     {
-                        data: 'konten_id',
-                        name: 'konten_id',
+                        data: 'deskripsi_id',
+                        name: 'deskripsi_id',
                         orderable: false,
                         searchable: false,
                         render: function(data, type, full, meta) {
-                            return '<a class="btn btn-info btn-sm viewContent" data-title="' + full
-                                .judul_id + '" data-content="' + data +
-                                '"><i class="fa fa-eye"></i> Lihat</a>';
+                            return data.substring(0,
+                                50);
                         }
                     },
                     {
@@ -138,28 +102,13 @@
                         name: 'judul_en'
                     },
                     {
-                        data: 'konten_en',
-                        name: 'konten_en',
+                        data: 'deskripsi_en',
+                        name: 'deskripsi_en',
                         orderable: false,
                         searchable: false,
                         render: function(data, type, full, meta) {
-                            return '<a class="btn btn-info btn-sm viewContent" data-title="' + full
-                                .judul_en + '" data-content="' + data +
-                                '"><i class="fa fa-eye"></i> Lihat</a>';
-                        }
-                    },
-                    {
-                        data: 'created_at',
-                        name: 'created_at',
-                        render: function(data, type, full, meta) {
-                            var date = new Date(data);
-                            var options = {
-                                weekday: 'long',
-                                day: 'numeric',
-                                month: 'long',
-                                year: 'numeric'
-                            };
-                            return date.toLocaleDateString('id-ID', options);
+                            return data.substring(0,
+                                50);
                         }
                     },
                     {
@@ -171,16 +120,8 @@
                 ]
             });
 
-            $('body').on('click', '.viewContent', function() {
-                var content = $(this).data('content');
-                var title = $(this).data('title');
-                $('#contentModalLabel').text(title);
-                $('#modalContent').html(content);
-                $('#contentModal').modal('show');
-            });
-
-            $('body').on('click', '.deleteBerita', function() {
-                var berita_id = $(this).data("id");
+            $('body').on('click', '.deleteFaq', function() {
+                var faq_id = $(this).data("id");
                 Swal.fire({
                     title: 'Apakah Anda Yakin?',
                     text: "Data akan dihapus secara permanen",
@@ -193,7 +134,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "DELETE",
-                            url: "{{ route('berita.index') }}" + '/' + berita_id,
+                            url: "{{ route('faq.index') }}" + '/' + faq_id,
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
@@ -210,7 +151,7 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Terjadi Kesalahan Saat Menghapus',
+                                    text: 'Terjadi Kesalahaan Saat Menghapus',
                                 });
                             }
                         });
@@ -218,17 +159,9 @@
                 });
             });
 
-            $(function() {
-                $('#myclose').click(function(e) {
-                    e.preventDefault();
-                    $('#contentModal').modal('hide')
-
-                });
-            });
-
-            $('body').on('click', '.editBerita', function() {
-                var berita_id = $(this).data('id');
-                window.location.href = 'berita/' + berita_id + '/edit';
+            $('body').on('click', '.editFaq', function() {
+                var faq_id = $(this).data('id');
+                window.location.href = 'faq/' + faq_id + '/edit';
             });
 
             var successMessage = "{{ session('success') }}";

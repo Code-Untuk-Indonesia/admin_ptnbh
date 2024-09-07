@@ -53,7 +53,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
+                        <h5 class="modal-title" id="pdfModalLabel">Tampilan Dokumen</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="myclose">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -69,6 +69,11 @@
     <style>
         #unduh-list_wrapper {
             margin: 20px;
+        }
+        .table th,
+        .table td {
+            vertical-align: middle !important;
+            text-align: center !important;
         }
     </style>
 
@@ -97,11 +102,15 @@
                     },
                     {
                         data: 'judul_id',
-                        name: 'judul_id'
+                        name: 'judul_id',
+                        orderable: false,
+                        searchable: true
                     },
                     {
                         data: 'judul_en',
-                        name: 'judul_en'
+                        name: 'judul_en',
+                        orderable: false,
+                        searchable: true
                     },
                     {
                         data: 'file',
@@ -111,7 +120,7 @@
                         render: function(data, type, full, meta) {
                             var fileUrl = '/files/unduh/' + data;
                             return '<button class="btn btn-primary btn-sm showDokumen" data-file="' +
-                                fileUrl + '"><i class="fas fa-eye"></i><br>Show</button>';
+                                fileUrl + '"><i class="fas fa-eye"></i><br>Lihat</button>';
                         }
                     },
                     {

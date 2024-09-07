@@ -30,7 +30,7 @@
                     </div>
                 @endforeach
             </div>
-            <button id="load-more-btn" class="btn-news">
+            <button id="load-more-btn" class="btn-read">
                 <a class="a-btn-news">Pengumuman Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}"
                             alt=""></span></a>
             </button>

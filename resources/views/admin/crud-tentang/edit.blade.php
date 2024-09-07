@@ -9,7 +9,12 @@
                     @csrf
                     @method('PUT')
                     <div class="row">
-                        <div class="col">
+                        <div class="col" style="border-right: 1px solid #ddd; padding-right: 15px;">
+                            <h3 class="mt-3 mb-3 text-center px-3">
+                                <img src="{{ asset('ptnbh/asset/Indonesia.png') }}" alt="Indonesia Flag"
+                                    style="width: 30px; margin-right: 10px; margin-top: 5px;">
+                                Tentang - Indonesia
+                            </h3>
                             <div class="form-group">
                                 <label for="judul_sejarah_id">Judul Sejarah (ID)</label>
                                 <input type="text" name="judul_sejarah_id" class="form-control"
@@ -47,7 +52,12 @@
                                 <textarea name="tujuan_id" class="form-control" id="summernote11" required>{{ old('tujuan_id', $data->tujuan_id) }}</textarea>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col" style="border-left: 1px solid #ddd; padding-left: 15px;">
+                            <h3 class="mt-3 mb-3 text-center px-3">
+                                <img src="{{ asset('ptnbh/asset/Uk.png') }}" alt="English Flag"
+                                    style="width: 30px; margin-right: 10px; margin-top: 5px;">
+                                About - English
+                            </h3>
                             <div class="form-group">
                                 <label for="judul_sejarah_en">Judul Sejarah (EN)</label>
                                 <input type="text" name="judul_sejarah_en" class="form-control"
@@ -93,7 +103,7 @@
     </div>
     <script>
         $(document).ready(function() {
-            $('#summernote1').summernote({
+            const summernoteConfig = {
                 height: 300,
                 toolbar: [
                     ['style', ['style']],
@@ -105,113 +115,23 @@
                     ['insert', ['link', 'picture', 'video']],
                     ['view', ['fullscreen', 'codeview']],
                 ]
-            });
-        });
-        $(document).ready(function() {
-            $('#summernote11').summernote({
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview']],
-                ]
-            });
-        });
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview']],
-                ]
-            });
-        });
-        $(document).ready(function() {
-            $('#summernote2').summernote({
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview']],
-                ]
-            });
-        });
-        $(document).ready(function() {
-            $('#summernote3').summernote({
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview']],
-                ]
-            });
-        });
-        $(document).ready(function() {
-            $('#summernote4').summernote({
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview']],
-                ]
-            });
-        });
-        $(document).ready(function() {
-            $('#summernote5').summernote({
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview']],
-                ]
-            });
-        });
-
-        $(document).ready(function() {
-            $('#summernote6').summernote({
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview']],
-                ]
+            };
+    
+            const summernoteIds = [
+                '#summernote1',
+                '#summernote11',
+                '#summernote',
+                '#summernote2',
+                '#summernote3',
+                '#summernote4',
+                '#summernote5',
+                '#summernote6'
+            ];
+    
+            summernoteIds.forEach(function(id) {
+                $(id).summernote(summernoteConfig);
             });
         });
     </script>
+    
 @endsection

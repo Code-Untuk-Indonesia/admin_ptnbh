@@ -4,7 +4,7 @@
 <div class="app-wrapper">
     <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl">
-            <div class="row g-3 mb-4 align-items-center justify-content-between">
+            <div class="row g-3 align-items-center justify-content-between">
                 <div class="col-auto">
                     <h1 class="app-page-title mb-0">Tambah Foto ke Album</h1>
                 </div>
@@ -35,16 +35,34 @@
                         
                         <div class="mb-3">
                             <label>Preview Gambar:</label>
-                            <div id="image-preview"></div>
+                            <div id="image-preview" class="d-flex flex-wrap gap-3"></div>
                         </div>
                         
-                        <button type="submit" class="btn app-btn-primary" id="saveBtn">Tambah Foto</button>
+                        <button type="submit" class="btn app-btn-primary" id="saveBtn"><i class="fas fa-plus"></i>Tambah Foto</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .image-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 250px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .image-card img {
+        max-width: 230px;
+        max-height: 230px;
+    }
+</style>
 
 <script> 
     // Menampilkan preview gambar saat dipilih
@@ -56,11 +74,14 @@
             let file = files[i];
             let reader = new FileReader();
             reader.onload = function() {
+                let card = document.createElement('div');
+                card.classList.add('image-card');
+                
                 let image = new Image();
                 image.src = reader.result;
-                image.style.maxWidth = "100px";
-                image.style.maxHeight = "100px";
-                previewContainer.appendChild(image);
+
+                card.appendChild(image);
+                previewContainer.appendChild(card);
             }
             reader.readAsDataURL(file);
         }

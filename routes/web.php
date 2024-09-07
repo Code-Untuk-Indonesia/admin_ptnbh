@@ -17,6 +17,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\UnitBisnisController;
 use Shetabit\Visitor\Middlewares\LogVisits;
 
 /*
@@ -61,6 +64,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/pengumuman', PengumumanController::class)->middleware('permission:manage pengumuman');
     Route::resource('/admin/video', VideoController::class)->middleware('permission:manage video');
     Route::resource('/admin/unduh', UnduhController::class)->middleware('permission:manage unduh');
+    Route::resource('/admin/faq', FaqController::class)->middleware('permission:manage faq');
+    Route::resource('/admin/fakultas', FakultasController::class)->middleware('permission:manage fakultas');
+    Route::resource('/admin/unit-bisnis', UnitBisnisController::class)->middleware('permission:manage unit bisnis');
 
 
     // Resource controller untuk pengguna hanya dapat diakses oleh pengguna dengan izin 'manage_users'

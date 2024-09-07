@@ -49,7 +49,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffea00;
+    background-color: var(--color-secondary);
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
     transform-origin: bottom right;
@@ -162,6 +162,8 @@
     background-color: #f8f9fa;
     text-align: center;
     padding: 100px 120px; /* Adjusted padding */
+    display: flex;
+    flex-direction: column;
 }
 
 .limited-text {
@@ -337,38 +339,55 @@ img {
 /* hero profile */
 .hero-profile {
     display: flex;
-    justify-content: start;
+    align-items: center; /* Pusatkan secara vertikal */
     background-size: cover;
     width: 100%;
     height: 500px;
-    position: 30% 90%;
     background-position: 30%;
     padding: 100px 120px;
-    /* filter: brightness(70%) sepia(20%); */
-    align-items: center;
     margin-bottom: 40px;
+    position: relative; /* Tambahkan untuk membuat posisi anak relatif ke induk */
 }
 
 .profile-1 {
-
-    margin-top: 100px;
-    text-align: start;
+    margin-top: 0; /* Reset margin top */
+    text-align: left; /* Tempatkan teks di sebelah kiri secara default */
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 42px;
     font-weight: 600;
     font-style: normal;
     color: #fff;
+    position: relative; /* Tambahkan untuk memastikan posisi yang tepat */
+    z-index: 1; /* Pastikan teks berada di depan */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk kontras */
+    flex: 1; /* Pastikan elemen mengambil ruang yang tersedia */
 }
 
-.profile-2 {
-
-    text-align: start;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 23px;
-    font-weight: 600;
-    font-style: normal;
-    color: #ffea00;
+.hero-profile::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(
+        0,
+        0,
+        0,
+        0.5
+    ); /* Tambahkan lapisan gelap semi-transparan */
+    z-index: 0; /* Pastikan lapisan berada di belakang teks */
 }
+
+/* Media queries untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+    .profile-1 {
+        font-size: 24px; /* Kurangi ukuran font pada layar kecil */
+        text-align: center; /* Pusatkan teks secara horizontal pada layar kecil */
+    }
+}
+
+/* end hero profile */
 /*  */
 /* history */
 .history {
@@ -376,7 +395,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 100px 120px;
+    padding: 50px 20px; /* Ubah padding untuk layar kecil */
 }
 
 .history-1 {
@@ -385,17 +404,35 @@ img {
     font-weight: 600;
     font-style: normal;
     color: #000;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Kurangi margin untuk layar kecil */
     text-align: center;
 }
+
 .history-2 {
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 400;
     font-style: normal;
     color: #000;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Kurangi margin untuk layar kecil */
     text-align: center;
+}
+
+/* Media queries untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+    .history {
+        padding: 20px 10px; /* Kurangi padding pada layar kecil */
+    }
+
+    .history-1 {
+        font-size: 24px; /* Kurangi ukuran font pada layar kecil */
+        margin-bottom: 20px; /* Kurangi margin pada layar kecil */
+    }
+
+    .history-2 {
+        font-size: 14px; /* Kurangi ukuran font pada layar kecil */
+        margin-bottom: 20px; /* Kurangi margin pada layar kecil */
+    }
 }
 
 /* end hostory */
@@ -499,14 +536,14 @@ img {
     border: none;
     max-width: 200px;
     border-radius: 12px;
-    color: #ffea00;
+    color: var(--color-secondary);
     background-color: #7a8a99;
     font-family: "Inter", sans-serif;
     font-size: 20px;
 }
 
 a.btn-all-news {
-    color: #ffea00;
+    color: var(--color-secondary);
 }
 /*  */
 
@@ -673,7 +710,6 @@ a.btn-all-news {
 
 .dukung {
     padding: 50px 0;
-    /* background-color: #e8d933; */
 }
 
 .dukung .card {
@@ -681,15 +717,11 @@ a.btn-all-news {
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    padding: 20px; /* Tambahkan padding untuk konten card */
 }
 
-/* .dukung .card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-} */
-
 .dukung .card-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bolder;
     margin-bottom: 20px;
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -698,10 +730,10 @@ a.btn-all-news {
 }
 
 .dukung .card-text {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #343a40;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 2rem;
     margin-bottom: 20px;
     transition: color 0.3s ease;
@@ -720,6 +752,30 @@ a.btn-all-news {
     background-color: #ffb606;
     border-color: #ffb606;
     color: #000;
+}
+
+/* Media queries untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+    .dukung {
+        padding: 30px 10px; /* Kurangi padding pada layar kecil */
+    }
+
+    .dukung .card-title {
+        font-size: 1.8rem; /* Kurangi ukuran font pada layar kecil */
+        margin-bottom: 15px; /* Kurangi margin pada layar kecil */
+    }
+
+    .dukung .card-text {
+        font-size: 1rem; /* Kurangi ukuran font pada layar kecil */
+        line-height: 1.5rem; /* Sesuaikan line-height pada layar kecil */
+        margin-bottom: 15px; /* Kurangi margin pada layar kecil */
+    }
+
+    .dukung .btn-primary {
+        width: 100%; /* Buat tombol memenuhi lebar layar pada layar kecil */
+        font-size: 1rem; /* Kurangi ukuran font pada tombol */
+        padding: 10px 20px; /* Kurangi padding pada tombol */
+    }
 }
 
 .full-content {
@@ -1775,59 +1831,57 @@ section {
     transform: scale(1.1);
 }
 
-
-
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action {
     padding: 0;
     margin-bottom: 80px;
-  }
+}
 
-  .call-to-action .container {
+.call-to-action .container {
     padding: 80px;
     background: color-mix(in srgb, #1a1f24, transparent 96%);
     border-radius: 15px;
-  }
+}
 
-  @media (max-width: 992px) {
+@media (max-width: 992px) {
     .call-to-action .container {
-      padding: 60px;
+        padding: 60px;
     }
-  }
+}
 
-  .call-to-action .content h3 {
+.call-to-action .content h3 {
     font-size: 48px;
     font-weight: 700;
-  }
+}
 
-  .call-to-action .content h3 em {
+.call-to-action .content h3 em {
     font-style: normal;
     position: relative;
     z-index: 1;
-  }
+}
 
-  .call-to-action .content h3 em:after {
+.call-to-action .content h3 em:after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
     bottom: 10px;
     height: 10px;
-    background: color-mix(in srgb,  #0ea2bd, transparent 30%);
+    background: color-mix(in srgb, #0ea2bd, transparent 30%);
     z-index: -1;
-  }
+}
 
-  .call-to-action .content p {
+.call-to-action .content p {
     color: color-mix(in srgb, #1a1f24, transparent 20%);
     font-weight: 400;
     font-size: 18px;
     text-align: center;
-  }
+}
 
-  .call-to-action .content .cta-btn {
-    color:#ffffff;
+.call-to-action .content .cta-btn {
+    color: #ffffff;
     font-weight: 500;
     font-size: 16px;
     display: inline-block;
@@ -1835,18 +1889,18 @@ section {
     border-radius: 5px;
     transition: 0.5s;
     margin-top: 10px;
-    background:  #0ea2bd;
-  }
+    background: #0ea2bd;
+}
 
-  .call-to-action .content .cta-btn:hover {
-    background: color-mix(in srgb,  #0ea2bd 90%, black 15%);
-  }
+.call-to-action .content .cta-btn:hover {
+    background: color-mix(in srgb, #0ea2bd 90%, black 15%);
+}
 
-  .call-to-action .img {
+.call-to-action .img {
     position: relative;
-  }
+}
 
-  .call-to-action .img:before {
+.call-to-action .img:before {
     content: "";
     position: absolute;
     inset: 0;
@@ -1854,21 +1908,159 @@ section {
     border-radius: 15px;
     transform: rotate(6deg);
     z-index: 2;
-  }
+}
 
-  .call-to-action .img:after {
+.call-to-action .img:after {
     content: "";
     position: absolute;
     inset: 0;
-    background: color-mix(in srgb,  #1a1f24, transparent 95%);
+    background: color-mix(in srgb, #1a1f24, transparent 95%);
     border-radius: 15px;
     transform: rotate(12deg);
     z-index: 1;
-  }
+}
 
-  .call-to-action .img img {
+.call-to-action .img img {
     position: relative;
     z-index: 3;
     border-radius: 15px;
     z-index: 3;
-  }
+}
+
+/* .agenda-section {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 100px 120px; 
+    display: flex;
+    flex-direction: column;
+} */
+
+.agenda-container {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.agenda-container h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #ffcc00;
+    display: inline-block;
+}
+
+.agenda-item {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.agenda-item:last-child {
+    border-bottom: none;
+}
+
+.date {
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.date .day {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.date .month {
+    font-size: 18px;
+}
+
+.details h3 {
+    margin: 0;
+    color: #003366;
+}
+
+.details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.more-agenda {
+    display: block;
+    text-align: right;
+    margin-top: 20px;
+    color: #003366;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.more-agenda:hover {
+    text-decoration: underline;
+}
+
+/* FAQ Section */
+#faq {
+    padding: 80px 0;
+}
+
+#faq .section-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#faq .accordion-button {
+    background-color: #ffb606;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    text-align: left;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#faq .accordion-button:hover {
+    background-color: #e0a800;
+}
+
+#faq .accordion-button.collapsed {
+    background-color: #ffb606;
+}
+
+#faq .accordion-body {
+    background-color: #f3f4f6;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+#faq .accordion-item {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#faq .accordion-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    #faq .accordion-button {
+        padding: 15px 20px;
+    }
+
+    #faq .accordion-body {
+        padding: 15px 20px;
+    }
+}

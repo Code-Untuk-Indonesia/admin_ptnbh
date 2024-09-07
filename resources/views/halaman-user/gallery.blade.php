@@ -26,7 +26,7 @@
                 </div>
             @endforeach
         </div>
-        <button class="btn-news">
+        <button class="btn-read mt-4">
             <a class="a-btn-news" href="{{ route('galeri.index') }}">
                 Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}" alt=""></span>
             </a>

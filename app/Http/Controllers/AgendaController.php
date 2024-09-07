@@ -53,7 +53,8 @@ class AgendaController extends Controller
                 'judul_en' => 'required|string',
                 'deskripsi_en' => 'required|string',
                 'gambar-agenda' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-                'tanggal' => 'required|date',
+                'tanggal-mulai' => 'required|date',
+                'tanggal-akhir' => 'required|date',
                 'waktu' => 'required',
                 'lokasi' => 'required|string'
             ]);
@@ -64,7 +65,8 @@ class AgendaController extends Controller
             $agenda->judul_en = $request->input('judul_en');
             $agenda->deskripsi_en = $request->input('deskripsi_en');
             $agenda->waktu_agenda = $request->input('waktu');
-            $agenda->tanggal_agenda = $request->input('tanggal');
+            $agenda->tanggal_mulai = $request->input('tanggal-mulai');
+            $agenda->tanggal_akhir = $request->input('tanggal-akhir');
             $agenda->tempat_agenda = $request->input('lokasi');
 
             if ($request->hasFile('gambar-agenda')) {
@@ -101,7 +103,8 @@ class AgendaController extends Controller
                 'judul_en' => 'required|string',
                 'deskripsi_en' => 'required|string',
                 'gambar-agenda' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-                'tanggal' => 'required|date',
+                'tanggal-mulai' => 'required|date',
+                'tanggal-akhir' => 'required|date',
                 'waktu' => 'required',
                 'lokasi' => 'required|string'
             ]);
@@ -116,7 +119,8 @@ class AgendaController extends Controller
             $agenda->judul_en = $request->input('judul_en');
             $agenda->deskripsi_en = $request->input('deskripsi_en');
             $agenda->waktu_agenda = $request->input('waktu');
-            $agenda->tanggal_agenda = $request->input('tanggal');
+            $agenda->tanggal_mulai = $request->input('tanggal-mulai');
+            $agenda->tanggal_akhir = $request->input('tanggal-akhir');
             $agenda->tempat_agenda = $request->input('lokasi');
 
             if ($request->hasFile('gambar-agenda')) {

@@ -18,7 +18,8 @@
                             <h2>{{ strip_tags($agenda->judul_id) }}</h2>
                             <div class="media">
                                 <div class="media-body">
-                                    <span>{{ strip_tags($agenda->created_at) }}</span>
+                                    <span>{{ strip_tags($agenda->tanggal_agenda) }}</span>
+                                    <span>{{ strip_tags($agenda->waktu_agenda) }}</span>
                                 </div>
                             </div>
                         </div>

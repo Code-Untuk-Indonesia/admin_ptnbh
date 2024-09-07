@@ -4,14 +4,12 @@
     <div class="app-wrapper">
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
+                <h1 class="app-page-title">Footer Links</h1> 
                 <div class="tab-content" id="orders-table-tab-content">
                     <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
-                            <div class="app-card-body">
-                                <h1 class="app-page-title mb-4">Footer Links</h1>
-                                <div class="mb-4">
-                                    <a href="{{ route('footers.create') }}" class="btn btn-primary">Tambah Footer</a>
-                                </div>
+                            <div class="app-card-body p-3 m-3">
+                                <a href="{{ route('footers.create') }}" class="btn btn-primary">Tambah Footer</a>
                                 <div class="table-responsive">
                                     <table class="table table-bordered mt-4">
                                         <thead class="thead-light">

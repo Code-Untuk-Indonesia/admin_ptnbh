@@ -5,23 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class Unitbisnis extends Model
 {
     use HasFactory;
-
-    protected $table = 'agendas';
+    protected $table = 'unitbisnis';
     protected $primaryKey = 'id';
     public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
-        'judul_id',
-        'judul_en',  
+        'nama_id',
+        'nama_en',  
         'deskripsi_id',
         'deskripsi_en',
-        'gambar',
-        'tanggal_mulai',
-        'tanggal_akhir',
-        'waktu_agenda',
-        'tempat_agenda'
     ];
 }

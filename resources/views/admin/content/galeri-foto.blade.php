@@ -50,6 +50,11 @@
         #galerifoto-list_wrapper {
             margin: 20px;
         }
+        .table th,
+        .table td {
+            vertical-align: middle !important;
+            text-align: center !important;
+        }
     </style>
 
     <script>
@@ -88,7 +93,9 @@
                     },
                     {
                         data: 'album_title',
-                        name: 'album_title'
+                        name: 'album_title',
+                        orderable: true,
+                        searchable: true,
                     },
                     {
                         data: 'action',
