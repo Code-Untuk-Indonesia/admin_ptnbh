@@ -28,7 +28,7 @@
         </div>
         <button class="btn-news">
             <a class="a-btn-news" href="{{ route('galeri.index') }}">
-                Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow.svg') }}" alt=""></span>
+                Galeri Lainnya <span><img src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}" alt=""></span>
             </a>
         </button>
     </section>
