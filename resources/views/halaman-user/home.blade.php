@@ -68,32 +68,32 @@
 
     <!--  -->
     <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action  " style="">
+    <section id="call-to-action" class="call-to-action" style="">
         <div class="container" data-aos="zoom-out">
+            <div class="row g-5 flex-column-reverse flex-md-row">
+                <!-- Text Content Section -->
+                <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center text-start">
+                    <h3>
+                        {{ app()->getLocale() == 'id' ? $data->judul_rektor_id : $data->judul_rektor_en }}
+                    </h3>
+                    <p>
+                        {!! app()->getLocale() == 'id'
+                            ? str_replace('pola_pencarian', 'pengganti', $data->sambutan_rektor_id)
+                            : str_replace('pola_pencarian', 'pengganti', $data->sambutan_rektor_en) !!}
+                    </p>
+                </div>
 
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center"
-                    style="flex-direction: column">
+                <!-- Image and Name Section -->
+                <div class="col-lg-4 col-md-6 d-flex align-items-center flex-column">
                     <div class="img">
                         <img src="{{ asset('/images/berita/' . $data->gambar_rektor) }}" alt="" class="img-fluid">
-
                     </div>
-                    <h5 class="mt-4">{{ $data->nama_rektor }}</h5>
+                    <h5 class="mt-4 text-center">{{ $data->nama_rektor }}</h5>
                 </div>
-                <div
-                    class="col-lg-8 col-md-6 content d-flex text-align-center flex-column justify-content-center order-last order-md-first">
-                    <h3> {{ app()->getLocale() == 'id' ? $data->judul_rektor_id : $data->judul_rektor_en }}</h3>
-                    <p class="text-align-center" style="text-align: center"> {!! app()->getLocale() == 'id'
-                        ? str_replace('pola_pencarian', 'pengganti', $data->sambutan_rektor_id)
-                        : str_replace('pola_pencarian', 'pengganti', $data->sambutan_rektor_en) !!}</p>
-
-                </div>
-
             </div>
-
         </div>
+    </section>
 
-    </section><!-- /Call To Action Section -->
 
     <!-- berita  -->
     {{-- <section class="berita" data-aos="fade-up" data-aos-duration="3000">

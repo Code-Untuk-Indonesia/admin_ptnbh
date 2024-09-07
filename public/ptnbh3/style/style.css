@@ -78,7 +78,7 @@
     background-color: var(--color-primary) !important;
 }
 .img-nav {
-    max-width: 120px;
+    max-width:60px;
 }
 .navbar-toggler-icon .fas {
     color: white; /* Mengubah warna ikon menjadi putih */
@@ -1877,7 +1877,7 @@ section {
     color: color-mix(in srgb, #1a1f24, transparent 20%);
     font-weight: 400;
     font-size: 18px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .call-to-action .content .cta-btn {
@@ -1930,7 +1930,7 @@ section {
 /* .agenda-section {
     background-color: #f8f9fa;
     text-align: center;
-    padding: 100px 120px; 
+    padding: 100px 120px;
     display: flex;
     flex-direction: column;
 } */
