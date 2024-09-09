@@ -53,9 +53,14 @@ Route::get('/admin/dashboard', function () {
 })->middleware('auth');
 
 Route::resource('/admin/video', VideoController::class);
-
+Route::get('/admin/visitors', [DashboardController::class, 'getVisitorData'])->name('visitors.data');
 Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/berita-stats', [DashboardController::class, 'getBeritaStats']);
+    Route::get('/admin/video-stats', [DashboardController::class, 'getVideoStats']);
+    Route::get('/admin/pengumuman-stats', [DashboardController::class, 'getPengumumanStats']);
+    Route::get('/admin/album-stats', [DashboardController::class, 'getAlbumStats']);
 
+    Route::post('/admin/reset-visitors', [DashboardController::class, 'resetVisitors'])->name('reset.visitors');
     // Resource controllers untuk entitas tertentu
     Route::resource('/admin/agenda', AgendaController::class)->middleware('permission:manage agenda');
     Route::resource('/admin/album', AlbumController::class)->middleware('permission:manage album');

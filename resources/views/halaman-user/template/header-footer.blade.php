@@ -211,6 +211,7 @@
 
     </footer><!-- End Footer -->
     <!-- End Footer -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -218,6 +219,9 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="{{ asset('ptnbh3/script/index.js') }}"></script>
+
+    <script src="{{asset('ptnbh3/assets/plugins/chart.js/chart.min.js')}}"></script>
+    <script src="{{asset('ptnbh3/assets/js/index-charts.js')}}"></script>
 </body>
 
 </html>
