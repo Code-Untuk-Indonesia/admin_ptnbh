@@ -6,6 +6,7 @@ use visitor;
 use Carbon\Carbon;
 use App\Models\Album;
 use App\Models\Video;
+use App\Models\Agenda;
 use App\Models\Berita;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class DashboardController extends Controller
         $totalVideo = Video::count();
         $totalAlbum = Album::count();
         $totalVisits = Visit::count();
+        $totalAgenda = Agenda::count();
 
         // Fetch yearly and monthly data for chart options
         $years = Visit::selectRaw('YEAR(created_at) as year')->distinct()->pluck('year');
@@ -51,7 +53,9 @@ class DashboardController extends Controller
             ->orderBy('date')
             ->get();
 
-        return view('admin.dashboard-admin.dashboard', compact('years', 'months', 'totalVisits', 'totalBerita', 'totalPengumuman', 'totalVideo', 'totalAlbum', 'beritaStats', 'videoStats', 'pengumumanStats', 'albumStats'));
+        return view('admin.dashboard-admin.dashboard', compact('years', 'months',
+         'totalVisits', 'totalBerita', 'totalAgenda',
+        'totalPengumuman', 'totalVideo', 'totalAlbum', 'beritaStats', 'videoStats', 'pengumumanStats', 'albumStats'));
     }
 
     public function getVisitorData(Request $request)

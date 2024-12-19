@@ -65,6 +65,18 @@
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
                     </div><!--//col-->
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-bullhorn mr-2"></i>
+                                    <h4 class="stats-type mb-0">Total Agenda</h4>
+                                </div>
+                                <div class="stats-figure">{{ $totalAgenda }}</div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div><!--//col-->
                 </div><!--//row-->
                 <div class="col-12 col-lg-6">
                     <div class="app-card app-card-chart h-100 shadow-sm">

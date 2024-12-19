@@ -70,7 +70,8 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button">
-                            Lembaga
+
+                            {{ app()->getLocale() == 'id' ? 'Lembaga' : 'Institution' }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                             <li><a class="dropdown-item" href="/unit-bisnis">Unit Bisnis</a></li>
@@ -79,10 +80,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/berita-ptnbh">Berita</a>
+                        <a class="nav-link" href="/berita-ptnbh">Berita
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/kontak">Kontak</a>
+                        <a class="nav-link" href="/kontak">
+                            {{ app()->getLocale() == 'id' ? 'Kontak' : 'Contact' }}
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button">
