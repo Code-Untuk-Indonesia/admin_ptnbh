@@ -127,54 +127,6 @@
 
     @yield('content')
 
-    <!-- footer -->
-    {{-- <footer class="footer-area">
-        <div class="footer-big">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-12">
-                        <div class="footer-widget">
-                            <div class="widget-about">
-                                <img src="{{ asset('ptnbh3/asset/Universitas_Tanjungpura_Pontianak.webp') }}"
-                                    alt="" class="img-foot">
-                                <p>UNIVERSITAS TANJUNGPURA
-                                    “Membangun Ekosistem Digital Menuju Universitas Siber”</p>
-                            </div>
-                        </div>
-                    </div>
-                    @foreach (App\Models\Footer::all()->chunk(5) as $chunk)
-                        <div class="col-md-3 col-sm-4">
-                            <div class="footer-widget">
-                                <div class="footer-menu">
-                                    <h4 class="footer-widget-title">Layanan Informasi</h4>
-                                    <ul>
-                                        @foreach ($chunk as $footer)
-                                            <li>
-                                                <a href="{{ $footer->url }}">{{ $footer->title }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <div class="mini-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright-text">
-                            <p>© PTNBH Universitas Tanjungpura</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> --}}
-
-    <!-- end footer -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">

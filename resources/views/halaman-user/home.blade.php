@@ -254,7 +254,7 @@
         </button>
     </section><!-- End Portfolio Section -->
 
-    <section class=" sections-bg">
+    <section class="sections-bg">
         <div class="section-header">
             <h2> {{ app()->getLocale() == 'id' ? 'Dokumentasi Video' : 'Video Documentary' }}</h2>
         </div>

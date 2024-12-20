@@ -45,7 +45,7 @@
     <section class="news-all">
         <div class="row" style="width: 100%">
             <div class="col">
-                <h1 class="berita-1">
+                <h1 class="berita-1" >
 
                     {{ app()->getLocale() == 'id' ? 'Berita Lainnya' : 'Other News' }}
                 </h1>
@@ -96,7 +96,7 @@
         @if ($berita->hasMorePages())
             <button class="btn-read" id="load-more-news" data-page="2" data-search="{{ request()->get('search') }}">
                 <a class="a-btn-news" href="javascript:void(0)">
-                    Berita Lainnya <span><img src="{{ asset('ptnbh/asset/arrow.svg') }}" alt=""></span>
+                {{ app()->getLocale() == 'id' ? 'Berita Lainnya' : 'Other News' }} <span><img src="{{ asset('ptnbh3/asset/arrow_forward_24dp_FILL0_wght400_GRAD0_opsz24.svg') }}" alt=""></span>
                 </a>
             </button>
         @endif
