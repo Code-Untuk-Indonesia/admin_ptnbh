@@ -59,7 +59,10 @@
                     <div class="col-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Pengunjung</h4>
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-users mr-2"></i>
+                                    <h4 class="stats-type mb-0">Total Pengunjung</h4>
+                                </div>
                                 <div class="stats-figure">{{ $totalVisits }}</div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
@@ -69,10 +72,34 @@
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
                                 <div class="d-flex align-items-center mb-1">
-                                    <i class="fas fa-bullhorn mr-2"></i>
+                                    <i class="fas fa-calendar-alt mr-2"></i>
                                     <h4 class="stats-type mb-0">Total Agenda</h4>
                                 </div>
                                 <div class="stats-figure">{{ $totalAgenda }}</div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div><!--//col-->
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-user mr-2"></i>
+                                    <h4 class="stats-type mb-0">User</h4>
+                                </div>
+                                <div class="stats-figure">{{ $totalusers }}</div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div><!--//col-->
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="fas fa-image mr-2"></i>
+                                    <h4 class="stats-type mb-0">Total Gambar</h4>
+                                </div>
+                                <div class="stats-figure">{{ $totalgambar }}</div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
